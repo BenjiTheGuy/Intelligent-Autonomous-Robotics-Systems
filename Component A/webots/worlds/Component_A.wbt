@@ -1,0 +1,107 @@
+#VRML_SIM R2025a utf8
+
+EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2025a/projects/objects/backgrounds/protos/TexturedBackground.proto"
+EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2025a/projects/objects/backgrounds/protos/TexturedBackgroundLight.proto"
+EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2025a/projects/objects/floors/protos/RectangleArena.proto"
+
+WorldInfo {
+}
+Viewpoint {
+  orientation 0.14488607942016826 -0.004810354341789334 -0.9894366500596989 3.2072499772882295
+  position 1.6201617534293353 -0.046009852600332635 0.6776905532524873
+}
+TexturedBackground {
+}
+TexturedBackgroundLight {
+}
+RectangleArena {
+}
+Robot {
+  translation 0 0 0.17
+  children [
+    Camera {
+      translation 0.25 0 0.1
+      rotation 0 1 0 0
+      fieldOfView 1.0472
+      width 320
+      height 240
+    }
+    Lidar {
+      translation 0 0 0.15
+      horizontalResolution 360
+      fieldOfView 6.28
+      numberOfLayers 1
+      minRange 0.05
+      maxRange 5
+    }
+    Transform {
+      translation -0.13 -0.17 -0.08
+      rotation 1 0 0 1.5708
+      children [
+        Shape {
+          appearance PBRAppearance {
+            baseColor 0 1 1
+          }
+          geometry Cylinder {
+            height 0.05
+            radius 0.08
+          }
+        }
+      ]
+    }
+    Transform {
+      translation 0.12 -0.17 -0.08
+      rotation 1 0 0 1.578
+      children [
+        Shape {
+          appearance PBRAppearance {
+            baseColor 0 1 1
+          }
+          geometry Cylinder {
+            height 0.05
+            radius 0.08
+          }
+        }
+      ]
+    }
+    Transform {
+      translation -0.13 0.17 -0.08
+      rotation 1 0 0 1.5708
+      children [
+        Shape {
+          appearance PBRAppearance {
+            baseColor 0 1 1
+          }
+          geometry Cylinder {
+            height 0.05
+            radius 0.08
+          }
+        }
+      ]
+    }
+    Transform {
+      translation 0.12 0.17 -0.08
+      rotation 1 0 0 1.5708
+      children [
+        Shape {
+          appearance PBRAppearance {
+            baseColor 0 1 1
+          }
+          geometry Cylinder {
+            height 0.05
+            radius 0.08
+          }
+        }
+      ]
+    }
+    Shape {
+      appearance PBRAppearance {
+        baseColor 0.333333 0.666667 0
+      }
+      geometry Box {
+        size 0.5 0.3 0.3
+      }
+    }
+  ]
+  controller "component_a_controller"
+}
