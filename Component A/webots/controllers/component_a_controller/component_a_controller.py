@@ -1,5 +1,5 @@
 from controller import Robot
-from perception import process_lidar_data
+from perception import process_lidar_data, process_camera_image_data
 
 # Create the Webots Robot
 robot = Robot()
@@ -10,6 +10,9 @@ timestep = int(robot.getBasicTimeStep())
 # Create the Sensors
 lidar = robot.getDevice("lidar")
 camera = robot.getDevice("camera")
+
+camera_width = camera.getWidth()
+camera_height = camera.getHeight()
 
 # Enable the sensors which we created
 lidar.enable(timestep)
@@ -25,6 +28,12 @@ while robot.step(timestep) != -1:
 
     # Reading the camera image
     camera_image = camera.getImage()
+
+    camera_edges = process_camera_image_data(
+        camera_image,
+        camera_width,
+        camera_height
+    )
 
     # Handling all missing LiDAR Measurements
     min_distance = perception["min_distance"]
@@ -45,9 +54,10 @@ while robot.step(timestep) != -1:
 
     # Print Basic Sensor Information
     print(
-        f"Minimum: {perception['min_distance']:.2f}m | "
-        f"Front: {perception['front_distance']:.2f}m | "
-        f"Left: {perception['left_distance']:.2f}m | "
-        f"Right: {perception['right_distance']:.2f}m | "
-        f"Camera Image Received: {camera_image is not None}"
+        f"Minimum: {min_display} | "
+        f"Front: {front_distance}m | "
+        f"Left: {left_distance}m | "
+        f"Right: {right_distance}m | "
+        f"Camera Image Received: {camera_image is not None} | "
+        f"Camera Processing Shape: {camera_edges.shape}"
     )
