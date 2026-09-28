@@ -1,5 +1,5 @@
 from controller import Robot
-from perception import process_lidar_data, process_camera_image_data
+from perception import process_lidar_data, process_camera_image_data, sensor_fusion_data
 
 # Create the Webots Robot
 robot = Robot()
@@ -34,6 +34,12 @@ while robot.step(timestep) != -1:
         camera_width,
         camera_height
     )
+
+    fused_perception = sensor_fusion_data(perception, camera_perception)
+
+    front_fused = fused_perception["front"]
+    left_fused = fused_perception["left"]
+    right_fused = fused_perception["right"]
 
     left_camera_obstacle = camera_perception["left_obstacle"]
     front_camera_obstacle = camera_perception["front_obstacle"]
@@ -74,4 +80,15 @@ while robot.step(timestep) != -1:
         f"L={left_camera_obstacle} "
         f"F={front_camera_obstacle} "
         f"R={right_camera_obstacle}"
+    )
+
+    # Printing Sensor Fusion Results
+    print(
+        f"Sensor Fusion Environment: "
+        f"Front: {'Occupied' if front_fused['occupied'] else 'Clear'}"
+        f"({front_fused['confidence']}) | "
+        f"Left: {'Occupied' if left_fused['occupied'] else 'Clear'}"
+        f"({left_fused['confidence']}) | "
+        f"Right: {'Occupied' if right_fused['occupied'] else 'Clear'}"
+        f"({right_fused['confidence']}) | "
     )

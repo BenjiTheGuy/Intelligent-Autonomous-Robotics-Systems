@@ -129,3 +129,60 @@ def process_camera_image_data(camera_image, width, height):
         "front_obstacle": front_edges > edge_threshold,
         "right_obstacle": right_edges > edge_threshold
     }
+
+def sensor_fusion_data(lidar_perception, camera_perception):
+    """
+    Combining LiDAR distance measurements and Camera-Based Visual Evidence and Measurements into a single
+    obstacle representation.
+
+    LiDAR is primarily used for obstacle detection, whilst OpenCV is used for visual confirmation of edges.
+
+    :param
+        lidar_perception: Processed LiDAR Measurements
+        camera_perception: Processed Camera Measurements
+
+    :return: A single representation of the sensor-fusion report
+    """
+
+    lidar_threshold = 1.5
+    camera_threshold = 100
+
+    regions = ["front", "left", "right"]
+
+    fused_data = {}
+
+    for region in regions:
+        lidar_distance = lidar_perception[f"{region}_distance"]
+        camera_edges = camera_perception[f"{region}_edges"]
+
+        # Determining whether LiDAR has detected a nearby obstacle.
+        lidar_obstacle = (lidar_distance is not None and lidar_distance < lidar_threshold)
+
+        # Determining whether the camera detects significant visual structure such as edges in the region.
+        camera_evidence = camera_edges > camera_threshold
+
+        # Combining the measurements obtained from both devices.
+        if lidar_obstacle and camera_evidence:
+            status = "High"
+            occupied = True
+        elif lidar_obstacle:
+            status = "Medium"
+            occupied = True
+        elif camera_evidence:
+            status = "Low"
+            occupied = False
+        else:
+            status = "None"
+            occupied = False
+
+        fused_data[region] = {
+            "occupied": occupied,
+            "confidence": status,
+            "lidar_obstacle": lidar_obstacle,
+            "camera_evidence": camera_evidence,
+            "distance": lidar_distance,
+            "camera_edges": camera_edges
+        }
+
+    # Return the results after all three regions have been processed.
+    return fused_data
