@@ -1,4 +1,5 @@
 from controller import Robot
+from control import calculate_motor_speeds
 from perception import process_lidar_data, process_camera_image_data, sensor_fusion_data
 
 # Create the Webots Robot
@@ -10,6 +11,26 @@ timestep = int(robot.getBasicTimeStep())
 # Create the Sensors
 lidar = robot.getDevice("lidar")
 camera = robot.getDevice("camera")
+
+left_front_motor = robot.getDevice("left_front_motor")
+
+left_front_motor.setPosition(float("inf"))
+left_front_motor.setVelocity(2.0)
+
+left_rear_motor = robot.getDevice("left_rear_motor")
+
+left_rear_motor.setPosition(float("inf"))
+left_rear_motor.setVelocity(2.0)
+
+right_rear_motor = robot.getDevice("right_rear_motor")
+
+right_rear_motor.setPosition(float("inf"))
+right_rear_motor.setVelocity(2.0)
+
+right_front_motor = robot.getDevice("right_front_motor")
+
+right_front_motor.setPosition(float("inf"))
+right_front_motor.setVelocity(2.0)
 
 camera_width = camera.getWidth()
 camera_height = camera.getHeight()
@@ -55,16 +76,33 @@ while robot.step(timestep) != -1:
     left_distance = perception["left_distance"]
     right_distance = perception["right_distance"]
 
-    if min_distance is None:
-        min_display = "N/A"
-        front_display = "N/A"
-        left_display = "N/A"
-        right_display = "N/A"
-    else:
-        min_display = f"{min_distance:.2f}m"
-        front_display = f"{front_distance:.2f}m"
-        left_display = f"{left_distance:.2f}m"
-        right_display = f"{right_distance:.2f}m"
+    min_display = (
+        f"{min_distance:.2f}m"
+
+        if min_distance is not None
+        else "N/A"
+    )
+
+    front_display = (
+        f"{front_distance:.2f}m"
+
+        if front_distance is not None
+        else "N/A"
+    )
+
+    left_display = (
+        f"{left_distance:.2f}m"
+
+        if left_distance is not None
+        else "N/A"
+    )
+
+    right_display = (
+        f"{right_distance:.2f}m"
+
+        if right_distance is not None
+        else "N/A"
+    )
 
     # Print Basic Sensor Information
     print(

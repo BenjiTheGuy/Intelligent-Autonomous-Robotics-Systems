@@ -7,8 +7,8 @@ EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2025a/project
 WorldInfo {
 }
 Viewpoint {
-  orientation -0.16459563040193767 -0.5172602544971051 0.8398512413339512 5.558858704560596
-  position -3.919701445883551 3.329414233069741 2.4636843409455778
+  orientation -0.20820313612399124 0.4768881903320937 0.853949124965835 0.9452377249948695
+  position -1.6570745367169253 -1.6191959170578352 1.1355503838684293
 }
 TexturedBackground {
 }
@@ -21,6 +21,186 @@ RectangleArena {
 Robot {
   translation 0 0 0.17
   children [
+    HingeJoint {
+      jointParameters HingeJointParameters {
+        axis 0 1 0
+        anchor 0.12 -0.17 -0.09
+      }
+      device [
+        RotationalMotor {
+          name "right_front_motor"
+        }
+      ]
+      endPoint Solid {
+        translation 0.12 -0.17 -0.09
+        rotation 1 1.5700895750559034e-16 -7.850447875279517e-17 1.5708
+        children [
+          Transform {
+            rotation 0 1 0 0
+            children [
+              Shape {
+                geometry Box {
+                  size 0.08 0.015 0.08
+                }
+              }
+            ]
+          }
+          Shape {
+            appearance PBRAppearance {
+              baseColor 0 1 1
+            }
+            geometry Cylinder {
+              height 0.05
+              radius 0.08
+            }
+          }
+        ]
+        name "right_motor_f"
+        boundingObject Shape {
+          geometry Cylinder {
+            height 0.05
+            radius 0.08
+          }
+        }
+        physics Physics {
+        }
+      }
+    }
+    HingeJoint {
+      jointParameters HingeJointParameters {
+        axis 0 1 0
+        anchor -0.12 -0.17 -0.09
+      }
+      device [
+        RotationalMotor {
+          name "right_rear_motor"
+        }
+      ]
+      endPoint Solid {
+        translation -0.12 -0.17 -0.09
+        rotation 1 1.5700895750559034e-16 -7.850447875279517e-17 1.5708
+        children [
+          Transform {
+            rotation 0 1 0 0
+            children [
+              Shape {
+                geometry Box {
+                  size 0.08 0.015 0.08
+                }
+              }
+            ]
+          }
+          Shape {
+            appearance PBRAppearance {
+              baseColor 0 1 1
+            }
+            geometry Cylinder {
+              height 0.05
+              radius 0.08
+            }
+          }
+        ]
+        name "right_motor_r"
+        boundingObject Shape {
+          geometry Cylinder {
+            height 0.05
+            radius 0.08
+          }
+        }
+        physics Physics {
+        }
+      }
+    }
+    HingeJoint {
+      jointParameters HingeJointParameters {
+        axis 0 1 0
+        anchor -0.12 0.17 -0.09
+      }
+      device [
+        RotationalMotor {
+          name "left_rear_motor"
+        }
+      ]
+      endPoint Solid {
+        translation -0.12 0.17 -0.09
+        rotation 1 1.5700895750559034e-16 -7.850447875279517e-17 1.5708
+        children [
+          Transform {
+            rotation 0 1 0 0
+            children [
+              Shape {
+                geometry Box {
+                  size 0.08 0.015 0.08
+                }
+              }
+            ]
+          }
+          Shape {
+            appearance PBRAppearance {
+              baseColor 0 1 1
+            }
+            geometry Cylinder {
+              height 0.05
+              radius 0.08
+            }
+          }
+        ]
+        name "left_motor_r"
+        boundingObject Shape {
+          geometry Cylinder {
+            height 0.05
+            radius 0.08
+          }
+        }
+        physics Physics {
+        }
+      }
+    }
+    HingeJoint {
+      jointParameters HingeJointParameters {
+        axis 0 1 0
+        anchor 0.12 0.17 -0.09
+      }
+      device [
+        RotationalMotor {
+          name "left_front_motor"
+        }
+      ]
+      endPoint Solid {
+        translation 0.12 0.17 -0.09
+        rotation 1 1.5700895750559034e-16 -7.850447875279517e-17 1.5708
+        children [
+          Transform {
+            rotation 0 1 0 0
+            children [
+              Shape {
+                geometry Box {
+                  size 0.08 0.015 0.08
+                }
+              }
+            ]
+          }
+          Shape {
+            appearance PBRAppearance {
+              baseColor 0 1 1
+            }
+            geometry Cylinder {
+              height 0.05
+              radius 0.08
+            }
+          }
+        ]
+        name "left_motor_f"
+        boundingObject Shape {
+          geometry Cylinder {
+            height 0.05
+            radius 0.08
+          }
+        }
+        physics Physics {
+        }
+      }
+    }
     Camera {
       translation 0.25 0 0.1
       rotation 0 1 0 0
@@ -36,66 +216,6 @@ Robot {
       minRange 0.05
       maxRange 5
     }
-    Pose {
-      translation -0.13 -0.17 -0.08
-      rotation 1 0 0 1.5708
-      children [
-        Shape {
-          appearance PBRAppearance {
-            baseColor 0 1 1
-          }
-          geometry Cylinder {
-            height 0.05
-            radius 0.08
-          }
-        }
-      ]
-    }
-    Pose {
-      translation 0.12 -0.17 -0.08
-      rotation 1 0 0 1.578
-      children [
-        Shape {
-          appearance PBRAppearance {
-            baseColor 0 1 1
-          }
-          geometry Cylinder {
-            height 0.05
-            radius 0.08
-          }
-        }
-      ]
-    }
-    Pose {
-      translation -0.13 0.17 -0.08
-      rotation 1 0 0 1.5708
-      children [
-        Shape {
-          appearance PBRAppearance {
-            baseColor 0 1 1
-          }
-          geometry Cylinder {
-            height 0.05
-            radius 0.08
-          }
-        }
-      ]
-    }
-    Pose {
-      translation 0.12 0.17 -0.08
-      rotation 1 0 0 1.5708
-      children [
-        Shape {
-          appearance PBRAppearance {
-            baseColor 0 1 1
-          }
-          geometry Cylinder {
-            height 0.05
-            radius 0.08
-          }
-        }
-      ]
-    }
     Shape {
       appearance PBRAppearance {
         baseColor 0.333333 0.666667 0
@@ -105,12 +225,20 @@ Robot {
       }
     }
   ]
+  boundingObject Shape {
+    geometry Box {
+      size 0.5 0.3 0.21
+    }
+  }
+  physics Physics {
+    mass 5
+  }
   controller "component_a_controller"
 }
 Solid {
   translation 1.5 0 0.21
   children [
-    Transform {
+    Pose {
       translation -0.2 0.27 -0.12
       rotation 1 0 0 1.5708
       children [
@@ -125,7 +253,7 @@ Solid {
         }
       ]
     }
-    Transform {
+    Pose {
       translation -0.2 -0.27 -0.12
       rotation 1 0 0 1.5708
       children [
@@ -140,7 +268,7 @@ Solid {
         }
       ]
     }
-    Transform {
+    Pose {
       translation 0.2 -0.27 -0.12
       rotation 1 0 0 1.5708
       children [
@@ -155,7 +283,7 @@ Solid {
         }
       ]
     }
-    Transform {
+    Pose {
       translation 0.2 0.27 -0.12
       rotation 1 0 0 1.5708
       children [
