@@ -29,11 +29,19 @@ while robot.step(timestep) != -1:
     # Reading the camera image
     camera_image = camera.getImage()
 
-    camera_edges = process_camera_image_data(
+    camera_perception = process_camera_image_data(
         camera_image,
         camera_width,
         camera_height
     )
+
+    left_camera_obstacle = camera_perception["left_obstacle"]
+    front_camera_obstacle = camera_perception["front_obstacle"]
+    right_camera_obstacle = camera_perception["right_obstacle"]
+
+    left_edges = camera_perception["left_edges"]
+    front_edges = camera_perception["front_edges"]
+    right_edges = camera_perception["right_edges"]
 
     # Handling all missing LiDAR Measurements
     min_distance = perception["min_distance"]
@@ -54,10 +62,16 @@ while robot.step(timestep) != -1:
 
     # Print Basic Sensor Information
     print(
-        f"Minimum: {min_display} | "
-        f"Front: {front_distance}m | "
-        f"Left: {left_distance}m | "
-        f"Right: {right_distance}m | "
-        f"Camera Image Received: {camera_image is not None} | "
-        f"Camera Processing Shape: {camera_edges.shape}"
+        f"LiDAR Minimum: {min_display} | "
+        f"Front: {front_display} | "
+        f"Left: {left_display} | "
+        f"Right: {right_display} | "
+        f"Camera Edges: "
+        f"L={left_edges} "
+        f"F={front_edges} "
+        f"R={right_edges} | "
+        f"Obstacles: "
+        f"L={left_camera_obstacle} "
+        f"F={front_camera_obstacle} "
+        f"R={right_camera_obstacle}"
     )

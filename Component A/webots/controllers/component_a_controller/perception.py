@@ -31,15 +31,31 @@ def process_lidar_data(lidar_data):
     min_distance = min(valid_ranges)
 
     # LiDAR has 360 measurements.
-    # Approximate Directions:
-    # 0 = Front
-    # 90 = Left
-    # 180 = Rear
-    # 270 = Right
+    # Using groups of measurements rather than relying on a single ray.
 
-    front_distance = lidar_data[0]
-    left_distance = lidar_data[90]
-    right_distance = lidar_data[270]
+    front_ranges = lidar_data[170:189]
+    left_ranges = lidar_data[80:99]
+    right_ranges = lidar_data[260:279]
+
+    # Remove invalid measurements from each region
+    front_valid = [
+        distance for distance in front_ranges
+        if math.isfinite(distance)
+    ]
+
+    left_valid = [
+        distance for distance in left_ranges
+        if math.isfinite(distance)
+    ]
+
+    right_valid = [
+        distance for distance in right_ranges
+        if math.isfinite(distance)
+    ]
+
+    front_distance = min(front_valid) if front_valid else None
+    left_distance = min(left_valid) if left_valid else None
+    right_distance = min(right_valid) if right_valid else None
 
     return {
         "min_distance": min_distance,
@@ -58,7 +74,7 @@ def process_camera_image_data(camera_image, width, height):
         height: Height size of the Camera Image.
 
     :return:
-        A processed OpenCV Edge Image.
+        A dictionary containing the edge image and camera-based obstacle information.
     """
 
     # Converting Webots BGRA Image into an array converted via NumPy
@@ -86,4 +102,30 @@ def process_camera_image_data(camera_image, width, height):
         200
     )
 
-    return edges
+    # Dividing the image into 3 Regions
+    third = width // 3
+
+    top = int(height * 0.25)
+    bottom = int(height * 0.75)
+
+    left_region = edges[top:bottom, :third]
+    front_region = edges[top:bottom, third:2 * third]
+    right_region = edges[top:bottom, 2 * third:]
+
+    # Count Detected Edge Pixels
+    left_edges = cv2.countNonZero(left_region)
+    front_edges = cv2.countNonZero(front_region)
+    right_edges = cv2.countNonZero(right_region)
+
+    # Threshold which is utilized in identifying significant visual structure
+    edge_threshold = 500
+
+    return {
+        "edges": edges,
+        "left_edges": left_edges,
+        "front_edges": front_edges,
+        "right_edges": right_edges,
+        "left_obstacle": left_edges > edge_threshold,
+        "front_obstacle": front_edges > edge_threshold,
+        "right_obstacle": right_edges > edge_threshold
+    }

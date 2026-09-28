@@ -7,15 +7,15 @@ EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2025a/project
 WorldInfo {
 }
 Viewpoint {
-  orientation 0.22361944598157463 0.7661675546650674 -0.6024795611117814 0.9022382781663275
-  position -3.8841140955736964 2.7086733146645168 4.261378644931036
+  orientation -0.16459563040193767 -0.5172602544971051 0.8398512413339512 5.558858704560596
+  position -3.919701445883551 3.329414233069741 2.4636843409455778
 }
 TexturedBackground {
 }
 TexturedBackgroundLight {
 }
 RectangleArena {
-  floorSize 2 2
+  floorSize 5 5
   wallHeight 0.5
 }
 Robot {
@@ -101,9 +101,82 @@ Robot {
         baseColor 0.333333 0.666667 0
       }
       geometry Box {
-        size 0.5 0.3 0.3
+        size 0.5 0.3 0.21
       }
     }
   ]
   controller "component_a_controller"
+}
+Solid {
+  translation 1.5 0 0.21
+  children [
+    Transform {
+      translation -0.2 0.27 -0.12
+      rotation 1 0 0 1.5708
+      children [
+        Shape {
+          appearance PBRAppearance {
+            baseColor 1 0.333333 1
+          }
+          geometry Cylinder {
+            height 0.05
+            radius 0.09
+          }
+        }
+      ]
+    }
+    Transform {
+      translation -0.2 -0.27 -0.12
+      rotation 1 0 0 1.5708
+      children [
+        Shape {
+          appearance PBRAppearance {
+            baseColor 1 0.333333 1
+          }
+          geometry Cylinder {
+            height 0.05
+            radius 0.09
+          }
+        }
+      ]
+    }
+    Transform {
+      translation 0.2 -0.27 -0.12
+      rotation 1 0 0 1.5708
+      children [
+        Shape {
+          appearance PBRAppearance {
+            baseColor 1 0.333333 1
+          }
+          geometry Cylinder {
+            height 0.05
+            radius 0.09
+          }
+        }
+      ]
+    }
+    Transform {
+      translation 0.2 0.27 -0.12
+      rotation 1 0 0 1.5708
+      children [
+        Shape {
+          appearance PBRAppearance {
+            baseColor 1 0.333333 1
+          }
+          geometry Cylinder {
+            height 0.05
+            radius 0.09
+          }
+        }
+      ]
+    }
+    Shape {
+      appearance PBRAppearance {
+        baseColor 1 1 0
+      }
+      geometry Box {
+        size 0.8 0.5 0.3
+      }
+    }
+  ]
 }
