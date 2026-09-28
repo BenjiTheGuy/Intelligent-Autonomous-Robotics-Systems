@@ -21,6 +21,11 @@ RectangleArena {
 Robot {
   translation 0 0 0.17
   children [
+    InertialUnit {
+      name "imu"
+    }
+    GPS {
+    }
     HingeJoint {
       jointParameters HingeJointParameters {
         axis 0 1 0

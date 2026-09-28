@@ -35,6 +35,12 @@ right_front_motor.setVelocity(2.0)
 camera_width = camera.getWidth()
 camera_height = camera.getHeight()
 
+gps = robot.getDevice("gps")
+gps.enable(timestep)
+
+imu = robot.getDevice("imu")
+imu.enable(timestep)
+
 # Enable the sensors which we created
 lidar.enable(timestep)
 camera.enable(timestep)
@@ -129,4 +135,17 @@ while robot.step(timestep) != -1:
         f"({left_fused['confidence']}) | "
         f"Right: {'Occupied' if right_fused['occupied'] else 'Clear'}"
         f"({right_fused['confidence']}) | "
+    )
+
+    gps_values = gps.getValues()
+    imu_values = imu.getRollPitchYaw()
+
+    x_position = gps_values[0]
+    z_position = gps_values[2]
+    heading = imu_values[1]
+
+    print(
+        f"Position: X={x_position:.2f}m, "
+        f"Z={z_position:.2f}m | "
+        f"Heading={heading:.2f} rad"
     )
