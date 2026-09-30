@@ -7,19 +7,19 @@ EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2025a/project
 WorldInfo {
 }
 Viewpoint {
-  orientation -0.20820313612399124 0.4768881903320937 0.853949124965835 0.9452377249948695
-  position -1.6570745367169253 -1.6191959170578352 1.1355503838684293
+  orientation -0.24059952362071282 0.5774732201518434 0.7801516193926323 0.9810457794710612
+  position -5.946668236333001 -4.729285587050745 5.166434341838525
 }
 TexturedBackground {
 }
 TexturedBackgroundLight {
 }
 RectangleArena {
-  floorSize 5 5
+  floorSize 6 6
   wallHeight 0.5
 }
 Robot {
-  translation 0 0 0.17
+  translation -2 2 0.17
   children [
     InertialUnit {
       name "imu"
@@ -38,9 +38,9 @@ Robot {
       ]
       endPoint Solid {
         translation 0.12 -0.17 -0.09
-        rotation 1 1.5700895750559034e-16 -7.850447875279517e-17 1.5708
+        rotation 1 2.3551343625838547e-16 -3.925223937639758e-17 1.5708
         children [
-          Transform {
+          Pose {
             rotation 0 1 0 0
             children [
               Shape {
@@ -83,9 +83,9 @@ Robot {
       ]
       endPoint Solid {
         translation -0.12 -0.17 -0.09
-        rotation 1 1.5700895750559034e-16 -7.850447875279517e-17 1.5708
+        rotation 1 7.850447875279517e-17 -7.850447875279517e-17 1.5708
         children [
-          Transform {
+          Pose {
             rotation 0 1 0 0
             children [
               Shape {
@@ -128,9 +128,9 @@ Robot {
       ]
       endPoint Solid {
         translation -0.12 0.17 -0.09
-        rotation 1 1.5700895750559034e-16 -7.850447875279517e-17 1.5708
+        rotation 1 2.747656756347831e-16 -7.850447875279517e-17 1.5707999999999995
         children [
-          Transform {
+          Pose {
             rotation 0 1 0 0
             children [
               Shape {
@@ -175,7 +175,7 @@ Robot {
         translation 0.12 0.17 -0.09
         rotation 1 1.5700895750559034e-16 -7.850447875279517e-17 1.5708
         children [
-          Transform {
+          Pose {
             rotation 0 1 0 0
             children [
               Shape {
@@ -241,75 +241,61 @@ Robot {
   controller "component_a_controller"
 }
 Solid {
-  translation 1.5 0 0.21
+  translation -0.8 0.8 0.15
   children [
-    Pose {
-      translation -0.2 0.27 -0.12
-      rotation 1 0 0 1.5708
-      children [
-        Shape {
-          appearance PBRAppearance {
-            baseColor 1 0.333333 1
-          }
-          geometry Cylinder {
-            height 0.05
-            radius 0.09
-          }
-        }
-      ]
-    }
-    Pose {
-      translation -0.2 -0.27 -0.12
-      rotation 1 0 0 1.5708
-      children [
-        Shape {
-          appearance PBRAppearance {
-            baseColor 1 0.333333 1
-          }
-          geometry Cylinder {
-            height 0.05
-            radius 0.09
-          }
-        }
-      ]
-    }
-    Pose {
-      translation 0.2 -0.27 -0.12
-      rotation 1 0 0 1.5708
-      children [
-        Shape {
-          appearance PBRAppearance {
-            baseColor 1 0.333333 1
-          }
-          geometry Cylinder {
-            height 0.05
-            radius 0.09
-          }
-        }
-      ]
-    }
-    Pose {
-      translation 0.2 0.27 -0.12
-      rotation 1 0 0 1.5708
-      children [
-        Shape {
-          appearance PBRAppearance {
-            baseColor 1 0.333333 1
-          }
-          geometry Cylinder {
-            height 0.05
-            radius 0.09
-          }
-        }
-      ]
-    }
     Shape {
       appearance PBRAppearance {
         baseColor 1 1 0
       }
       geometry Box {
-        size 0.8 0.5 0.3
+        size 1.2 0.35 0.3
       }
     }
   ]
+  name "obstacle_1"
+  boundingObject Box {
+    size 1.2 0.35 0.3
+  }
+}
+Solid {
+  translation 2 -2 0.02
+  children [
+    Shape {
+      appearance PBRAppearance {
+        baseColor 0 1 0
+      }
+      geometry Box {
+        size 0.4 0.4 0.02
+      }
+    }
+  ]
+  name "Goal"
+}
+Solid {
+  translation 0.8 0 0.15
+  children [
+    Shape {
+      appearance PBRAppearance {
+        baseColor 1 0.666667 0.498039
+      }
+      geometry Box {
+        size 0.35 1.2 0.3
+      }
+    }
+  ]
+  name "obstacle_2"
+}
+Solid {
+  translation 1.4 1.2 0.15
+  children [
+    Shape {
+      appearance PBRAppearance {
+        baseColor 0 0.666667 1
+      }
+      geometry Box {
+        size 0.7 0.35 0.3
+      }
+    }
+  ]
+  name "obstacle_3"
 }

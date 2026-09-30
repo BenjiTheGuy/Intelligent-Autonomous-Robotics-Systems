@@ -37,6 +37,16 @@ def process_lidar_data(lidar_data):
     left_ranges = lidar_data[80:99]
     right_ranges = lidar_data[260:279]
 
+    print(
+        f"LiDAR INDEX CHECK | "
+        f"Front={min(range(170, 189), key=lambda i: lidar_data[i])} "
+        f"({min(lidar_data[170:189]):.2f}m) | "
+        f"Left={min(range(80, 99), key=lambda i: lidar_data[i])} "
+        f"({min(lidar_data[80:99]):.2f}m) | "
+        f"Right={min(range(260, 279), key=lambda i: lidar_data[i])} "
+        f"({min(lidar_data[260:279]):.2f}m)"
+    )
+
     # Remove invalid measurements from each region
     front_valid = [
         distance for distance in front_ranges
@@ -53,7 +63,7 @@ def process_lidar_data(lidar_data):
         if math.isfinite(distance)
     ]
 
-    front_distance = min(front_valid) if front_valid else None
+    front_distance = sorted(front_valid)[len(front_valid) // 2] if front_valid else None
     left_distance = min(left_valid) if left_valid else None
     right_distance = min(right_valid) if right_valid else None
 
@@ -137,6 +147,11 @@ def sensor_fusion_data(lidar_perception, camera_perception):
 
     LiDAR is primarily used for obstacle detection, whilst OpenCV is used for visual confirmation of edges.
 
+    Confidence:
+        High = LiDAR Obstacle + Camera Evidence
+        Medium = LiDAR Obstacle Only
+        Low = Camera Evidence Only
+        None = Neither Sensor Reports an Obstacle
     :param
         lidar_perception: Processed LiDAR Measurements
         camera_perception: Processed Camera Measurements
@@ -144,11 +159,10 @@ def sensor_fusion_data(lidar_perception, camera_perception):
     :return: A single representation of the sensor-fusion report
     """
 
-    lidar_threshold = 1.5
+    lidar_threshold = 0.90
     camera_threshold = 100
 
     regions = ["front", "left", "right"]
-
     fused_data = {}
 
     for region in regions:
@@ -156,7 +170,7 @@ def sensor_fusion_data(lidar_perception, camera_perception):
         camera_edges = camera_perception[f"{region}_edges"]
 
         # Determining whether LiDAR has detected a nearby obstacle.
-        lidar_obstacle = (lidar_distance is not None and lidar_distance < lidar_threshold)
+        lidar_obstacle = (lidar_distance is not None) and (lidar_distance < lidar_threshold)
 
         # Determining whether the camera detects significant visual structure such as edges in the region.
         camera_evidence = camera_edges > camera_threshold
@@ -183,6 +197,11 @@ def sensor_fusion_data(lidar_perception, camera_perception):
             "distance": lidar_distance,
             "camera_edges": camera_edges
         }
+
+    # The controller uses these explicitly state values instead of rebuilding the obstacle logic from raw sensor values.
+    fused_data["front_blocked"] = fused_data["front"]["occupied"]
+    fused_data["left_blocked"] = fused_data["left"]["occupied"]
+    fused_data["right_blocked"] = fused_data["right"]["occupied"]
 
     # Return the results after all three regions have been processed.
     return fused_data

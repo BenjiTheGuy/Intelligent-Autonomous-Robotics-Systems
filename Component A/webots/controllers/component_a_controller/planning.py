@@ -1,17 +1,91 @@
-import heapq
 import numpy as np
 import matplotlib.pyplot as plt
 
+# 2D Occupancy Grid Size
+GRID_SIZE = 20
+
+# Webots Arena Size is 5m x 5m
+WORLD_SIZE = 5.0
+
+# Each Occupancy-Grid Cell is represented by dividing the world size by the grid size.
+CELL_SIZE = WORLD_SIZE / GRID_SIZE
+
+WORLD_MIN_X = -2.5
+WORLD_MAX_X = 2.5
+
+WORLD_MIN_Y = -2.5
+WORLD_MAX_Y = 2.5
+
+# A safety margin is set up around the physical obstacles which helps to ensure the robot doesn't get too close to an
+# obstacle.
+OBSTACLE_MARGIN = 0.0
+
+def world_to_grid(x, y):
+    """
+    Converting a Webots World Coordinate (x, y) into an Occupancy-Grid Coordinate (row, column).
+
+    Webots Arena spans:
+        X = -2.5 to +2.5m
+        Y = -2.5 to +2.5m
+
+    Occupancy Grid spans:
+        20 x 20 cells
+
+    Each cell is represented as:
+        0.25m x 0.25m
+    """
+
+    column = int((x - WORLD_MIN_X) / CELL_SIZE)
+
+    row = int((WORLD_MAX_Y - y) / CELL_SIZE)
+
+    # Keeping coordinates inside the grid
+    row = max(0, min(GRID_SIZE - 1, row))
+    column = max(0, min(GRID_SIZE - 1, column))
+
+    return row, column
+
+def grid_to_world(row, column):
+    """
+    Converting the Occupancy-Grid Coordinate (row, column) into the center coordinates corresponding
+    to the Webots Grid Cell.
+    """
+
+    x = (WORLD_MIN_X + (column + 0.5) * CELL_SIZE)
+    y = (WORLD_MAX_Y - (row + 0.5) * CELL_SIZE)
+
+    return x, y
+
+# The Occupancy Grid
+def mark_obstacle(grid, center_x, center_y, size_x, size_y):
+    """
+    Marking the physical rectangular Webots obstacles as occupied cells within the occupancy grid.
+
+    A safety margin is added around these physical obstacles to ensure the robot doesn't come in close proximity to them.
+    """
+    min_x = center_x - size_x / 2
+    max_x = center_x + size_x / 2
+
+    min_y = center_y - size_y / 2
+    max_y = center_y + size_y / 2
+
+    min_row, min_col = world_to_grid(min_x, max_y)
+    max_row, max_col = world_to_grid(max_x, min_y)
+
+    for row in range(min_row, max_row + 1):
+        for column in range(min_col, max_col + 1):
+            if 0 <= row < GRID_SIZE and 0 <= column < GRID_SIZE:
+                grid[row, column] = 1
+
 def create_occupancy_grid():
     """
-    Creating a 2D Occupancy Grid which represents the robot's environment.
+    Creating a 20 x 20 2D Occupancy Grid which represents the robot's environment.
 
     0 = Free Space
     1 = Occupied (An obstacle is present)
     """
-
     # Creating a 20 x 20 grid
-    grid = np.zeros((20, 20), dtype=int)
+    grid = np.zeros((GRID_SIZE, GRID_SIZE), dtype=int)
 
     # Creating the boundary walls
     grid[0, :] = 1
@@ -19,28 +93,38 @@ def create_occupancy_grid():
     grid[:, 0] = 1
     grid[:, -1] = 1
 
-    # Adding an internal obstacle representing an object that has been detected by the robot's perception system.
-    grid[2, 7:14] = 1
-    grid[6:11, 13:16] = 1
+    # Physical Webots Obstacles
+    # Obstacle 1
+    mark_obstacle(grid, center_x=-0.8, center_y=0.8, size_x=1.2, size_y=0.35)
 
-    # Adding another obstacle onto the grid in order to make path planning meaningful.
-    grid[10:15, 2:6] = 1
-    grid[13:17, 9:13] = 1
+    # Obstacle 2
+    mark_obstacle(grid, center_x=-0.8, center_y=0.0, size_x=0.35, size_y=1.2)
+
+    # Obstacle 3
+    mark_obstacle(grid, center_x=1.4, center_y=-1.2, size_x=0.8, size_y=0.35)
 
     return grid
 
+# Start and Goal Positions
 def define_start_and_end_goal():
     """
-    Defining the Robot's starting position and determining the end goal
+    Defining the Webots Robot's starting position and determining the end goal
 
     Coordinates are represented as the following: (row, column)
+
+    Robot (-2.0, -2.0)
+    Goal (+2.0, +2.0)
     """
 
-    start = (18, 2)
-    goal = (2, 17)
+    start_world = (-2.0, 2.0)
+    goal_world = (2.0, -2.0)
 
-    return start, goal
+    start = world_to_grid(start_world[0], start_world[1])
+    goal = world_to_grid(goal_world[0], goal_world[1])
 
+    return start, goal, start_world, goal_world
+
+# Dijkstra's Algorithm
 def min_distance(distances, spt_set):
     """
     Finding the Unprocessed Grid Cells with the Smallest Distance from the Starting Position
@@ -81,12 +165,18 @@ def dijkstra(grid, start, goal):
             if grid[row, column] == 0:
                 vertices.append((row, column))
 
-    # Distance from the Start Position to every vertex.
+    # Initializing Distances
     distances = {
         vertex: float("inf")
 
         for vertex in vertices
     }
+
+    if start not in distances:
+        return [], 0
+
+    if goal not in distances:
+        return [], 0
 
     distances[start] = 0
 
@@ -175,6 +265,7 @@ def dijkstra(grid, start, goal):
 
     return path, nodes_explored
 
+# A* Heuristic
 def heuristic(current, goal):
     """
     Calculating the Manhattan distance between the Current Position and the Goal Position.
@@ -299,9 +390,102 @@ def a_star(grid, start, goal):
 
     return path, nodes_explored
 
-def display_occupancy_grid(grid, start, goal, path=None):
+# Path Conversion
+def grid_path_to_world(path):
     """
-    Display the Occupancy Grid through Matplotlib.
+    Converting a complete grid path into Webots World Coordinates
+    :return: [(x1, y1), (x2, y2), ...]
+    """
+
+    return [
+        grid_to_world(row, column)
+
+        for row, column in path
+    ]
+
+def extract_waypoints(path, start_world, goal_world):
+    """
+    Reducing the raw grid path to meaningful turning points.
+
+    A waypoint becomes retained whenever the direction of travel changes. The exact Webots start and goal
+    coordinates are used as the first and last waypoints.
+    """
+    if not path:
+        return []
+
+    if len(path) == 1:
+        return [
+            start_world,
+            goal_world
+        ]
+
+    waypoints = []
+
+    # Always use the actual physical robot start
+    waypoints.append(start_world)
+
+    # Determining the direction between consecutive grid cells.
+    previous_direction = None
+
+    for i in range(1, len(path)):
+        previous_row, previous_col = path[i - 1]
+        current_row, current_col = path[i]
+
+        direction = (
+            current_row - previous_row,
+            current_col - previous_col
+        )
+
+        # A direction change means that the robot needs to turn.
+        if (previous_direction is not None) and (direction != previous_direction):
+            waypoint = grid_to_world(
+                path[i - 1][0],
+                path[i - 1][1]
+            )
+
+            waypoints.append(waypoint)
+
+        previous_direction = direction
+
+    # Always us the actual physical goal
+    waypoints.append(goal_world)
+
+    return waypoints
+
+def save_waypoints(waypoints, filename="waypoints.py"):
+    """
+    Saving the extracted A* waypoints into a Python Module.
+
+    By saving it into a new python module, it can be imported by the Webots controller.
+    """
+    with open(filename, "w", encoding="utf-8") as file:
+        file.write("# A* Waypoints are generated automatically.\n")
+
+        file.write("A_STAR_WAYPOINTS = [\n")
+
+        for x, y in waypoints:
+            file.write(
+                f"    ({x:.2f}, {y:.2f}),\n"
+            )
+
+        file.write("]\n")
+
+# Path Length
+def calculate_path_length(path):
+    """
+    Calculating the Physical Path Length in metres
+
+    Each grid cell transition represents 0.25m.
+    """
+
+    if len(path) < 2:
+        return 0.0
+
+    return (len(path) - 1) * CELL_SIZE
+
+def display_occupancy_grid(grid, start, goal, start_world, goal_world, dijk_path=None, a_path=None):
+    """
+    Display the Occupancy Grid together with both algorithms through Matplotlib.
 
     :param
         grid: the results obtained from the create_occupancy_grid function.
@@ -309,77 +493,286 @@ def display_occupancy_grid(grid, start, goal, path=None):
     :return: Displaying a visualization of the occupancy grid through Matplotlib.
     """
 
-    plt.figure(figsize=(9, 6))
+    fig, ax = plt.subplots(figsize=(10, 10))
 
-    plt.imshow(grid, cmap="viridis", origin="upper")
+    ax.imshow(
+        grid,
+        cmap="viridis",
+        origin="upper",
+        extent=[
+            WORLD_MIN_X,
+            WORLD_MAX_X,
+            WORLD_MIN_Y,
+            WORLD_MAX_Y
+        ],
+        alpha=0.35
+    )
+
+    obstacles = [
+        {
+            "x": -0.8,
+            "y": 0.8,
+            "sx": 1.2,
+            "sy": 0.35
+        },
+        {
+            "x": 0.8,
+            "y": 0.0,
+            "sx": 0.35,
+            "sy": 1.2
+        },
+        {
+            "x": 1.4,
+            "y": 1.2,
+            "sx": 0.8,
+            "sy": 0.35
+        }
+    ]
+
+    for obstacle in obstacles:
+        lower_left_x = obstacle["x"] - (obstacle["sx"] / 2)
+        lower_left_y = obstacle["y"] - (obstacle["sy"] / 2)
+
+        rectangle = plt.Rectangle(
+            (
+                lower_left_x,
+                lower_left_y
+            ),
+            obstacle["sx"],
+            obstacle["sy"],
+            fill=False,
+            lw=3
+        )
+
+        ax.add_patch(rectangle)
 
     # Drawing the Dijkstra Path
-    if path:
-        path_rows = [position[0] for position in path]
-        path_columns = [position[1] for position in path]
+    if dijk_path:
+        path_world = grid_path_to_world(dijk_path)
 
-        plt.plot(path_columns, path_rows, lw=3, label="Dijkstra Path")
-
-    # Drawing the A* Path
-    if a_star_path:
-        path_rows = [
+        path_x = [
             position[0]
 
-            for position in a_star_path
+            for position in path_world
         ]
 
-        path_columns = [
+        path_y = [
             position[1]
 
-            for position in a_star_path
+            for position in path_world
         ]
 
-        plt.plot(path_columns, path_rows, lw=2, ls="--", label="A* Path")
+        ax.plot(
+            path_x,
+            path_y,
+            lw=3,
+            label="Dijkstra Path"
+        )
+
+    # Drawing the Dijkstra Path
+    if a_path:
+        waypoints = extract_waypoints(a_path, start_world, goal_world)
+
+        waypoint_x = [
+            position[0]
+
+            for position in waypoints
+        ]
+
+        waypoint_y = [
+            position[1]
+
+            for position in waypoints
+        ]
+
+        ax.scatter(
+            waypoint_x,
+            waypoint_y,
+            s=70,
+            marker="o",
+            label="A* Waypoints"
+        )
+
+        path_world = grid_path_to_world(a_path)
+
+        path_x = [
+            position[0]
+
+            for position in path_world
+        ]
+
+        path_y = [
+            position[1]
+
+            for position in path_world
+        ]
+
+        ax.plot(
+            path_x,
+            path_y,
+            lw=3,
+            ls="--",
+            label="A* Path"
+        )
 
     # Drawing the Starting Position
-    if start is not None:
-        plt.scatter(start[1], start[0], marker="o", s=150, label="Starting Position")
+    start_x, start_y = start_world
+
+    ax.scatter(
+        start_x,
+        start_y,
+        marker="o",
+        s=180,
+        label="Starting Position"
+    )
 
     # Drawing the Goal Position
-    if goal is not None:
-        plt.scatter(goal[1], goal[0], marker="*", s=200, label="Goal Position")
+    goal_x, goal_y = goal_world
 
-    plt.title("Robot Occupancy Grid")
-    plt.xlabel("X Grid Position")
-    plt.ylabel("Y Grid Position")
+    ax.scatter(
+        goal_x,
+        goal_y,
+        marker="*",
+        s=220,
+        label="Goal Position"
+    )
 
-    plt.grid(True)
-    plt.legend()
+    ax.set_title("Webots Robot Occupancy Grid and Planned Paths")
+    ax.set_xlabel("Webots X Grid Position (m)")
+    ax.set_ylabel("Webots Y Grid Position (m)")
+    ax.set_xlim(-2.5, 2.5)
+    ax.set_ylim(-2.5, 2.5)
+
+    ax.set_aspect("equal", adjustable="box")
+
+    ax.set_xticks(np.arange(-2.5, 2.51, 0.5))
+    ax.set_yticks(np.arange(-2.5, 2.51, 0.5))
+
+    ax.grid(True, alpha=0.25)
+
+    ax.legend()
+
+    plt.tight_layout()
 
     plt.show()
 
 if __name__ == "__main__":
     occupancy_grid = create_occupancy_grid()
 
-    start, goal = define_start_and_end_goal()
+    start, goal, start_world, goal_world = define_start_and_end_goal()
 
-    print(f"Starting Position: {start}")
-    print(f"Goal Position: {goal}\n")
+    print("\n")
+    print("=" * 50)
+    print("Component A - Motion Planning")
+    print("=" * 50)
 
-    print("Occupancy Grid: ")
+    print(
+        f"\nWorld Starting Position:"
+        f"X={start_world[0]:.2f} m, "
+        f"Y={start_world[1]:.2f} m"
+    )
+
+    print(
+        f"Grid Start Position: "
+        f"{start}"
+    )
+
+    print(
+        f"\nWorld Goal Position"
+        f"X={goal_world[0]:.2f} m, "
+        f"Y={goal_world[1]:.2f} m"
+    )
+
+    print(
+        f"Grid Goal Position: "
+        f"{goal}"
+    )
+
+    print(
+        f"\nGrid Resolution: "
+        f"{CELL_SIZE:.2f} m/cell"
+    )
+
+    print("\nOccupancy Grid:")
     print(occupancy_grid)
 
     # Running the Dijkstra's Shortest-Path Algorithm
-    path, nodes_explored = dijkstra(occupancy_grid, start, goal)
+    dijk_path, dijk_nodes = dijkstra(occupancy_grid, start, goal)
 
-    print("\nDijkstra Path:")
-    print(path)
+    print("\n")
+    print("=" * 50)
+    print("Dijkstra Path:")
+    print("=" * 50)
 
-    print(f"\nPath Length: {len(path)}")
-    print(f"Nodes Explored: {nodes_explored}")
+    if dijk_path:
+        print(
+            f"Grid Path Length: "
+            f"{len(dijk_path)} cells"
+        )
+
+        print(
+            f"Physical Path Length: "
+            f"{calculate_path_length(dijk_path):.2f} m"
+        )
+
+        print(
+            f"Nodes Explored: "
+            f"{dijk_nodes}"
+        )
+
+        print("Path Found: YES")
+    else:
+        print("Path Found: NO")
 
     # Running the A* Shortest-Path Algorithm
-    a_star_path, a_star_nodes_explored = a_star(occupancy_grid, start, goal)
+    a_path, a_nodes = a_star(occupancy_grid, start, goal)
 
-    print("\nA* Path:")
-    print(a_star_path)
+    # Extracting A* Waypoints
+    a_waypoints = extract_waypoints(a_path, start_world, goal_world)
 
-    print(f"\nA* Path Length: {len(a_star_path)}")
-    print(f"A* Nodes Explored: {a_star_nodes_explored}")
+    # Saving A* Waypoints for the Webots Controller
+    save_waypoints(a_waypoints)
 
-    display_occupancy_grid(occupancy_grid, start, goal, path)
+    print("\n")
+    print("=" * 50)
+    print("A* Waypoints:")
+    print("=" * 50)
+
+    for index, waypoint in enumerate(a_waypoints, start=1):
+        print(
+            f"Waypoint {index:02d}: "
+            f"X={waypoint[0]:.2f} m, "
+            f"Y={waypoint[1]:.2f} m"
+        )
+
+    print(
+        f"\nTotal Waypoints: "
+        f"{len(a_waypoints)}"
+    )
+
+    print("\n")
+    print("=" * 50)
+    print("A* Path:")
+    print("=" * 50)
+
+    if a_path:
+        print(
+            f"Grid Path Length: "
+            f"{len(a_path)} cells"
+        )
+
+        print(
+            f"Physical Path Length: "
+            f"{calculate_path_length(a_path):.2f} m"
+        )
+
+        print(
+            f"Nodes Explored: "
+            f"{a_nodes}"
+        )
+
+        print("Path Found: YES")
+    else:
+        print("Path Found: NO")
+
+    display_occupancy_grid(occupancy_grid, start, goal, start_world, goal_world, dijk_path, a_path)
