@@ -6,7 +6,7 @@ import matplotlib.pyplot as plt
 from matplotlib.patches import Rectangle, Polygon
 
 # Arena Configuration
-ARENA_SIZE = 12.0
+ARENA_SIZE = 14.0
 ARENA_MIN = -ARENA_SIZE / 2
 ARENA_MAX = ARENA_SIZE / 2
 
@@ -19,11 +19,11 @@ ROBOT_WIDTH = 0.46
 # Robot Starting Positions
 robots = {
     "robot_1": {
-        "position": (-5.0, 0.0),
+        "position": (-2.0, -3.0),
         "rotation": 0.0
     },
     "robot_2": {
-        "position": (4.7, -5.0),
+        "position": (4.0, 0.0),
         "rotation": 1.57
     },
     "robot_3": {
@@ -214,7 +214,7 @@ def distance_to_polygon(x, y, polygon):
 def generate_targets(polygons):
     targets = []
 
-    wall_margin = (max(ROBOT_LENGTH, ROBOT_WIDTH) / 2 + CLEARANCE)
+    wall_margin = math.hypot(ROBOT_LENGTH / 2, ROBOT_WIDTH / 2) + CLEARANCE
 
     minimum = ARENA_MIN + wall_margin
     maximum = ARENA_MAX - wall_margin
@@ -236,7 +236,11 @@ def generate_targets(polygons):
             for polygon in polygons:
                 distance = distance_to_polygon(x, y, polygon)
 
-                if distance < CLEARANCE:
+                robot_radius = math.hypot(ROBOT_LENGTH / 2, ROBOT_WIDTH / 2)
+
+                minimum_obstacle_distance = robot_radius + CLEARANCE
+
+                if distance < minimum_obstacle_distance:
                     blocked = True
                     break
 
@@ -363,8 +367,8 @@ def main():
     ax.set_xlim(ARENA_MIN - 0.25, ARENA_MAX + 0.25)
     ax.set_ylim(ARENA_MIN - 0.25, ARENA_MAX + 0.25)
 
-    ax.set_xticks(range(-6, 7))
-    ax.set_yticks(range(-6, 7))
+    ax.set_xticks(range(-7, 8))
+    ax.set_yticks(range(-7, 8))
 
     ax.set_aspect("equal")
     ax.grid(True, alpha=0.5)
