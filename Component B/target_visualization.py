@@ -5,18 +5,22 @@ from pathlib import Path
 import matplotlib.pyplot as plt
 from matplotlib.patches import Rectangle, Polygon
 
-# Arena Configuration
+# Arena Configurations. The Arena is centered around coordinates (0, 0)
 ARENA_SIZE = 14.0
 ARENA_MIN = -ARENA_SIZE / 2
 ARENA_MAX = ARENA_SIZE / 2
 
+# Spacing between candidate target points in metres.
 GRID_SPACING = 0.5
+
+# Extra safety measure used to determine and maintain distance from walls and obstacles in metres.
 CLEARANCE = 0.35
 
+# Robot footprint dimensions used for clearance checks and plotting.
 ROBOT_LENGTH = 0.8
 ROBOT_WIDTH = 0.46
 
-# Robot Starting Positions
+# Robot Starting Positions represented as (x, y) and headings (radians) for the three robots.
 robots = {
     "robot_1": {
         "position": (-2.0, -3.0),
@@ -32,7 +36,8 @@ robots = {
     }
 }
 
-# Obstacle Configuration (Setting out the X, Y, and Z positions of the obstacles.
+# Obstacle Configuration (Setting out the X, Y, and Z positions of the obstacles), Axis-Angle Rotation
+# and Box Size.
 obstacles = [
     {
         "name": "Obstacle 1",
@@ -66,7 +71,7 @@ obstacles = [
     }
 ]
 
-# Rotating a Point in 3D
+# Rotating a point around a 3D axis by the supplied angle
 def rotate_point(point, axis, angle):
     """
     Rotating a point using the axis-angle rotation.
@@ -75,6 +80,7 @@ def rotate_point(point, axis, angle):
 
     ax, ay, az = axis
 
+    # Findining the rotation-axis length so the axis can be normalized.
     length = math.sqrt(ax**2 + ay**2 + az**2)
 
     if (length == 0) or (angle == 0):
@@ -84,9 +90,11 @@ def rotate_point(point, axis, angle):
     ay = ay / length
     az = az / length
 
+    # Precalculating the trigonometric terms used by the axis-angle rotation formula.
     cosine = math.cos(angle)
     sine = math.sin(angle)
 
+    # Dot and Cross Products are used to contribute to the axis-angle rotation calculation.
     dot = (ax * x) + (ay * y) + (az * z)
 
     cross_x = (ay * z) - (az * y)
@@ -99,12 +107,13 @@ def rotate_point(point, axis, angle):
     (z * cosine) + (cross_z * sine) + (az * dot * (1 - cosine))
     )
 
-# Project Each Obstacle's Box onto the Floor
+# Converting an obstacle box into a 2D polygon on the floor.
 def get_obstacle_polygon(obstacle):
     cx, cy, cz = obstacle["position"]
     ax, ay, az, angle = obstacle["rotation"]
     sx, sy, sz = obstacle["size"]
 
+    # Storing the projected x, y coordinates of the box corners.
     proj_points = []
 
     for dx in (-sx / 2, sx / 2):
@@ -118,17 +127,19 @@ def get_obstacle_polygon(obstacle):
 
                 proj_points.append((round(cx + rx, 6), round(cy + ry, 6)))
 
-    # Convex the hull of the projected corners.
+    # Finding the convex hull, which is the smallest convex polygon containing the projected corners.
     points = sorted(set(proj_points))
 
     if len(points) <= 2:
         return points
-    
+
+    # The signed 2D cross product indicates the direction of a turn between points.
     def cross(origin, a, b):
         return (
             (a[0] - origin[0]) * (b[1] - origin[1]) - (a[1] - origin[1]) * (b[0] - origin[0])
         )
 
+    # Building the lower and upper parts of the convex hull by removing inward turns.
     lower = []
 
     for point in points:
@@ -147,8 +158,9 @@ def get_obstacle_polygon(obstacle):
 
     return lower[:-1] + upper[:-1]
 
-# Checking whether a point is found inside of a polygon or obstacle.
+# Using a ray-casing test to check whether a point is found inside the polygon or obstacle.
 def point_inside_polygon(x, y, polygon):
+    # Each intersection of a horizontal ray with a polygon edge toggles this flag.
     inside = False
     j = len(polygon) - 1
 
@@ -168,7 +180,7 @@ def point_inside_polygon(x, y, polygon):
 
     return inside
 
-# Calculating the distance to an obstacle.
+# Calculating the shortest distance from a point to a line segment.
 def point_segment_distance(px, py, a, b):
     ax, ay = a
     bx, by = b
@@ -176,11 +188,13 @@ def point_segment_distance(px, py, a, b):
     dx = bx - ax
     dy = by - ay
 
+    # Squared segment length is used to calculate the projection parameter.
     length_squared = (dx ** 2) + (dy ** 2)
 
     if length_squared == 0:
         return math.hypot(px - ax, py - ay)
 
+    # Projecting the point onto the line.
     t = ((px - ax) * dx + (py - ay) * dy) / length_squared
 
     t = max(0.0, min(1.0, t))
@@ -193,6 +207,7 @@ def point_segment_distance(px, py, a, b):
         py - closest_y
     )
 
+# Returning zero for points inside of the polygon. Else the nearest edge distance is found.
 def distance_to_polygon(x, y, polygon):
     if point_inside_polygon(x, y, polygon):
         return 0.0
@@ -210,16 +225,17 @@ def distance_to_polygon(x, y, polygon):
 
     return min(distances)
 
-# Generating Candidate Coverage Targets
+# Generating grid positions that keep the robot clear of walls and obstacles.
 def generate_targets(polygons):
     targets = []
 
+    # Half of the robot's footprint plus its diagonal and its clearance keeps it away from arena walls.
     wall_margin = math.hypot(ROBOT_LENGTH / 2, ROBOT_WIDTH / 2) + CLEARANCE
 
     minimum = ARENA_MIN + wall_margin
     maximum = ARENA_MAX - wall_margin
 
-    # Generate Grid coordinates using the specified spacing
+    # Generating evently spaced grid coordinates for both the x and y axes.
     x_values = []
     value = minimum
 
@@ -227,7 +243,7 @@ def generate_targets(polygons):
         x_values.append(value)
         value += GRID_SPACING
 
-    # Checking every possible (x, y) position
+    # Checking every possible grid intersection as a possible target location.
     for x in x_values:
         for y in x_values:
             blocked = False
@@ -236,6 +252,8 @@ def generate_targets(polygons):
             for polygon in polygons:
                 distance = distance_to_polygon(x, y, polygon)
 
+                # Approximating the rectangular robot by a circle with a footprint that is half a diagonal as the base
+                # for the radius.
                 robot_radius = math.hypot(ROBOT_LENGTH / 2, ROBOT_WIDTH / 2)
 
                 minimum_obstacle_distance = robot_radius + CLEARANCE
@@ -250,14 +268,16 @@ def generate_targets(polygons):
 
     return targets
 
-# Visualizing the Arena and Targets
+# Visualizing the Arena, Targets, Obstacles and Robots
 def main():
+    # Converting obstacle definitions into 2D polygons for clearance checks and drawing.
     polygons = [
         get_obstacle_polygon(obstacle)
 
         for obstacle in obstacles
     ]
 
+    # Generating all grid targets that will pass the wall and obstacle clearance checks.
     targets = generate_targets(polygons)
 
     print("=" * 25)
@@ -274,7 +294,7 @@ def main():
     for name, robot_data in robots.items():
         print(f"{name}: {robot_data["position"]}")
 
-    # Generating the Plot
+    # Generating the Matplotlib figure and axes used for the arena diagram.
     fig, ax = plt.subplots(figsize=(10, 10))
 
     # Drawing the Arena Boundary
@@ -287,7 +307,7 @@ def main():
         lw=2
     ))
 
-    # Obstacles
+    # Drawing each obstacle footprint and labelling it at its configured centre.
     for obstacle, polygon in zip(obstacles, polygons):
         ax.add_patch(Polygon(
             polygon,
@@ -308,7 +328,7 @@ def main():
             fontsize=8
         )
 
-    # Candidate Targets
+    # Plotting the valid candidate target coordinates
     if targets:
         xs = [point[0] for point in targets]
         ys = [point[1] for point in targets]
@@ -321,7 +341,7 @@ def main():
             label="Candidate Targets"
         )
 
-    # Robots with their Webots Orientations
+    # Drawing each robot at its starting position and heading
     for name, robot_data in robots.items():
         x, y = robot_data["position"]
         angle = robot_data["rotation"]
@@ -334,7 +354,7 @@ def main():
             (-ROBOT_LENGTH / 2, ROBOT_WIDTH / 2),
         ]
 
-        # Rotating the corners around the robot's center
+        # Rotating the corners around the robot's heading, then shifting it into world coordinates.
         rotated_corners = []
 
         for px, py in corners:

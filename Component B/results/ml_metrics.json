@@ -1,0 +1,78 @@
+{
+    "data_source": "synthetic_rule_labelled",
+    "training_samples": 4800,
+    "test_samples": 1200,
+    "test_accuracy": 0.9816666666666667,
+    "actions": [
+        "FORWARD",
+        "LEFT",
+        "RIGHT",
+        "YIELD"
+    ],
+    "confusion_matrix": [
+        [
+            65,
+            2,
+            0,
+            1
+        ],
+        [
+            0,
+            528,
+            0,
+            2
+        ],
+        [
+            1,
+            0,
+            535,
+            6
+        ],
+        [
+            0,
+            10,
+            0,
+            50
+        ]
+    ],
+    "classification_report": {
+        "FORWARD": {
+            "precision": 0.9848484848484849,
+            "recall": 0.9558823529411765,
+            "f1-score": 0.9701492537313433,
+            "support": 68.0
+        },
+        "LEFT": {
+            "precision": 0.9777777777777777,
+            "recall": 0.9962264150943396,
+            "f1-score": 0.9869158878504672,
+            "support": 530.0
+        },
+        "RIGHT": {
+            "precision": 1.0,
+            "recall": 0.9870848708487084,
+            "f1-score": 0.9935004642525533,
+            "support": 542.0
+        },
+        "YIELD": {
+            "precision": 0.847457627118644,
+            "recall": 0.8333333333333334,
+            "f1-score": 0.8403361344537815,
+            "support": 60.0
+        },
+        "accuracy": 0.9816666666666667,
+        "macro avg": {
+            "precision": 0.9525209724362267,
+            "recall": 0.9431317430543895,
+            "f1-score": 0.9477254350720364,
+            "support": 1200.0
+        },
+        "weighted avg": {
+            "precision": 0.9816994806825315,
+            "recall": 0.9816666666666667,
+            "f1-score": 0.9816108245888251,
+            "support": 1200.0
+        }
+    },
+    "model_path": "C:\\Users\\benja\\PycharmProjects\\Intelligent-Autonomous-Robotics-Systems\\Component B\\results\\navigation_model.joblib"
+}

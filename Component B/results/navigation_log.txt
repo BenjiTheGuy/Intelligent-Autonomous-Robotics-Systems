@@ -1,0 +1,941 @@
+INFO: component_b_controller: Starting controller: C:\Users\benja\PycharmProjects\Intelligent-Autonomous-Robotics-Systems\.venv\Scripts\python.exe -u component_b_controller.py
+INFO: component_b_controller: Starting controller: C:\Users\benja\PycharmProjects\Intelligent-Autonomous-Robotics-Systems\.venv\Scripts\python.exe -u component_b_controller.py
+INFO: component_b_controller: Starting controller: C:\Users\benja\PycharmProjects\Intelligent-Autonomous-Robotics-Systems\.venv\Scripts\python.exe -u component_b_controller.py
+Starting robot_1
+robot_1 started with value: 20.00
+Starting robot_2
+robot_2 started with value: 50.00
+Starting robot_3
+robot_3 started with value: 80.00
+robot_1: Initial GPS Position = [-2.0, -2.9999999977072203, 0.24850334935874435]
+robot_1: IMU = [0.0, 0.0, 0.0]
+robot_1: Navigation Model Loaded Successfully
+robot_1: Loaded 105 A* Waypoints
+robot_1: Wheel Motors Initialized
+robot_2: Initial GPS Position = [3.9999999977072203, -8.422322385520544e-15, 0.24850334935874438]
+robot_2: IMU = [-9.172104573844059e-09, -6.333602836310325e-18, 1.5708000000000002]
+robot_2: Navigation Model Loaded Successfully
+robot_2: Loaded 128 A* Waypoints
+robot_2: Wheel Motors Initialized
+robot_3: Initial GPS Position = [0.5000000022927797, 4.999999999999992, 0.24850334935874438]
+robot_3: IMU = [-9.172104564043939e-09, -7.979740231766378e-18, -1.5708000000000002]
+robot_3: Navigation Model Loaded Successfully
+robot_3: Loaded 114 A* Waypoints
+robot_3: Wheel Motors Initialized
+robot_1 | Consensus Value: 20.0000
+robot_1 | Action: RIGHT | Nearest Robot: 5.00 m
+robot_1 | Position=(-2.00, -3.00) | Target=(-1.69, -3.19) | Yaw=0.00 | Heading error=-0.54 | Distance=0.36 | Left speed=2.00 | Right speed=0.56
+robot_2 | Consensus Value: 50.0000
+robot_2 | Action: LEFT | Nearest Robot: 5.00 m
+robot_2 | Position=(4.00, -0.00) | Target=(3.81, -0.19) | Yaw=1.57 | Heading error=2.36 | Distance=0.27 | Left speed=-1.50 | Right speed=2.00
+robot_3 | Consensus Value: 80.0000
+robot_3 | Action: LEFT | Nearest Robot: 5.00 m
+robot_3: REACHED Waypoint 1/114 at (0.56, 4.81) | Distance: 0.198 m
+robot_1: REACHED Waypoint 1/105 at (-1.69, -3.19) | Distance: 0.249 m
+robot_3: REACHED Waypoint 2/114 at (0.56, 4.56) | Distance: 0.249 m
+robot_1 | Position=(-1.77, -3.05) | Target=(-1.44, -3.44) | Yaw=-0.36 | Heading error=-0.50 | Distance=0.51 | Left speed=2.00 | Right speed=0.67
+robot_2 | Position=(3.97, 0.06) | Target=(3.81, -0.19) | Yaw=2.36 | Heading error=1.77 | Distance=0.30 | Left speed=-1.13 | Right speed=2.00
+robot_3 | Position=(0.52, 4.66) | Target=(0.56, 4.31) | Yaw=-1.50 | Heading error=0.04 | Distance=0.35 | Left speed=1.89 | Right speed=2.00
+robot_3: REACHED Waypoint 3/114 at (0.56, 4.31) | Distance: 0.243 m
+robot_3: REACHED Waypoint 4/114 at (0.56, 4.06) | Distance: 0.249 m
+robot_1 | Action: RIGHT | Nearest Robot: 5.00 m
+robot_1 | Position=(-1.55, -3.16) | Target=(-1.44, -3.44) | Yaw=-0.67 | Heading error=-0.54 | Distance=0.30 | Left speed=2.00 | Right speed=0.58
+robot_2 | Action: LEFT | Nearest Robot: 5.00 m
+robot_2 | Position=(3.89, 0.11) | Target=(3.81, -0.19) | Yaw=3.08 | Heading error=1.37 | Distance=0.31 | Left speed=-0.87 | Right speed=2.00
+robot_3 | Action: FORWARD | Nearest Robot: 5.00 m
+robot_3 | Position=(0.55, 4.30) | Target=(0.56, 3.81) | Yaw=-1.50 | Heading error=-0.05 | Distance=0.48 | Left speed=2.00 | Right speed=1.87
+robot_1: REACHED Waypoint 2/105 at (-1.44, -3.44) | Distance: 0.249 m
+robot_3: REACHED Waypoint 5/114 at (0.56, 3.81) | Distance: 0.247 m
+robot_1 | Position=(-1.34, -3.36) | Target=(-1.19, -3.69) | Yaw=-0.86 | Heading error=-0.29 | Distance=0.36 | Left speed=2.00 | Right speed=1.24
+robot_2 | Position=(3.78, 0.13) | Target=(3.81, -0.19) | Yaw=-2.49 | Heading error=1.02 | Distance=0.32 | Left speed=-0.65 | Right speed=2.00
+robot_3 | Position=(0.57, 3.93) | Target=(0.56, 3.56) | Yaw=-1.54 | Heading error=-0.05 | Distance=0.37 | Left speed=2.00 | Right speed=1.87
+robot_3: REACHED Waypoint 6/114 at (0.56, 3.56) | Distance: 0.245 m
+robot_1: REACHED Waypoint 3/105 at (-1.19, -3.69) | Distance: 0.247 m
+robot_2: REACHED Waypoint 1/128 at (3.81, -0.19) | Distance: 0.249 m
+robot_1 | Action: FORWARD | Nearest Robot: 5.00 m
+robot_1 | Position=(-1.13, -3.62) | Target=(-0.94, -3.94) | Yaw=-0.94 | Heading error=-0.07 | Distance=0.37 | Left speed=2.00 | Right speed=1.82
+robot_2 | Action: LEFT | Nearest Robot: 4.73 m
+robot_2 | Position=(3.69, 0.02) | Target=(3.81, -0.44) | Yaw=-1.97 | Heading error=0.66 | Distance=0.47 | Left speed=0.25 | Right speed=2.00
+robot_3 | Action: FORWARD | Nearest Robot: 4.72 m
+robot_3 | Position=(0.57, 3.57) | Target=(0.56, 3.31) | Yaw=-1.57 | Heading error=-0.04 | Distance=0.26 | Left speed=2.00 | Right speed=1.89
+robot_3: REACHED Waypoint 7/114 at (0.56, 3.31) | Distance: 0.248 m
+robot_1: REACHED Waypoint 4/105 at (-0.94, -3.94) | Distance: 0.247 m
+robot_3: REACHED Waypoint 8/114 at (0.56, 3.06) | Distance: 0.249 m
+robot_1 | Position=(-0.93, -3.92) | Target=(-0.69, -4.19) | Yaw=-0.93 | Heading error=0.08 | Distance=0.36 | Left speed=1.80 | Right speed=2.00
+robot_2 | Position=(3.63, -0.21) | Target=(3.81, -0.44) | Yaw=-1.52 | Heading error=0.61 | Distance=0.29 | Left speed=0.38 | Right speed=2.00
+robot_3 | Position=(0.57, 3.20) | Target=(0.56, 2.81) | Yaw=-1.58 | Heading error=-0.01 | Distance=0.39 | Left speed=2.00 | Right speed=1.98
+robot_1: REACHED Waypoint 5/105 at (-0.69, -4.19) | Distance: 0.246 m
+robot_3: REACHED Waypoint 9/114 at (0.56, 2.81) | Distance: 0.247 m
+robot_2: REACHED Waypoint 2/128 at (3.81, -0.44) | Distance: 0.249 m
+robot_1 | Action: LEFT | Nearest Robot: 5.00 m
+robot_1 | Position=(-0.74, -4.13) | Target=(-0.44, -4.19) | Yaw=-0.73 | Heading error=0.54 | Distance=0.31 | Left speed=0.57 | Right speed=2.00
+robot_2 | Action: LEFT | Nearest Robot: 4.54 m
+robot_2 | Position=(3.67, -0.47) | Target=(3.81, -0.69) | Yaw=-1.24 | Heading error=0.25 | Distance=0.26 | Left speed=1.35 | Right speed=2.00
+robot_3 | Action: FORWARD | Nearest Robot: 4.53 m
+robot_3 | Position=(0.56, 2.83) | Target=(0.56, 2.56) | Yaw=-1.58 | Heading error=0.00 | Distance=0.27 | Left speed=1.99 | Right speed=2.00
+robot_2: REACHED Waypoint 3/128 at (3.81, -0.69) | Distance: 0.245 m
+robot_3: REACHED Waypoint 10/114 at (0.56, 2.56) | Distance: 0.244 m
+robot_1: REACHED Waypoint 6/105 at (-0.44, -4.19) | Distance: 0.249 m
+robot_2: REACHED Waypoint 4/128 at (3.81, -0.94) | Distance: 0.244 m
+robot_3: REACHED Waypoint 11/114 at (0.56, 2.31) | Distance: 0.249 m
+robot_1 | Position=(-0.55, -4.26) | Target=(-0.19, -4.19) | Yaw=-0.40 | Heading error=0.59 | Distance=0.37 | Left speed=0.45 | Right speed=2.00
+robot_2 | Position=(3.78, -0.80) | Target=(3.81, -1.19) | Yaw=-1.29 | Heading error=-0.19 | Distance=0.39 | Left speed=2.00 | Right speed=1.50
+robot_3 | Position=(0.56, 2.46) | Target=(0.56, 2.06) | Yaw=-1.58 | Heading error=0.01 | Distance=0.40 | Left speed=1.97 | Right speed=2.00
+robot_3: REACHED Waypoint 12/114 at (0.56, 2.06) | Distance: 0.248 m
+robot_2: REACHED Waypoint 5/128 at (3.81, -1.19) | Distance: 0.249 m
+robot_1: REACHED Waypoint 7/105 at (-0.19, -4.19) | Distance: 0.249 m
+robot_1 | Action: LEFT | Nearest Robot: 5.00 m
+robot_1 | Position=(-0.34, -4.36) | Target=(0.06, -4.19) | Yaw=0.05 | Heading error=0.36 | Distance=0.44 | Left speed=1.04 | Right speed=2.00
+robot_2 | Action: RIGHT | Nearest Robot: 4.54 m
+robot_2 | Position=(3.82, -1.06) | Target=(3.56, -1.44) | Yaw=-1.60 | Heading error=-0.57 | Distance=0.46 | Left speed=2.00 | Right speed=0.51
+robot_3 | Action: FORWARD | Nearest Robot: 4.53 m
+robot_3 | Position=(0.56, 2.09) | Target=(0.56, 1.81) | Yaw=-1.57 | Heading error=0.01 | Distance=0.28 | Left speed=1.97 | Right speed=2.00
+robot_3: REACHED Waypoint 13/114 at (0.56, 1.81) | Distance: 0.246 m
+robot_1: REACHED Waypoint 8/105 at (0.06, -4.19) | Distance: 0.247 m
+robot_3: REACHED Waypoint 14/114 at (0.56, 1.56) | Distance: 0.244 m
+robot_1 | Position=(-0.04, -4.31) | Target=(0.31, -4.19) | Yaw=0.25 | Heading error=0.08 | Distance=0.37 | Left speed=1.78 | Right speed=2.00
+robot_2 | Position=(3.81, -1.29) | Target=(3.56, -1.44) | Yaw=-2.00 | Heading error=-0.61 | Distance=0.29 | Left speed=2.00 | Right speed=0.40
+robot_3 | Position=(0.56, 1.72) | Target=(0.56, 1.31) | Yaw=-1.57 | Heading error=0.00 | Distance=0.41 | Left speed=1.99 | Right speed=2.00
+robot_2: REACHED Waypoint 6/128 at (3.56, -1.44) | Distance: 0.247 m
+robot_1: REACHED Waypoint 9/105 at (0.31, -4.19) | Distance: 0.247 m
+robot_3: REACHED Waypoint 15/114 at (0.56, 1.31) | Distance: 0.249 m
+robot_2: REACHED Waypoint 7/128 at (3.56, -1.69) | Distance: 0.250 m
+robot_1 | Action: FORWARD | Nearest Robot: 4.30 m
+robot_1 | Position=(0.30, -4.22) | Target=(0.56, -4.19) | Yaw=0.23 | Heading error=-0.11 | Distance=0.26 | Left speed=2.00 | Right speed=1.71
+robot_2 | Action: LEFT | Nearest Robot: 4.25 m
+robot_2 | Position=(3.67, -1.55) | Target=(3.56, -1.94) | Yaw=-2.09 | Heading error=0.25 | Distance=0.40 | Left speed=1.34 | Right speed=2.00
+robot_3 | Action: FORWARD | Nearest Robot: 4.25 m
+robot_3 | Position=(0.56, 1.35) | Target=(0.56, 1.06) | Yaw=-1.57 | Heading error=-0.00 | Distance=0.28 | Left speed=2.00 | Right speed=2.00
+robot_1: REACHED Waypoint 10/105 at (0.56, -4.19) | Distance: 0.245 m
+robot_3: REACHED Waypoint 16/114 at (0.56, 1.06) | Distance: 0.245 m
+robot_2: REACHED Waypoint 8/128 at (3.56, -1.94) | Distance: 0.249 m
+robot_1: REACHED Waypoint 11/105 at (0.81, -4.19) | Distance: 0.247 m
+robot_1 | Position=(0.63, -4.17) | Target=(1.06, -4.19) | Yaw=0.12 | Heading error=-0.16 | Distance=0.44 | Left speed=2.00 | Right speed=1.58
+robot_2 | Position=(3.55, -1.82) | Target=(3.56, -2.19) | Yaw=-1.89 | Heading error=0.36 | Distance=0.37 | Left speed=1.04 | Right speed=2.00
+robot_3 | Position=(0.59, 1.07) | Target=(0.81, 0.81) | Yaw=-1.29 | Heading error=0.44 | Distance=0.34 | Left speed=0.85 | Right speed=2.00
+robot_2: REACHED Waypoint 9/128 at (3.56, -2.19) | Distance: 0.249 m
+robot_3: REACHED Waypoint 17/114 at (0.81, 0.81) | Distance: 0.247 m
+robot_1: REACHED Waypoint 12/105 at (1.06, -4.19) | Distance: 0.246 m
+robot_1 | Action: FORWARD | Nearest Robot: 3.26 m
+robot_1 | Position=(0.97, -4.16) | Target=(1.31, -4.19) | Yaw=0.02 | Heading error=-0.10 | Distance=0.35 | Left speed=2.00 | Right speed=1.73
+robot_2 | Action: LEFT | Nearest Robot: 3.26 m
+robot_2 | Position=(3.49, -2.10) | Target=(3.56, -2.44) | Yaw=-1.65 | Heading error=0.29 | Distance=0.34 | Left speed=1.22 | Right speed=2.00
+robot_3 | Action: FORWARD | Nearest Robot: 4.02 m
+robot_3 | Position=(0.69, 0.79) | Target=(0.81, 0.56) | Yaw=-1.12 | Heading error=0.06 | Distance=0.26 | Left speed=1.84 | Right speed=2.00
+robot_3: REACHED Waypoint 18/114 at (0.81, 0.56) | Distance: 0.249 m
+robot_1: REACHED Waypoint 13/105 at (1.31, -4.19) | Distance: 0.247 m
+robot_2: REACHED Waypoint 10/128 at (3.56, -2.44) | Distance: 0.245 m
+robot_3: REACHED Waypoint 19/114 at (0.81, 0.31) | Distance: 0.249 m
+robot_1: REACHED Waypoint 14/105 at (1.56, -4.19) | Distance: 0.244 m
+robot_1 | Position=(1.32, -4.17) | Target=(1.81, -4.19) | Yaw=-0.04 | Heading error=-0.01 | Distance=0.49 | Left speed=2.00 | Right speed=1.97
+robot_2 | Position=(3.50, -2.43) | Target=(3.56, -2.69) | Yaw=-1.49 | Heading error=0.16 | Distance=0.27 | Left speed=1.58 | Right speed=2.00
+robot_3 | Position=(0.80, 0.50) | Target=(0.81, 0.06) | Yaw=-1.26 | Heading error=-0.29 | Distance=0.43 | Left speed=2.00 | Right speed=1.23
+robot_2: REACHED Waypoint 11/128 at (3.56, -2.69) | Distance: 0.249 m
+robot_1: REACHED Waypoint 15/105 at (1.81, -4.19) | Distance: 0.250 m
+robot_3: REACHED Waypoint 20/114 at (0.81, 0.06) | Distance: 0.247 m
+robot_1 | Action: FORWARD | Nearest Robot: 2.34 m
+robot_1 | Position=(1.69, -4.18) | Target=(2.06, -4.19) | Yaw=-0.04 | Heading error=0.02 | Distance=0.37 | Left speed=1.96 | Right speed=2.00
+robot_2 | Action: RIGHT | Nearest Robot: 2.34 m
+robot_2 | Position=(3.50, -2.70) | Target=(3.31, -2.94) | Yaw=-1.78 | Heading error=-0.45 | Distance=0.30 | Left speed=2.00 | Right speed=0.83
+robot_3 | Action: RIGHT | Nearest Robot: 3.91 m
+robot_3 | Position=(0.86, 0.20) | Target=(0.81, -0.19) | Yaw=-1.46 | Heading error=-0.24 | Distance=0.39 | Left speed=2.00 | Right speed=1.37
+robot_2: REACHED Waypoint 12/128 at (3.31, -2.94) | Distance: 0.248 m
+robot_1: REACHED Waypoint 16/105 at (2.06, -4.19) | Distance: 0.249 m
+robot_3: REACHED Waypoint 21/114 at (0.81, -0.19) | Distance: 0.245 m
+robot_2: REACHED Waypoint 13/128 at (3.31, -3.19) | Distance: 0.244 m
+robot_2: REACHED Waypoint 14/128 at (3.31, -2.94) | Distance: 0.116 m
+robot_1 | Position=(2.06, -4.19) | Target=(2.31, -4.19) | Yaw=-0.02 | Heading error=0.03 | Distance=0.25 | Left speed=1.92 | Right speed=2.00
+robot_2 | Position=(3.42, -2.97) | Target=(3.31, -2.69) | Yaw=-1.96 | Heading error=-2.39 | Distance=0.30 | Left speed=2.00 | Right speed=-1.52
+robot_3 | Position=(0.86, -0.13) | Target=(0.81, -0.44) | Yaw=-1.60 | Heading error=-0.13 | Distance=0.31 | Left speed=2.00 | Right speed=1.65
+robot_1: REACHED Waypoint 17/105 at (2.31, -4.19) | Distance: 0.243 m
+robot_3: REACHED Waypoint 22/114 at (0.81, -0.44) | Distance: 0.249 m
+robot_1: REACHED Waypoint 18/105 at (2.56, -4.19) | Distance: 0.244 m
+robot_3: REACHED Waypoint 23/114 at (0.81, -0.69) | Distance: 0.244 m
+robot_1 | Action: FORWARD | Nearest Robot: 1.52 m
+robot_1 | Position=(2.42, -4.19) | Target=(2.81, -4.19) | Yaw=-0.00 | Heading error=0.02 | Distance=0.39 | Left speed=1.95 | Right speed=2.00
+robot_2 | Action: RIGHT | Nearest Robot: 1.52 m
+robot_2 | Position=(3.38, -3.02) | Target=(3.31, -2.69) | Yaw=-2.69 | Heading error=-1.82 | Distance=0.34 | Left speed=2.00 | Right speed=-1.16
+robot_3 | Action: FORWARD | Nearest Robot: 3.59 m
+robot_3 | Position=(0.84, -0.48) | Target=(0.81, -0.94) | Yaw=-1.64 | Heading error=0.01 | Distance=0.46 | Left speed=1.97 | Right speed=2.00
+robot_1: REACHED Waypoint 19/105 at (2.81, -4.19) | Distance: 0.243 m
+robot_3: REACHED Waypoint 24/114 at (0.81, -0.94) | Distance: 0.249 m
+robot_1 | Position=(2.80, -4.19) | Target=(3.06, -4.19) | Yaw=0.01 | Heading error=0.01 | Distance=0.26 | Left speed=1.97 | Right speed=2.00
+robot_2 | Position=(3.28, -3.05) | Target=(3.31, -2.69) | Yaw=2.78 | Heading error=-1.28 | Distance=0.37 | Left speed=2.00 | Right speed=-0.82
+robot_3 | Position=(0.82, -0.85) | Target=(0.81, -1.19) | Yaw=-1.62 | Heading error=0.04 | Distance=0.34 | Left speed=1.89 | Right speed=2.00
+robot_1: REACHED Waypoint 20/105 at (3.06, -4.19) | Distance: 0.249 m
+robot_3: REACHED Waypoint 25/114 at (0.81, -1.19) | Distance: 0.246 m
+robot_1: REACHED Waypoint 21/105 at (3.31, -4.19) | Distance: 0.246 m
+robot_1 | Action: YIELD | Nearest Robot: 1.14 m
+robot_1 | Position=(3.16, -4.19) | Target=(3.56, -4.19) | Yaw=0.01 | Heading error=-0.00 | Distance=0.40 | Left speed=2.00 | Right speed=1.99
+robot_2 | Action: YIELD | Nearest Robot: 1.14 m
+robot_2 | Position=(3.26, -3.06) | Target=(3.31, -2.69) | Yaw=2.62 | Heading error=-1.19 | Distance=0.37 | Left speed=0.00 | Right speed=0.00
+robot_3 | Action: RIGHT | Nearest Robot: 3.13 m
+robot_3 | Position=(0.78, -1.15) | Target=(0.56, -1.44) | Yaw=-1.83 | Heading error=-0.39 | Distance=0.37 | Left speed=2.00 | Right speed=0.96
+robot_1: REACHED Waypoint 22/105 at (3.56, -4.19) | Distance: 0.243 m
+robot_3: REACHED Waypoint 26/114 at (0.56, -1.44) | Distance: 0.250 m
+robot_1 | Position=(3.54, -4.19) | Target=(3.81, -4.19) | Yaw=0.01 | Heading error=-0.01 | Distance=0.27 | Left speed=2.00 | Right speed=1.98
+robot_2 | Position=(3.26, -3.06) | Target=(3.31, -2.69) | Yaw=2.62 | Heading error=-1.19 | Distance=0.37 | Left speed=0.00 | Right speed=0.00
+robot_3 | Position=(0.70, -1.40) | Target=(0.31, -1.69) | Yaw=-2.09 | Heading error=-0.40 | Distance=0.48 | Left speed=2.00 | Right speed=0.94
+robot_1: REACHED Waypoint 23/105 at (3.81, -4.19) | Distance: 0.249 m
+robot_1: REACHED Waypoint 24/105 at (4.06, -4.19) | Distance: 0.247 m
+robot_3: REACHED Waypoint 27/114 at (0.31, -1.69) | Distance: 0.248 m
+robot_1 | Consensus Value: 50.0000
+robot_1 | Action: FORWARD | Nearest Robot: 1.37 m
+robot_1 | Position=(3.91, -4.19) | Target=(4.31, -4.19) | Yaw=0.00 | Heading error=-0.01 | Distance=0.40 | Left speed=2.00 | Right speed=1.98
+robot_2 | Consensus Value: 50.0000
+robot_2 | Action: RIGHT | Nearest Robot: 1.37 m
+robot_2 | Position=(3.20, -3.01) | Target=(3.31, -2.69) | Yaw=2.26 | Heading error=-1.03 | Distance=0.34 | Left speed=2.00 | Right speed=-0.65
+robot_3 | Consensus Value: 50.0000
+robot_3 | Action: RIGHT | Nearest Robot: 3.00 m
+robot_3 | Position=(0.54, -1.61) | Target=(0.06, -1.94) | Yaw=-2.33 | Heading error=-0.22 | Distance=0.58 | Left speed=2.00 | Right speed=1.41
+robot_1: REACHED Waypoint 25/105 at (4.31, -4.19) | Distance: 0.244 m
+robot_1 | Position=(4.28, -4.19) | Target=(4.56, -4.19) | Yaw=-0.00 | Heading error=-0.00 | Distance=0.28 | Left speed=2.00 | Right speed=1.99
+robot_2 | Position=(3.12, -2.88) | Target=(3.31, -2.69) | Yaw=1.66 | Heading error=-0.88 | Distance=0.26 | Left speed=2.00 | Right speed=-0.31
+robot_3 | Position=(0.31, -1.84) | Target=(0.06, -1.94) | Yaw=-2.46 | Heading error=-0.28 | Distance=0.27 | Left speed=2.00 | Right speed=1.25
+robot_3: REACHED Waypoint 28/114 at (0.06, -1.94) | Distance: 0.248 m
+robot_1: REACHED Waypoint 26/105 at (4.56, -4.19) | Distance: 0.249 m
+robot_2: REACHED Waypoint 15/128 at (3.31, -2.69) | Distance: 0.250 m
+robot_1: REACHED Waypoint 27/105 at (4.81, -4.19) | Distance: 0.246 m
+robot_1 | Action: FORWARD | Nearest Robot: 2.16 m
+robot_1 | Position=(4.65, -4.19) | Target=(5.06, -4.19) | Yaw=-0.00 | Heading error=0.00 | Distance=0.41 | Left speed=2.00 | Right speed=2.00
+robot_2 | Action: RIGHT | Nearest Robot: 2.16 m
+robot_2 | Position=(3.14, -2.63) | Target=(3.31, -2.44) | Yaw=1.28 | Heading error=-0.42 | Distance=0.26 | Left speed=2.00 | Right speed=0.90
+robot_3 | Action: FORWARD | Nearest Robot: 3.17 m
+robot_3 | Position=(0.02, -2.05) | Target=(-0.19, -2.19) | Yaw=-2.50 | Heading error=-0.08 | Distance=0.25 | Left speed=2.00 | Right speed=1.79
+robot_3: REACHED Waypoint 29/114 at (-0.19, -2.19) | Distance: 0.244 m
+robot_2: REACHED Waypoint 16/128 at (3.31, -2.44) | Distance: 0.248 m
+robot_1: REACHED Waypoint 28/105 at (5.06, -4.19) | Distance: 0.243 m
+robot_2: REACHED Waypoint 17/128 at (3.31, -2.19) | Distance: 0.245 m
+robot_3: REACHED Waypoint 30/114 at (-0.44, -2.44) | Distance: 0.248 m
+robot_1 | Position=(5.03, -4.19) | Target=(5.31, -4.19) | Yaw=-0.00 | Heading error=0.00 | Distance=0.29 | Left speed=1.99 | Right speed=2.00
+robot_2 | Position=(3.23, -2.35) | Target=(3.06, -1.94) | Yaw=1.37 | Heading error=0.59 | Distance=0.44 | Left speed=0.45 | Right speed=2.00
+robot_3 | Position=(-0.26, -2.27) | Target=(-0.69, -2.69) | Yaw=-2.47 | Heading error=0.10 | Distance=0.60 | Left speed=1.74 | Right speed=2.00
+robot_1: REACHED Waypoint 29/105 at (5.31, -4.19) | Distance: 0.247 m
+robot_1: REACHED Waypoint 30/105 at (5.56, -4.19) | Distance: 0.244 m
+robot_1 | Action: FORWARD | Nearest Robot: 2.97 m
+robot_1 | Position=(5.39, -4.19) | Target=(5.81, -4.19) | Yaw=-0.00 | Heading error=0.00 | Distance=0.42 | Left speed=1.99 | Right speed=2.00
+robot_2 | Action: LEFT | Nearest Robot: 2.97 m
+robot_2 | Position=(3.27, -2.11) | Target=(3.06, -1.94) | Yaw=1.82 | Heading error=0.63 | Distance=0.27 | Left speed=0.33 | Right speed=2.00
+robot_3 | Action: FORWARD | Nearest Robot: 3.82 m
+robot_3: REACHED Waypoint 31/114 at (-0.69, -2.69) | Distance: 0.248 m
+robot_2: REACHED Waypoint 18/128 at (3.06, -1.94) | Distance: 0.248 m
+robot_1: REACHED Waypoint 31/105 at (5.81, -4.19) | Distance: 0.249 m
+robot_1: REACHED Waypoint 32/105 at (5.56, -4.44) | Distance: 0.249 m
+robot_2: REACHED Waypoint 19/128 at (3.06, -1.69) | Distance: 0.249 m
+robot_1 | Position=(5.60, -4.20) | Target=(5.31, -4.69) | Yaw=-0.43 | Heading error=-1.67 | Distance=0.57 | Left speed=2.00 | Right speed=-1.06
+robot_2 | Position=(3.17, -1.82) | Target=(3.06, -1.44) | Yaw=1.95 | Heading error=-0.10 | Distance=0.40 | Left speed=2.00 | Right speed=1.74
+robot_3 | Position=(-0.78, -2.74) | Target=(-0.94, -2.94) | Yaw=-2.36 | Heading error=0.13 | Distance=0.25 | Left speed=1.67 | Right speed=2.00
+robot_3: REACHED Waypoint 32/114 at (-0.94, -2.94) | Distance: 0.244 m
+robot_2: REACHED Waypoint 20/128 at (3.06, -1.44) | Distance: 0.250 m
+robot_1 | Action: RIGHT | Nearest Robot: 3.80 m
+robot_1 | Position=(5.67, -4.26) | Target=(5.31, -4.69) | Yaw=-1.06 | Heading error=-1.22 | Distance=0.56 | Left speed=2.00 | Right speed=-0.77
+robot_2 | Action: LEFT | Nearest Robot: 3.81 m
+robot_2 | Position=(3.04, -1.51) | Target=(2.81, -1.19) | Yaw=1.99 | Heading error=0.20 | Distance=0.40 | Left speed=1.46 | Right speed=2.00
+robot_3 | Action: FORWARD | Nearest Robot: 4.34 m
+robot_3: REACHED Waypoint 33/114 at (-1.19, -3.19) | Distance: 0.243 m
+robot_2: REACHED Waypoint 21/128 at (2.81, -1.19) | Distance: 0.247 m
+robot_3: REACHED Waypoint 34/114 at (-1.44, -3.44) | Distance: 0.245 m
+robot_1 | Position=(5.73, -4.40) | Target=(5.31, -4.69) | Yaw=-1.75 | Heading error=-0.80 | Distance=0.51 | Left speed=2.00 | Right speed=-0.10
+robot_2 | Position=(2.90, -1.23) | Target=(2.56, -0.94) | Yaw=2.14 | Heading error=0.28 | Distance=0.45 | Left speed=1.26 | Right speed=2.00
+robot_3 | Position=(-1.29, -3.27) | Target=(-1.69, -3.69) | Yaw=-2.32 | Heading error=-0.02 | Distance=0.58 | Left speed=2.00 | Right speed=1.96
+robot_2: REACHED Waypoint 22/128 at (2.56, -0.94) | Distance: 0.248 m
+robot_3: REACHED Waypoint 35/114 at (-1.69, -3.69) | Distance: 0.250 m
+robot_3: REACHED Waypoint 36/114 at (-1.69, -3.44) | Distance: 0.190 m
+robot_1 | Action: RIGHT | Nearest Robot: 4.64 m
+robot_1 | Position=(5.70, -4.58) | Target=(5.31, -4.69) | Yaw=-2.21 | Heading error=-0.67 | Distance=0.40 | Left speed=2.00 | Right speed=0.23
+robot_2 | Action: LEFT | Nearest Robot: 4.64 m
+robot_2 | Position=(2.73, -1.01) | Target=(2.31, -0.94) | Yaw=2.36 | Heading error=0.61 | Distance=0.43 | Left speed=0.40 | Right speed=2.00
+robot_3 | Action: RIGHT | Nearest Robot: 4.93 m
+robot_3 | Position=(-1.52, -3.52) | Target=(-1.69, -3.19) | Yaw=-2.38 | Heading error=-1.85 | Distance=0.37 | Left speed=2.00 | Right speed=-1.18
+robot_1: REACHED Waypoint 33/105 at (5.31, -4.69) | Distance: 0.250 m
+robot_1 | Position=(5.55, -4.73) | Target=(5.06, -4.69) | Yaw=-2.58 | Heading error=-0.65 | Distance=0.49 | Left speed=2.00 | Right speed=0.29
+robot_2 | Position=(2.55, -0.87) | Target=(2.31, -0.94) | Yaw=2.72 | Heading error=0.70 | Distance=0.25 | Left speed=0.14 | Right speed=2.00
+robot_3 | Position=(-1.60, -3.56) | Target=(-1.69, -3.19) | Yaw=-3.12 | Heading error=-1.36 | Distance=0.38 | Left speed=2.00 | Right speed=-0.87
+robot_2: REACHED Waypoint 23/128 at (2.31, -0.94) | Distance: 0.248 m
+robot_1 | Action: RIGHT | Nearest Robot: 5.00 m
+robot_1 | Position=(5.34, -4.82) | Target=(5.06, -4.69) | Yaw=-2.97 | Heading error=-0.61 | Distance=0.31 | Left speed=2.00 | Right speed=0.39
+robot_2 | Action: LEFT | Nearest Robot: 4.89 m
+robot_2 | Position=(2.32, -0.80) | Target=(2.06, -0.94) | Yaw=3.09 | Heading error=0.54 | Distance=0.29 | Left speed=0.56 | Right speed=2.00
+robot_3 | Action: RIGHT | Nearest Robot: 4.90 m
+robot_3 | Position=(-1.71, -3.57) | Target=(-1.69, -3.19) | Yaw=2.47 | Heading error=-0.96 | Distance=0.39 | Left speed=2.00 | Right speed=-0.54
+robot_2: REACHED Waypoint 24/128 at (2.06, -0.94) | Distance: 0.248 m
+robot_1: REACHED Waypoint 34/105 at (5.06, -4.69) | Distance: 0.249 m
+robot_2: REACHED Waypoint 25/128 at (1.81, -0.69) | Distance: 0.248 m
+robot_1 | Position=(5.08, -4.84) | Target=(4.81, -4.69) | Yaw=2.96 | Heading error=-0.32 | Distance=0.31 | Left speed=2.00 | Right speed=1.16
+robot_2 | Position=(2.04, -0.78) | Target=(1.56, -0.44) | Yaw=3.06 | Heading error=-0.54 | Distance=0.59 | Left speed=2.00 | Right speed=0.59
+robot_3 | Position=(-1.82, -3.45) | Target=(-1.69, -3.19) | Yaw=1.96 | Heading error=-0.84 | Distance=0.29 | Left speed=2.00 | Right speed=-0.23
+robot_1: REACHED Waypoint 35/105 at (4.81, -4.69) | Distance: 0.246 m
+robot_3: REACHED Waypoint 37/114 at (-1.69, -3.19) | Distance: 0.250 m
+robot_1: REACHED Waypoint 36/105 at (4.56, -4.69) | Distance: 0.246 m
+robot_1 | Action: FORWARD | Nearest Robot: 5.00 m
+robot_1 | Position=(4.75, -4.76) | Target=(4.31, -4.69) | Yaw=2.89 | Heading error=0.10 | Distance=0.45 | Left speed=1.75 | Right speed=2.00
+robot_2 | Action: RIGHT | Nearest Robot: 4.44 m
+robot_2 | Position=(1.79, -0.73) | Target=(1.56, -0.44) | Yaw=2.72 | Heading error=-0.49 | Distance=0.37 | Left speed=2.00 | Right speed=0.72
+robot_3 | Action: RIGHT | Nearest Robot: 4.44 m
+robot_3 | Position=(-1.86, -3.24) | Target=(-1.69, -2.94) | Yaw=1.49 | Heading error=-0.44 | Distance=0.35 | Left speed=2.00 | Right speed=0.83
+robot_3: REACHED Waypoint 38/114 at (-1.69, -2.94) | Distance: 0.249 m
+robot_1: REACHED Waypoint 37/105 at (4.31, -4.69) | Distance: 0.247 m
+robot_2: REACHED Waypoint 26/128 at (1.56, -0.44) | Distance: 0.247 m
+robot_1 | Position=(4.42, -4.69) | Target=(4.06, -4.69) | Yaw=2.98 | Heading error=0.16 | Distance=0.36 | Left speed=1.58 | Right speed=2.00
+robot_2 | Position=(1.57, -0.60) | Target=(1.31, -0.19) | Yaw=2.46 | Heading error=-0.34 | Distance=0.49 | Left speed=2.00 | Right speed=1.11
+robot_3 | Position=(-1.84, -2.98) | Target=(-1.94, -2.69) | Yaw=1.49 | Heading error=0.41 | Distance=0.31 | Left speed=0.91 | Right speed=2.00
+robot_3: REACHED Waypoint 39/114 at (-1.94, -2.69) | Distance: 0.248 m
+robot_1: REACHED Waypoint 38/105 at (4.06, -4.69) | Distance: 0.247 m
+robot_2: REACHED Waypoint 27/128 at (1.31, -0.19) | Distance: 0.248 m
+robot_1 | Action: FORWARD | Nearest Robot: 5.00 m
+robot_1 | Position=(4.08, -4.66) | Target=(3.81, -4.69) | Yaw=3.09 | Heading error=0.15 | Distance=0.27 | Left speed=1.60 | Right speed=2.00
+robot_2 | Action: LEFT | Nearest Robot: 3.94 m
+robot_2 | Position=(1.37, -0.42) | Target=(1.06, -0.44) | Yaw=2.33 | Heading error=0.88 | Distance=0.31 | Left speed=-0.33 | Right speed=2.00
+robot_3 | Action: LEFT | Nearest Robot: 3.94 m
+robot_3: REACHED Waypoint 40/114 at (-1.94, -2.44) | Distance: 0.247 m
+robot_1: REACHED Waypoint 39/105 at (3.81, -4.69) | Distance: 0.244 m
+robot_2: REACHED Waypoint 28/128 at (1.06, -0.44) | Distance: 0.249 m
+robot_1: REACHED Waypoint 40/105 at (3.56, -4.69) | Distance: 0.243 m
+robot_1 | Position=(3.74, -4.66) | Target=(3.31, -4.69) | Yaw=-3.12 | Heading error=0.04 | Distance=0.43 | Left speed=1.88 | Right speed=2.00
+robot_2 | Position=(1.26, -0.34) | Target=(1.06, -0.69) | Yaw=2.89 | Heading error=1.31 | Distance=0.40 | Left speed=-0.83 | Right speed=2.00
+robot_3 | Position=(-1.91, -2.42) | Target=(-2.19, -2.19) | Yaw=1.99 | Heading error=0.46 | Distance=0.36 | Left speed=0.79 | Right speed=2.00
+robot_1: REACHED Waypoint 41/105 at (3.31, -4.69) | Distance: 0.247 m
+robot_3: REACHED Waypoint 41/114 at (-2.19, -2.19) | Distance: 0.249 m
+robot_1 | Action: FORWARD | Nearest Robot: 4.90 m
+robot_1 | Position=(3.37, -4.67) | Target=(3.06, -4.69) | Yaw=-3.10 | Heading error=0.01 | Distance=0.31 | Left speed=1.98 | Right speed=2.00
+robot_2 | Action: LEFT | Nearest Robot: 3.68 m
+robot_2 | Position=(1.13, -0.31) | Target=(1.06, -0.69) | Yaw=-2.66 | Heading error=0.90 | Distance=0.38 | Left speed=-0.37 | Right speed=2.00
+robot_3 | Action: FORWARD | Nearest Robot: 3.69 m
+robot_3 | Position=(-2.06, -2.16) | Target=(-2.19, -1.94) | Yaw=2.14 | Heading error=-0.03 | Distance=0.26 | Left speed=2.00 | Right speed=1.93
+robot_3: REACHED Waypoint 42/114 at (-2.19, -1.94) | Distance: 0.248 m
+robot_1: REACHED Waypoint 42/105 at (3.06, -4.69) | Distance: 0.244 m
+robot_1: REACHED Waypoint 43/105 at (2.81, -4.69) | Distance: 0.243 m
+robot_3: REACHED Waypoint 43/114 at (-2.19, -1.69) | Distance: 0.246 m
+robot_1 | Position=(3.00, -4.69) | Target=(2.56, -4.69) | Yaw=-3.11 | Heading error=-0.03 | Distance=0.44 | Left speed=2.00 | Right speed=1.93
+robot_2 | Position=(1.01, -0.41) | Target=(1.06, -0.69) | Yaw=-2.19 | Heading error=0.82 | Distance=0.28 | Left speed=-0.15 | Right speed=2.00
+robot_3 | Position=(-2.20, -1.89) | Target=(-2.44, -1.44) | Yaw=1.99 | Heading error=0.06 | Distance=0.51 | Left speed=1.84 | Right speed=2.00
+robot_2: REACHED Waypoint 29/128 at (1.06, -0.69) | Distance: 0.249 m
+robot_1: REACHED Waypoint 44/105 at (2.56, -4.69) | Distance: 0.245 m
+robot_3: REACHED Waypoint 44/114 at (-2.44, -1.44) | Distance: 0.244 m
+robot_1 | Action: FORWARD | Nearest Robot: 4.40 m
+robot_1 | Position=(2.63, -4.69) | Target=(2.31, -4.69) | Yaw=-3.13 | Heading error=-0.02 | Distance=0.32 | Left speed=2.00 | Right speed=1.93
+robot_2 | Action: LEFT | Nearest Robot: 3.34 m
+robot_2 | Position=(0.87, -0.67) | Target=(0.81, -0.94) | Yaw=-1.98 | Heading error=0.20 | Distance=0.27 | Left speed=1.48 | Right speed=2.00
+robot_3 | Action: LEFT | Nearest Robot: 3.35 m
+robot_3 | Position=(-2.35, -1.58) | Target=(-2.69, -1.19) | Yaw=2.05 | Heading error=0.23 | Distance=0.52 | Left speed=1.39 | Right speed=2.00
+robot_2: REACHED Waypoint 30/128 at (0.81, -0.94) | Distance: 0.248 m
+robot_1: REACHED Waypoint 45/105 at (2.31, -4.69) | Distance: 0.245 m
+robot_1: REACHED Waypoint 46/105 at (2.06, -4.69) | Distance: 0.245 m
+robot_3: REACHED Waypoint 45/114 at (-2.69, -1.19) | Distance: 0.247 m
+robot_1 | Position=(2.27, -4.69) | Target=(1.81, -4.69) | Yaw=3.14 | Heading error=-0.01 | Distance=0.46 | Left speed=2.00 | Right speed=1.98
+robot_2 | Position=(0.73, -0.98) | Target=(0.56, -1.19) | Yaw=-2.05 | Heading error=-0.18 | Distance=0.27 | Left speed=2.00 | Right speed=1.52
+robot_3 | Position=(-2.51, -1.31) | Target=(-2.94, -0.94) | Yaw=2.20 | Heading error=0.23 | Distance=0.57 | Left speed=1.40 | Right speed=2.00
+robot_2: REACHED Waypoint 31/128 at (0.56, -1.19) | Distance: 0.249 m
+robot_1: REACHED Waypoint 47/105 at (1.81, -4.69) | Distance: 0.243 m
+robot_1 | Consensus Value: 50.0000
+robot_1 | Action: LEFT | Nearest Robot: 3.79 m
+robot_1 | Position=(1.94, -4.70) | Target=(1.56, -4.94) | Yaw=-3.01 | Heading error=0.42 | Distance=0.45 | Left speed=0.89 | Right speed=2.00
+robot_2 | Consensus Value: 50.0000
+robot_2 | Action: RIGHT | Nearest Robot: 3.31 m
+robot_2 | Position=(0.59, -1.16) | Target=(0.31, -1.19) | Yaw=-2.39 | Heading error=-0.65 | Distance=0.28 | Left speed=2.00 | Right speed=0.28
+robot_3 | Consensus Value: 50.0000
+robot_3 | Action: LEFT | Nearest Robot: 3.31 m
+robot_3 | Position=(-2.71, -1.06) | Target=(-2.94, -0.94) | Yaw=2.33 | Heading error=0.30 | Distance=0.26 | Left speed=1.21 | Right speed=2.00
+robot_3: REACHED Waypoint 46/114 at (-2.94, -0.94) | Distance: 0.244 m
+robot_2: REACHED Waypoint 32/128 at (0.31, -1.19) | Distance: 0.247 m
+robot_1: REACHED Waypoint 48/105 at (1.56, -4.94) | Distance: 0.249 m
+robot_1 | Position=(1.69, -4.74) | Target=(1.31, -5.19) | Yaw=-2.71 | Heading error=0.43 | Distance=0.59 | Left speed=0.86 | Right speed=2.00
+robot_2 | Position=(0.42, -1.28) | Target=(0.06, -1.19) | Yaw=-2.76 | Heading error=-0.64 | Distance=0.37 | Left speed=2.00 | Right speed=0.30
+robot_3 | Position=(-2.96, -0.83) | Target=(-3.19, -0.69) | Yaw=2.42 | Heading error=0.18 | Distance=0.27 | Left speed=1.53 | Right speed=2.00
+robot_3: REACHED Waypoint 47/114 at (-3.19, -0.69) | Distance: 0.244 m
+robot_1 | Action: LEFT | Nearest Robot: 3.70 m
+robot_1 | Position=(1.46, -4.89) | Target=(1.31, -5.19) | Yaw=-2.46 | Heading error=0.44 | Distance=0.34 | Left speed=0.83 | Right speed=2.00
+robot_2 | Action: RIGHT | Nearest Robot: 3.54 m
+robot_2 | Position=(0.22, -1.40) | Target=(0.06, -1.19) | Yaw=3.00 | Heading error=-0.80 | Distance=0.26 | Left speed=2.00 | Right speed=-0.10
+robot_3 | Action: FORWARD | Nearest Robot: 3.55 m
+robot_3 | Position=(-3.23, -0.59) | Target=(-3.44, -0.44) | Yaw=2.45 | Heading error=0.05 | Distance=0.26 | Left speed=1.86 | Right speed=2.00
+robot_3: REACHED Waypoint 48/114 at (-3.44, -0.44) | Distance: 0.249 m
+robot_2: REACHED Waypoint 33/128 at (0.06, -1.19) | Distance: 0.249 m
+robot_1: REACHED Waypoint 49/105 at (1.31, -5.19) | Distance: 0.246 m
+robot_2: REACHED Waypoint 34/128 at (-0.19, -1.19) | Distance: 0.244 m
+robot_3: REACHED Waypoint 49/114 at (-3.69, -0.19) | Distance: 0.249 m
+robot_1 | Position=(1.29, -5.05) | Target=(1.31, -5.44) | Yaw=-2.15 | Heading error=0.63 | Distance=0.38 | Left speed=0.34 | Right speed=2.00
+robot_2 | Position=(-0.02, -1.34) | Target=(-0.44, -1.19) | Yaw=2.71 | Heading error=0.09 | Distance=0.44 | Left speed=1.77 | Right speed=2.00
+robot_3 | Position=(-3.51, -0.36) | Target=(-3.94, 0.06) | Yaw=2.43 | Heading error=-0.06 | Distance=0.60 | Left speed=2.00 | Right speed=1.84
+robot_2: REACHED Waypoint 35/128 at (-0.44, -1.19) | Distance: 0.247 m
+robot_1: REACHED Waypoint 50/105 at (1.31, -5.44) | Distance: 0.249 m
+robot_3: REACHED Waypoint 50/114 at (-3.94, 0.06) | Distance: 0.244 m
+robot_1 | Action: LEFT | Nearest Robot: 4.29 m
+robot_1 | Position=(1.16, -5.24) | Target=(1.31, -5.69) | Yaw=-1.73 | Heading error=0.48 | Distance=0.47 | Left speed=0.74 | Right speed=2.00
+robot_2 | Action: LEFT | Nearest Robot: 3.61 m
+robot_2 | Position=(-0.33, -1.21) | Target=(-0.69, -1.19) | Yaw=2.81 | Heading error=0.26 | Distance=0.36 | Left speed=1.31 | Right speed=2.00
+robot_3 | Action: FORWARD | Nearest Robot: 3.62 m
+robot_3 | Position=(-3.78, -0.12) | Target=(-4.19, 0.31) | Yaw=2.39 | Heading error=-0.06 | Distance=0.60 | Left speed=2.00 | Right speed=1.85
+robot_2: REACHED Waypoint 36/128 at (-0.69, -1.19) | Distance: 0.249 m
+robot_1: REACHED Waypoint 51/105 at (1.31, -5.69) | Distance: 0.247 m
+robot_3: REACHED Waypoint 51/114 at (-4.19, 0.31) | Distance: 0.245 m
+robot_1: REACHED Waypoint 52/105 at (1.06, -5.44) | Distance: 0.110 m
+robot_1 | Position=(1.15, -5.50) | Target=(1.06, -5.19) | Yaw=-1.39 | Heading error=-3.04 | Distance=0.32 | Left speed=2.00 | Right speed=-1.94
+robot_2 | Position=(-0.63, -1.15) | Target=(-0.94, -1.19) | Yaw=3.00 | Heading error=0.27 | Distance=0.31 | Left speed=1.28 | Right speed=2.00
+robot_3 | Position=(-4.03, 0.13) | Target=(-4.44, 0.06) | Yaw=2.37 | Heading error=0.93 | Distance=0.41 | Left speed=-0.46 | Right speed=2.00
+robot_2: REACHED Waypoint 37/128 at (-0.94, -1.19) | Distance: 0.246 m
+robot_2: REACHED Waypoint 38/128 at (-1.19, -1.19) | Distance: 0.248 m
+robot_2 | Action: FORWARD | Nearest Robot: 3.50 m
+robot_2 | Position=(-0.95, -1.14) | Target=(-1.44, -1.19) | Yaw=-3.13 | Heading error=0.09 | Distance=0.49 | Left speed=1.76 | Right speed=2.00
+robot_3 | Action: LEFT | Nearest Robot: 3.50 m
+robot_3 | Position=(-4.18, 0.22) | Target=(-4.44, 0.06) | Yaw=2.88 | Heading error=0.81 | Distance=0.31 | Left speed=-0.13 | Right speed=2.00
+robot_1 | Action: RIGHT | Nearest Robot: 4.86 m
+robot_1 | Position=(1.14, -5.53) | Target=(1.06, -5.19) | Yaw=-2.29 | Heading error=-2.19 | Distance=0.35 | Left speed=2.00 | Right speed=-1.39
+robot_2: REACHED Waypoint 39/128 at (-1.44, -1.19) | Distance: 0.243 m
+robot_1 | Position=(1.08, -5.57) | Target=(1.06, -5.19) | Yaw=-3.06 | Heading error=-1.62 | Distance=0.38 | Left speed=2.00 | Right speed=-1.03
+robot_2 | Position=(-1.30, -1.16) | Target=(-1.69, -1.19) | Yaw=-3.08 | Heading error=0.02 | Distance=0.39 | Left speed=1.96 | Right speed=2.00
+robot_3 | Position=(-4.35, 0.30) | Target=(-4.44, 0.06) | Yaw=-2.79 | Heading error=0.85 | Distance=0.25 | Left speed=-0.25 | Right speed=2.00
+robot_3: REACHED Waypoint 52/114 at (-4.44, 0.06) | Distance: 0.250 m
+robot_2: REACHED Waypoint 40/128 at (-1.69, -1.19) | Distance: 0.249 m
+robot_1 | Action: RIGHT | Nearest Robot: 5.00 m
+robot_1 | Position=(0.97, -5.58) | Target=(1.06, -5.19) | Yaw=2.49 | Heading error=-1.13 | Distance=0.40 | Left speed=2.00 | Right speed=-0.72
+robot_2 | Action: FORWARD | Nearest Robot: 3.18 m
+robot_2 | Position=(-1.67, -1.18) | Target=(-1.94, -1.19) | Yaw=-3.08 | Heading error=-0.03 | Distance=0.26 | Left speed=2.00 | Right speed=1.92
+robot_3 | Action: LEFT | Nearest Robot: 3.19 m
+robot_3 | Position=(-4.55, 0.19) | Target=(-4.69, -0.19) | Yaw=-2.46 | Heading error=0.53 | Distance=0.41 | Left speed=0.62 | Right speed=2.00
+robot_2: REACHED Waypoint 41/128 at (-1.94, -1.19) | Distance: 0.249 m
+robot_2: REACHED Waypoint 42/128 at (-2.19, -1.19) | Distance: 0.246 m
+robot_3: REACHED Waypoint 53/114 at (-4.69, -0.19) | Distance: 0.248 m
+robot_1 | Position=(0.89, -5.47) | Target=(1.06, -5.19) | Yaw=1.92 | Heading error=-0.89 | Distance=0.33 | Left speed=2.00 | Right speed=-0.34
+robot_2 | Position=(-2.00, -1.19) | Target=(-2.44, -0.94) | Yaw=3.09 | Heading error=-0.47 | Distance=0.50 | Left speed=2.00 | Right speed=0.77
+robot_3 | Position=(-4.70, 0.02) | Target=(-4.69, -0.44) | Yaw=-2.15 | Heading error=0.61 | Distance=0.46 | Left speed=0.39 | Right speed=2.00
+robot_1 | Action: RIGHT | Nearest Robot: 5.00 m
+robot_1 | Position=(0.82, -5.30) | Target=(1.06, -5.19) | Yaw=1.29 | Heading error=-0.84 | Distance=0.26 | Left speed=2.00 | Right speed=-0.21
+robot_2 | Action: RIGHT | Nearest Robot: 2.74 m
+robot_2 | Position=(-2.26, -1.16) | Target=(-2.44, -0.94) | Yaw=2.76 | Heading error=-0.51 | Distance=0.28 | Left speed=2.00 | Right speed=0.65
+robot_3 | Action: LEFT | Nearest Robot: 2.75 m
+robot_3 | Position=(-4.83, -0.19) | Target=(-4.69, -0.44) | Yaw=-1.74 | Heading error=0.68 | Distance=0.28 | Left speed=0.20 | Right speed=2.00
+robot_2: REACHED Waypoint 43/128 at (-2.44, -0.94) | Distance: 0.247 m
+robot_1: REACHED Waypoint 53/105 at (1.06, -5.19) | Distance: 0.249 m
+robot_3: REACHED Waypoint 54/114 at (-4.69, -0.44) | Distance: 0.249 m
+robot_1: REACHED Waypoint 54/105 at (0.81, -4.94) | Distance: 0.250 m
+robot_1 | Position=(0.86, -5.13) | Target=(0.56, -4.69) | Yaw=1.38 | Heading error=0.78 | Distance=0.53 | Left speed=-0.05 | Right speed=2.00
+robot_3 | Position=(-4.86, -0.43) | Target=(-4.69, -0.69) | Yaw=-1.34 | Heading error=0.35 | Distance=0.31 | Left speed=1.09 | Right speed=2.00
+robot_2 | Position=(-2.49, -1.04) | Target=(-2.69, -0.69) | Yaw=2.50 | Heading error=-0.42 | Distance=0.40 | Left speed=2.00 | Right speed=0.90
+robot_3: REACHED Waypoint 55/114 at (-4.69, -0.69) | Distance: 0.250 m
+robot_2: REACHED Waypoint 44/128 at (-2.69, -0.69) | Distance: 0.248 m
+robot_3: REACHED Waypoint 56/114 at (-4.69, -0.94) | Distance: 0.243 m
+robot_1 | Action: LEFT | Nearest Robot: 5.00 m
+robot_1 | Position=(0.87, -4.92) | Target=(0.56, -4.69) | Yaw=1.88 | Heading error=0.62 | Distance=0.39 | Left speed=0.37 | Right speed=2.00
+robot_2 | Action: RIGHT | Nearest Robot: 2.10 m
+robot_2 | Position=(-2.67, -0.87) | Target=(-2.69, -0.44) | Yaw=2.23 | Heading error=-0.62 | Distance=0.43 | Left speed=2.00 | Right speed=0.37
+robot_3 | Action: FORWARD | Nearest Robot: 2.10 m
+robot_3 | Position=(-4.76, -0.75) | Target=(-4.69, -1.19) | Yaw=-1.28 | Heading error=-0.12 | Distance=0.44 | Left speed=2.00 | Right speed=1.68
+robot_3: REACHED Waypoint 57/114 at (-4.69, -1.19) | Distance: 0.248 m
+robot_1: REACHED Waypoint 55/105 at (0.56, -4.69) | Distance: 0.249 m
+robot_1 | Position=(0.80, -4.73) | Target=(0.31, -4.44) | Yaw=2.26 | Heading error=0.35 | Distance=0.57 | Left speed=1.09 | Right speed=2.00
+robot_2 | Position=(-2.81, -0.67) | Target=(-2.69, -0.44) | Yaw=1.82 | Heading error=-0.73 | Distance=0.27 | Left speed=2.00 | Right speed=0.07
+robot_3 | Position=(-4.70, -1.03) | Target=(-4.94, -1.44) | Yaw=-1.51 | Heading error=-0.58 | Distance=0.47 | Left speed=2.00 | Right speed=0.47
+robot_2: REACHED Waypoint 45/128 at (-2.69, -0.44) | Distance: 0.249 m
+robot_1 | Action: LEFT | Nearest Robot: 5.00 m
+robot_1 | Position=(0.59, -4.52) | Target=(0.31, -4.44) | Yaw=2.46 | Heading error=0.40 | Distance=0.29 | Left speed=0.94 | Right speed=2.00
+robot_2 | Action: RIGHT | Nearest Robot: 2.03 m
+robot_2 | Position=(-2.84, -0.43) | Target=(-2.69, -0.19) | Yaw=1.45 | Heading error=-0.46 | Distance=0.28 | Left speed=2.00 | Right speed=0.78
+robot_3 | Action: RIGHT | Nearest Robot: 2.03 m
+robot_3 | Position=(-4.69, -1.27) | Target=(-4.94, -1.44) | Yaw=-1.93 | Heading error=-0.60 | Distance=0.30 | Left speed=2.00 | Right speed=0.42
+robot_1: REACHED Waypoint 56/105 at (0.31, -4.44) | Distance: 0.248 m
+robot_2: REACHED Waypoint 46/128 at (-2.69, -0.19) | Distance: 0.248 m
+robot_3: REACHED Waypoint 58/114 at (-4.94, -1.44) | Distance: 0.248 m
+robot_1: REACHED Waypoint 57/105 at (0.31, -4.19) | Distance: 0.247 m
+robot_1 | Position=(0.39, -4.35) | Target=(0.31, -3.94) | Yaw=2.33 | Heading error=-0.57 | Distance=0.42 | Left speed=2.00 | Right speed=0.49
+robot_2 | Position=(-2.83, -0.30) | Target=(-2.44, -0.44) | Yaw=0.86 | Heading error=-1.19 | Distance=0.41 | Left speed=2.00 | Right speed=-0.76
+robot_3 | Position=(-4.81, -1.49) | Target=(-5.19, -1.69) | Yaw=-2.22 | Heading error=-0.43 | Distance=0.43 | Left speed=2.00 | Right speed=0.87
+robot_3: REACHED Waypoint 59/114 at (-5.19, -1.69) | Distance: 0.250 m
+robot_1: REACHED Waypoint 58/105 at (0.31, -3.94) | Distance: 0.249 m
+robot_1 | Action: RIGHT | Nearest Robot: 4.93 m
+robot_1 | Position=(0.25, -4.16) | Target=(0.31, -3.69) | Yaw=1.99 | Heading error=-0.55 | Distance=0.48 | Left speed=2.00 | Right speed=0.54
+robot_2 | Action: RIGHT | Nearest Robot: 2.70 m
+robot_2 | Position=(-2.72, -0.23) | Target=(-2.44, -0.44) | Yaw=0.26 | Heading error=-0.91 | Distance=0.35 | Left speed=2.00 | Right speed=-0.40
+robot_3 | Action: FORWARD | Nearest Robot: 2.70 m
+robot_3 | Position=(-5.00, -1.68) | Target=(-5.44, -1.94) | Yaw=-2.44 | Heading error=-0.18 | Distance=0.51 | Left speed=2.00 | Right speed=1.53
+robot_3: REACHED Waypoint 60/114 at (-5.44, -1.94) | Distance: 0.244 m
+robot_1 | Position=(0.17, -3.92) | Target=(0.31, -3.69) | Yaw=1.61 | Heading error=-0.57 | Distance=0.27 | Left speed=2.00 | Right speed=0.49
+robot_2 | Position=(-2.55, -0.17) | Target=(-2.44, -0.44) | Yaw=-0.36 | Heading error=-0.81 | Distance=0.29 | Left speed=2.00 | Right speed=-0.15
+robot_3 | Position=(-5.27, -1.89) | Target=(-5.69, -2.19) | Yaw=-2.53 | Heading error=0.00 | Distance=0.52 | Left speed=2.00 | Right speed=2.00
+robot_1: REACHED Waypoint 59/105 at (0.31, -3.69) | Distance: 0.247 m
+robot_2: REACHED Waypoint 47/128 at (-2.44, -0.44) | Distance: 0.249 m
+robot_3: REACHED Waypoint 61/114 at (-5.69, -2.19) | Distance: 0.248 m
+robot_1: REACHED Waypoint 60/105 at (0.31, -3.44) | Distance: 0.246 m
+robot_1 | Action: FORWARD | Nearest Robot: 4.28 m
+robot_1 | Position=(0.20, -3.63) | Target=(0.31, -3.19) | Yaw=1.38 | Heading error=-0.06 | Distance=0.46 | Left speed=2.00 | Right speed=1.84
+robot_2 | Action: RIGHT | Nearest Robot: 3.66 m
+robot_2 | Position=(-2.41, -0.24) | Target=(-2.44, -0.69) | Yaw=-0.84 | Heading error=-0.80 | Distance=0.45 | Left speed=2.00 | Right speed=-0.10
+robot_3 | Action: FORWARD | Nearest Robot: 3.66 m
+robot_3 | Position=(-5.57, -2.10) | Target=(-5.94, -2.44) | Yaw=-2.51 | Heading error=0.10 | Distance=0.50 | Left speed=1.73 | Right speed=2.00
+robot_1: REACHED Waypoint 61/105 at (0.31, -3.19) | Distance: 0.245 m
+robot_3: REACHED Waypoint 62/114 at (-5.94, -2.44) | Distance: 0.246 m
+robot_1 | Position=(0.27, -3.28) | Target=(0.31, -2.94) | Yaw=1.37 | Heading error=0.08 | Distance=0.34 | Left speed=1.80 | Right speed=2.00
+robot_2 | Position=(-2.30, -0.41) | Target=(-2.44, -0.69) | Yaw=-1.29 | Heading error=-0.75 | Distance=0.32 | Left speed=2.00 | Right speed=0.02
+robot_3 | Position=(-5.84, -2.32) | Target=(-6.19, -2.69) | Yaw=-2.45 | Heading error=0.13 | Distance=0.51 | Left speed=1.67 | Right speed=2.00
+robot_1: REACHED Waypoint 62/105 at (0.31, -2.94) | Distance: 0.243 m
+robot_3: REACHED Waypoint 63/114 at (-6.19, -2.69) | Distance: 0.247 m
+robot_3: REACHED Waypoint 64/114 at (-6.19, -2.44) | Distance: 0.157 m
+robot_1 | Consensus Value: 50.0000
+robot_1 | Action: LEFT | Nearest Robot: 3.45 m
+robot_1 | Position=(0.32, -2.94) | Target=(0.31, -2.69) | Yaw=1.46 | Heading error=0.15 | Distance=0.25 | Left speed=1.61 | Right speed=2.00
+robot_2 | Consensus Value: 50.0000
+robot_2 | Action: RIGHT | Nearest Robot: 3.45 m
+robot_2 | Position=(-2.20, -0.59) | Target=(-2.44, -0.69) | Yaw=-1.89 | Heading error=-0.85 | Distance=0.26 | Left speed=2.00 | Right speed=-0.23
+robot_3 | Consensus Value: 50.0000
+robot_3 | Action: RIGHT | Nearest Robot: 4.30 m
+robot_3 | Position=(-6.05, -2.50) | Target=(-6.19, -2.19) | Yaw=-2.52 | Heading error=-1.78 | Distance=0.34 | Left speed=2.00 | Right speed=-1.14
+robot_1: REACHED Waypoint 63/105 at (0.31, -2.69) | Distance: 0.244 m
+robot_2: REACHED Waypoint 48/128 at (-2.44, -0.69) | Distance: 0.250 m
+robot_2: REACHED Waypoint 49/128 at (-2.44, -0.94) | Distance: 0.248 m
+robot_1: REACHED Waypoint 64/105 at (0.31, -2.44) | Distance: 0.249 m
+robot_2 | Position=(-2.29, -0.81) | Target=(-2.19, -1.19) | Yaw=-1.98 | Heading error=0.66 | Distance=0.40 | Left speed=0.25 | Right speed=2.00
+robot_3 | Position=(-6.15, -2.54) | Target=(-6.19, -2.19) | Yaw=2.98 | Heading error=-1.28 | Distance=0.36 | Left speed=2.00 | Right speed=-0.82
+robot_1 | Position=(0.34, -2.60) | Target=(0.31, -2.19) | Yaw=1.54 | Heading error=0.08 | Distance=0.41 | Left speed=1.78 | Right speed=2.00
+robot_1: REACHED Waypoint 65/105 at (0.31, -2.19) | Distance: 0.246 m
+robot_2: REACHED Waypoint 50/128 at (-2.19, -1.19) | Distance: 0.249 m
+robot_1 | Action: FORWARD | Nearest Robot: 2.96 m
+robot_1 | Position=(0.33, -2.24) | Target=(0.31, -1.94) | Yaw=1.59 | Heading error=0.04 | Distance=0.30 | Left speed=1.89 | Right speed=2.00
+robot_2 | Action: LEFT | Nearest Robot: 2.96 m
+robot_2 | Position=(-2.36, -1.01) | Target=(-1.94, -1.44) | Yaw=-1.51 | Heading error=0.72 | Distance=0.60 | Left speed=0.11 | Right speed=2.00
+robot_3 | Action: RIGHT | Nearest Robot: 4.18 m
+robot_3 | Position=(-6.25, -2.53) | Target=(-6.19, -2.19) | Yaw=2.35 | Heading error=-0.96 | Distance=0.34 | Left speed=2.00 | Right speed=-0.54
+robot_1: REACHED Waypoint 66/105 at (0.31, -1.94) | Distance: 0.250 m
+robot_1: REACHED Waypoint 67/105 at (0.31, -1.69) | Distance: 0.248 m
+robot_1 | Position=(0.32, -1.88) | Target=(0.31, -1.44) | Yaw=1.60 | Heading error=-0.01 | Distance=0.44 | Left speed=2.00 | Right speed=1.97
+robot_2 | Position=(-2.31, -1.23) | Target=(-1.94, -1.44) | Yaw=-1.09 | Heading error=0.57 | Distance=0.42 | Left speed=0.50 | Right speed=2.00
+robot_3 | Position=(-6.34, -2.39) | Target=(-6.19, -2.19) | Yaw=1.80 | Heading error=-0.88 | Distance=0.26 | Left speed=2.00 | Right speed=-0.31
+robot_3: REACHED Waypoint 65/114 at (-6.19, -2.19) | Distance: 0.250 m
+robot_1: REACHED Waypoint 68/105 at (0.31, -1.44) | Distance: 0.246 m
+robot_2: REACHED Waypoint 51/128 at (-1.94, -1.44) | Distance: 0.247 m
+robot_1 | Action: FORWARD | Nearest Robot: 2.50 m
+robot_1 | Position=(0.31, -1.50) | Target=(0.31, -1.19) | Yaw=1.59 | Heading error=-0.02 | Distance=0.31 | Left speed=2.00 | Right speed=1.94
+robot_2 | Action: LEFT | Nearest Robot: 2.49 m
+robot_2 | Position=(-2.18, -1.41) | Target=(-1.69, -1.69) | Yaw=-0.76 | Heading error=0.25 | Distance=0.56 | Left speed=1.34 | Right speed=2.00
+robot_3 | Action: RIGHT | Nearest Robot: 4.25 m
+robot_3 | Position=(-6.36, -2.15) | Target=(-6.19, -1.94) | Yaw=1.40 | Heading error=-0.52 | Distance=0.28 | Left speed=2.00 | Right speed=0.64
+robot_3: REACHED Waypoint 66/114 at (-6.19, -1.94) | Distance: 0.249 m
+robot_1: REACHED Waypoint 69/105 at (0.31, -1.19) | Distance: 0.246 m
+robot_3: REACHED Waypoint 67/114 at (-6.19, -1.69) | Distance: 0.244 m
+robot_1 | Position=(0.32, -1.29) | Target=(0.56, -1.19) | Yaw=1.16 | Heading error=-0.76 | Distance=0.26 | Left speed=2.00 | Right speed=0.01
+robot_2 | Position=(-1.94, -1.62) | Target=(-1.69, -1.69) | Yaw=-0.61 | Heading error=0.33 | Distance=0.26 | Left speed=1.14 | Right speed=2.00
+robot_3 | Position=(-6.29, -1.85) | Target=(-6.19, -1.44) | Yaw=1.27 | Heading error=0.06 | Distance=0.42 | Left speed=1.84 | Right speed=2.00
+robot_2: REACHED Waypoint 52/128 at (-1.69, -1.69) | Distance: 0.248 m
+robot_1: REACHED Waypoint 70/105 at (0.56, -1.19) | Distance: 0.249 m
+robot_3: REACHED Waypoint 68/114 at (-6.19, -1.44) | Distance: 0.245 m
+robot_2: REACHED Waypoint 53/128 at (-1.44, -1.94) | Distance: 0.246 m
+robot_1 | Action: RIGHT | Nearest Robot: 2.17 m
+robot_1 | Position=(0.42, -1.16) | Target=(0.81, -1.19) | Yaw=0.70 | Heading error=-0.77 | Distance=0.39 | Left speed=2.00 | Right speed=-0.04
+robot_2 | Action: FORWARD | Nearest Robot: 2.16 m
+robot_2 | Position=(-1.64, -1.82) | Target=(-1.19, -2.19) | Yaw=-0.59 | Heading error=-0.10 | Distance=0.59 | Left speed=2.00 | Right speed=1.75
+robot_3 | Action: LEFT | Nearest Robot: 4.56 m
+robot_3 | Position=(-6.20, -1.51) | Target=(-6.19, -1.19) | Yaw=1.36 | Heading error=0.18 | Distance=0.33 | Left speed=1.53 | Right speed=2.00
+robot_3: REACHED Waypoint 69/114 at (-6.19, -1.19) | Distance: 0.247 m
+robot_2: REACHED Waypoint 54/128 at (-1.19, -2.19) | Distance: 0.249 m
+robot_1 | Position=(0.59, -1.04) | Target=(0.81, -1.19) | Yaw=0.22 | Heading error=-0.80 | Distance=0.27 | Left speed=2.00 | Right speed=-0.12
+robot_2 | Position=(-1.36, -2.02) | Target=(-0.94, -2.44) | Yaw=-0.65 | Heading error=-0.14 | Distance=0.60 | Left speed=2.00 | Right speed=1.64
+robot_3 | Position=(-6.16, -1.19) | Target=(-6.19, -0.94) | Yaw=1.49 | Heading error=0.20 | Distance=0.25 | Left speed=1.47 | Right speed=2.00
+robot_3: REACHED Waypoint 70/114 at (-6.19, -0.94) | Distance: 0.246 m
+robot_3: REACHED Waypoint 71/114 at (-6.19, -0.69) | Distance: 0.246 m
+robot_3: REACHED Waypoint 72/114 at (-5.94, -0.94) | Distance: 0.215 m
+robot_1: REACHED Waypoint 71/105 at (0.81, -1.19) | Distance: 0.250 m
+robot_1 | Action: RIGHT | Nearest Robot: 2.25 m
+robot_1 | Position=(0.76, -0.97) | Target=(1.06, -1.19) | Yaw=-0.35 | Heading error=-0.28 | Distance=0.37 | Left speed=2.00 | Right speed=1.27
+robot_2 | Action: RIGHT | Nearest Robot: 2.24 m
+robot_2 | Position=(-1.09, -2.24) | Target=(-0.94, -2.44) | Yaw=-0.73 | Heading error=-0.19 | Distance=0.25 | Left speed=2.00 | Right speed=1.50
+robot_3 | Action: RIGHT | Nearest Robot: 5.00 m
+robot_3 | Position=(-6.15, -0.92) | Target=(-5.69, -0.94) | Yaw=1.41 | Heading error=-1.46 | Distance=0.46 | Left speed=2.00 | Right speed=-0.93
+robot_2: REACHED Waypoint 55/128 at (-0.94, -2.44) | Distance: 0.248 m
+robot_1: REACHED Waypoint 72/105 at (1.06, -1.19) | Distance: 0.245 m
+robot_1 | Position=(1.07, -1.11) | Target=(1.31, -1.19) | Yaw=-0.41 | Heading error=0.09 | Distance=0.26 | Left speed=1.77 | Right speed=2.00
+robot_2 | Position=(-0.84, -2.48) | Target=(-0.69, -2.69) | Yaw=-0.80 | Heading error=-0.15 | Distance=0.26 | Left speed=2.00 | Right speed=1.61
+robot_3 | Position=(-6.10, -0.82) | Target=(-5.69, -0.94) | Yaw=0.76 | Heading error=-1.05 | Distance=0.43 | Left speed=2.00 | Right speed=-0.67
+robot_1: REACHED Waypoint 73/105 at (1.31, -1.19) | Distance: 0.248 m
+robot_2: REACHED Waypoint 56/128 at (-0.69, -2.69) | Distance: 0.249 m
+robot_2: REACHED Waypoint 57/128 at (-0.44, -2.69) | Distance: 0.246 m
+robot_1: REACHED Waypoint 74/105 at (1.56, -1.19) | Distance: 0.246 m
+robot_1 | Action: LEFT | Nearest Robot: 2.47 m
+robot_1 | Position=(1.36, -1.20) | Target=(1.81, -1.19) | Yaw=-0.25 | Heading error=0.28 | Distance=0.46 | Left speed=1.26 | Right speed=2.00
+robot_2 | Action: LEFT | Nearest Robot: 2.46 m
+robot_2 | Position=(-0.64, -2.66) | Target=(-0.19, -2.69) | Yaw=-0.60 | Heading error=0.53 | Distance=0.45 | Left speed=0.60 | Right speed=2.00
+robot_3 | Action: RIGHT | Nearest Robot: 5.00 m
+robot_3 | Position=(-5.97, -0.74) | Target=(-5.69, -0.94) | Yaw=0.20 | Heading error=-0.82 | Distance=0.34 | Left speed=2.00 | Right speed=-0.15
+robot_1: REACHED Waypoint 75/105 at (1.81, -1.19) | Distance: 0.250 m
+robot_1 | Position=(1.63, -1.23) | Target=(2.06, -0.94) | Yaw=0.03 | Heading error=0.57 | Distance=0.52 | Left speed=0.49 | Right speed=2.00
+robot_2 | Position=(-0.42, -2.79) | Target=(-0.19, -2.69) | Yaw=-0.24 | Heading error=0.67 | Distance=0.26 | Left speed=0.24 | Right speed=2.00
+robot_3 | Position=(-5.79, -0.69) | Target=(-5.69, -0.94) | Yaw=-0.39 | Heading error=-0.81 | Distance=0.27 | Left speed=2.00 | Right speed=-0.12
+robot_2: REACHED Waypoint 58/128 at (-0.19, -2.69) | Distance: 0.250 m
+robot_3: REACHED Waypoint 73/114 at (-5.69, -0.94) | Distance: 0.249 m
+robot_1 | Action: LEFT | Nearest Robot: 2.60 m
+robot_1 | Position=(1.87, -1.21) | Target=(2.06, -0.94) | Yaw=0.41 | Heading error=0.55 | Distance=0.33 | Left speed=0.55 | Right speed=2.00
+robot_2 | Action: LEFT | Nearest Robot: 2.59 m
+robot_2 | Position=(-0.16, -2.83) | Target=(0.06, -2.69) | Yaw=0.09 | Heading error=0.47 | Distance=0.26 | Left speed=0.75 | Right speed=2.00
+robot_3 | Action: RIGHT | Nearest Robot: 5.00 m
+robot_3 | Position=(-5.59, -0.80) | Target=(-5.44, -1.19) | Yaw=-0.72 | Heading error=-0.47 | Distance=0.41 | Left speed=2.00 | Right speed=0.76
+robot_2: REACHED Waypoint 59/128 at (0.06, -2.69) | Distance: 0.248 m
+robot_1: REACHED Waypoint 76/105 at (2.06, -0.94) | Distance: 0.250 m
+robot_3: REACHED Waypoint 74/114 at (-5.44, -1.19) | Distance: 0.248 m
+robot_2: REACHED Waypoint 60/128 at (0.31, -2.69) | Distance: 0.249 m
+robot_2: REACHED Waypoint 61/128 at (0.06, -2.69) | Distance: 0.099 m
+robot_1 | Position=(2.09, -1.08) | Target=(2.31, -0.69) | Yaw=0.68 | Heading error=0.38 | Distance=0.45 | Left speed=1.00 | Right speed=2.00
+robot_2 | Position=(0.09, -2.78) | Target=(-0.19, -2.69) | Yaw=0.37 | Heading error=2.44 | Distance=0.29 | Left speed=-1.55 | Right speed=2.00
+robot_3 | Position=(-5.41, -1.00) | Target=(-5.19, -1.19) | Yaw=-0.90 | Heading error=0.21 | Distance=0.29 | Left speed=1.45 | Right speed=2.00
+robot_3: REACHED Waypoint 75/114 at (-5.19, -1.19) | Distance: 0.245 m
+robot_1: REACHED Waypoint 77/105 at (2.31, -0.69) | Distance: 0.246 m
+robot_1 | Action: FORWARD | Nearest Robot: 2.86 m
+robot_1 | Position=(2.29, -0.88) | Target=(2.56, -0.44) | Yaw=0.88 | Heading error=0.15 | Distance=0.52 | Left speed=1.61 | Right speed=2.00
+robot_2 | Action: LEFT | Nearest Robot: 2.85 m
+robot_2 | Position=(0.13, -2.74) | Target=(-0.19, -2.69) | Yaw=1.11 | Heading error=1.86 | Distance=0.33 | Left speed=-1.18 | Right speed=2.00
+robot_3 | Action: LEFT | Nearest Robot: 5.00 m
+robot_3 | Position=(-5.24, -1.18) | Target=(-4.94, -1.19) | Yaw=-0.62 | Heading error=0.59 | Distance=0.30 | Left speed=0.44 | Right speed=2.00
+robot_3: REACHED Waypoint 76/114 at (-4.94, -1.19) | Distance: 0.247 m
+robot_1: REACHED Waypoint 78/105 at (2.56, -0.44) | Distance: 0.246 m
+robot_1 | Position=(2.50, -0.61) | Target=(2.81, -0.19) | Yaw=0.95 | Heading error=-0.01 | Distance=0.52 | Left speed=2.00 | Right speed=1.97
+robot_2 | Position=(0.17, -2.65) | Target=(-0.19, -2.69) | Yaw=1.93 | Heading error=1.31 | Distance=0.36 | Left speed=-0.84 | Right speed=2.00
+robot_3 | Position=(-5.03, -1.28) | Target=(-4.69, -1.19) | Yaw=-0.27 | Heading error=0.53 | Distance=0.35 | Left speed=0.59 | Right speed=2.00
+robot_3: REACHED Waypoint 77/114 at (-4.69, -1.19) | Distance: 0.249 m
+robot_1: REACHED Waypoint 79/105 at (2.81, -0.19) | Distance: 0.248 m
+robot_1 | Action: FORWARD | Nearest Robot: 3.44 m
+robot_1 | Position=(2.72, -0.31) | Target=(3.06, 0.06) | Yaw=0.93 | Heading error=-0.10 | Distance=0.51 | Left speed=2.00 | Right speed=1.73
+robot_2 | Action: LEFT | Nearest Robot: 3.43 m
+robot_2 | Position=(0.12, -2.56) | Target=(-0.19, -2.69) | Yaw=2.53 | Heading error=1.02 | Distance=0.33 | Left speed=-0.65 | Right speed=2.00
+robot_3 | Action: LEFT | Nearest Robot: 5.00 m
+robot_3 | Position=(-4.77, -1.32) | Target=(-4.44, -1.19) | Yaw=0.06 | Heading error=0.31 | Distance=0.35 | Left speed=1.18 | Right speed=2.00
+robot_3: REACHED Waypoint 78/114 at (-4.44, -1.19) | Distance: 0.247 m
+robot_1: REACHED Waypoint 80/105 at (3.06, 0.06) | Distance: 0.247 m
+robot_1 | Position=(2.93, -0.04) | Target=(3.31, 0.31) | Yaw=0.87 | Heading error=-0.12 | Distance=0.52 | Left speed=2.00 | Right speed=1.69
+robot_2 | Position=(-0.02, -2.48) | Target=(-0.19, -2.69) | Yaw=-3.12 | Heading error=0.87 | Distance=0.26 | Left speed=-0.30 | Right speed=2.00
+robot_3 | Position=(-4.44, -1.27) | Target=(-4.19, -1.19) | Yaw=0.20 | Heading error=0.11 | Distance=0.27 | Left speed=1.71 | Right speed=2.00
+robot_3: REACHED Waypoint 79/114 at (-4.19, -1.19) | Distance: 0.245 m
+robot_2: REACHED Waypoint 62/128 at (-0.19, -2.69) | Distance: 0.250 m
+robot_3: REACHED Waypoint 80/114 at (-3.94, -1.19) | Distance: 0.244 m
+robot_1: REACHED Waypoint 81/105 at (3.31, 0.31) | Distance: 0.244 m
+robot_1 | Action: FORWARD | Nearest Robot: 4.36 m
+robot_1 | Position=(3.17, 0.22) | Target=(3.56, 0.56) | Yaw=0.80 | Heading error=-0.08 | Distance=0.52 | Left speed=2.00 | Right speed=1.78
+robot_2 | Action: LEFT | Nearest Robot: 4.08 m
+robot_2 | Position=(-0.24, -2.51) | Target=(-0.44, -2.69) | Yaw=-2.71 | Heading error=0.29 | Distance=0.27 | Left speed=1.24 | Right speed=2.00
+robot_3 | Action: FORWARD | Nearest Robot: 4.08 m
+robot_3 | Position=(-4.10, -1.21) | Target=(-3.69, -1.19) | Yaw=0.16 | Heading error=-0.12 | Distance=0.41 | Left speed=2.00 | Right speed=1.69
+robot_2: REACHED Waypoint 63/128 at (-0.44, -2.69) | Distance: 0.247 m
+robot_3: REACHED Waypoint 81/114 at (-3.69, -1.19) | Distance: 0.248 m
+robot_2: REACHED Waypoint 64/128 at (-0.69, -2.69) | Distance: 0.246 m
+robot_1: REACHED Waypoint 82/105 at (3.56, 0.56) | Distance: 0.244 m
+robot_1 | Position=(3.42, 0.47) | Target=(3.81, 0.81) | Yaw=0.76 | Heading error=-0.03 | Distance=0.52 | Left speed=2.00 | Right speed=1.92
+robot_2 | Position=(-0.54, -2.65) | Target=(-0.94, -2.69) | Yaw=-2.78 | Heading error=-0.26 | Distance=0.40 | Left speed=2.00 | Right speed=1.32
+robot_3 | Position=(-3.75, -1.17) | Target=(-3.44, -1.19) | Yaw=0.07 | Heading error=-0.12 | Distance=0.32 | Left speed=2.00 | Right speed=1.68
+robot_3: REACHED Waypoint 82/114 at (-3.44, -1.19) | Distance: 0.246 m
+robot_2: REACHED Waypoint 65/128 at (-0.94, -2.69) | Distance: 0.247 m
+robot_1: REACHED Waypoint 83/105 at (3.81, 0.81) | Distance: 0.244 m
+robot_3: REACHED Waypoint 83/114 at (-3.19, -1.19) | Distance: 0.244 m
+robot_1 | Consensus Value: 50.0000
+robot_1 | Action: FORWARD | Nearest Robot: 5.00 m
+robot_1 | Position=(3.69, 0.72) | Target=(4.06, 1.06) | Yaw=0.74 | Heading error=0.01 | Distance=0.51 | Left speed=1.98 | Right speed=2.00
+robot_2 | Consensus Value: 50.0000
+robot_2 | Action: RIGHT | Nearest Robot: 3.01 m
+robot_2 | Position=(-0.84, -2.72) | Target=(-1.19, -2.69) | Yaw=-2.96 | Heading error=-0.27 | Distance=0.35 | Left speed=2.00 | Right speed=1.28
+robot_3 | Consensus Value: 50.0000
+robot_3 | Action: FORWARD | Nearest Robot: 3.01 m
+robot_3 | Position=(-3.41, -1.17) | Target=(-2.94, -1.19) | Yaw=0.00 | Heading error=-0.05 | Distance=0.47 | Left speed=2.00 | Right speed=1.87
+robot_2: REACHED Waypoint 66/128 at (-1.19, -2.69) | Distance: 0.246 m
+robot_3: REACHED Waypoint 84/114 at (-2.94, -1.19) | Distance: 0.249 m
+robot_1: REACHED Waypoint 84/105 at (4.06, 1.06) | Distance: 0.246 m
+robot_2 | Position=(-1.09, -2.73) | Target=(-1.44, -2.44) | Yaw=2.97 | Heading error=-0.52 | Distance=0.45 | Left speed=2.00 | Right speed=0.62
+robot_3 | Position=(-3.04, -1.17) | Target=(-2.69, -1.19) | Yaw=-0.03 | Heading error=-0.02 | Distance=0.35 | Left speed=2.00 | Right speed=1.96
+robot_1 | Position=(3.97, 0.97) | Target=(4.31, 1.31) | Yaw=0.75 | Heading error=0.03 | Distance=0.49 | Left speed=1.92 | Right speed=2.00
+robot_3: REACHED Waypoint 85/114 at (-2.69, -1.19) | Distance: 0.247 m
+robot_1: REACHED Waypoint 85/105 at (4.31, 1.31) | Distance: 0.246 m
+robot_1: REACHED Waypoint 86/105 at (4.31, 1.06) | Distance: 0.186 m
+robot_3: REACHED Waypoint 86/114 at (-2.44, -1.19) | Distance: 0.245 m
+robot_1 | Action: RIGHT | Nearest Robot: 5.00 m
+robot_1 | Position=(4.16, 1.15) | Target=(4.31, 0.81) | Yaw=0.55 | Heading error=-1.71 | Distance=0.37 | Left speed=2.00 | Right speed=-1.09
+robot_2 | Action: RIGHT | Nearest Robot: 2.03 m
+robot_2 | Position=(-1.32, -2.68) | Target=(-1.44, -2.44) | Yaw=2.61 | Heading error=-0.60 | Distance=0.27 | Left speed=2.00 | Right speed=0.43
+robot_3 | Action: FORWARD | Nearest Robot: 2.02 m
+robot_3 | Position=(-2.68, -1.18) | Target=(-2.19, -1.19) | Yaw=-0.03 | Heading error=0.02 | Distance=0.49 | Left speed=1.95 | Right speed=2.00
+robot_2: REACHED Waypoint 67/128 at (-1.44, -2.44) | Distance: 0.248 m
+robot_3: REACHED Waypoint 87/114 at (-2.19, -1.19) | Distance: 0.245 m
+robot_1 | Position=(4.26, 1.19) | Target=(4.31, 0.81) | Yaw=-0.24 | Heading error=-1.20 | Distance=0.39 | Left speed=2.00 | Right speed=-0.76
+robot_2 | Position=(-1.54, -2.52) | Target=(-1.69, -2.19) | Yaw=2.39 | Heading error=-0.40 | Distance=0.36 | Left speed=2.00 | Right speed=0.96
+robot_3 | Position=(-2.30, -1.19) | Target=(-1.94, -1.19) | Yaw=-0.01 | Heading error=0.02 | Distance=0.37 | Left speed=1.95 | Right speed=2.00
+robot_3: REACHED Waypoint 88/114 at (-1.94, -1.19) | Distance: 0.245 m
+robot_2: REACHED Waypoint 68/128 at (-1.69, -2.19) | Distance: 0.247 m
+robot_1 | Action: RIGHT | Nearest Robot: 5.00 m
+robot_1 | Position=(4.37, 1.16) | Target=(4.31, 0.81) | Yaw=-0.84 | Heading error=-0.90 | Distance=0.35 | Left speed=2.00 | Right speed=-0.38
+robot_2 | SPECIAL YIELD RULE | Robot 3 distance=1.17 m | Robot 3 to conflict zone=0.48 m
+robot_3 | Action: YIELD | Nearest Robot: 1.17 m
+robot_3: REACHED Waypoint 89/114 at (-1.69, -1.19) | Distance: 0.245 m
+robot_3: REACHED Waypoint 90/114 at (-1.44, -1.19) | Distance: 0.243 m
+robot_1 | Position=(4.47, 1.02) | Target=(4.31, 0.81) | Yaw=-1.37 | Heading error=-0.86 | Distance=0.26 | Left speed=2.00 | Right speed=-0.27
+robot_3 | Position=(-1.57, -1.19) | Target=(-1.19, -1.19) | Yaw=0.01 | Heading error=0.00 | Distance=0.38 | Left speed=1.99 | Right speed=2.00
+robot_1: REACHED Waypoint 87/105 at (4.31, 0.81) | Distance: 0.249 m
+robot_3: REACHED Waypoint 91/114 at (-1.19, -1.19) | Distance: 0.248 m
+robot_1: REACHED Waypoint 88/105 at (4.56, 0.56) | Distance: 0.249 m
+robot_1 | Action: LEFT | Nearest Robot: 5.00 m
+robot_1 | Position=(4.53, 0.72) | Target=(4.81, 0.31) | Yaw=-1.35 | Heading error=0.39 | Distance=0.50 | Left speed=0.98 | Right speed=2.00
+robot_2 | Action: RIGHT | Nearest Robot: 1.20 m
+robot_2 | Position=(-1.78, -2.25) | Target=(-1.94, -1.94) | Yaw=2.22 | Heading error=-0.17 | Distance=0.35 | Left speed=2.00 | Right speed=1.56
+robot_3 | Action: FORWARD | Nearest Robot: 1.21 m
+robot_3 | Position=(-1.19, -1.19) | Target=(-0.94, -1.19) | Yaw=0.01 | Heading error=-0.00 | Distance=0.25 | Left speed=2.00 | Right speed=2.00
+robot_3: REACHED Waypoint 92/114 at (-0.94, -1.19) | Distance: 0.245 m
+robot_2: REACHED Waypoint 69/128 at (-1.94, -1.94) | Distance: 0.248 m
+robot_3: REACHED Waypoint 93/114 at (-0.69, -1.19) | Distance: 0.250 m
+robot_1 | Position=(4.60, 0.46) | Target=(4.81, 0.31) | Yaw=-1.08 | Heading error=0.47 | Distance=0.26 | Left speed=0.75 | Right speed=2.00
+robot_2 | Position=(-1.99, -1.95) | Target=(-2.19, -1.69) | Yaw=2.20 | Heading error=0.02 | Distance=0.33 | Left speed=1.96 | Right speed=2.00
+robot_3 | Position=(-0.82, -1.19) | Target=(-0.44, -1.19) | Yaw=0.00 | Heading error=-0.01 | Distance=0.39 | Left speed=2.00 | Right speed=1.98
+robot_1: REACHED Waypoint 89/105 at (4.81, 0.31) | Distance: 0.247 m
+robot_2: REACHED Waypoint 70/128 at (-2.19, -1.69) | Distance: 0.250 m
+robot_3: REACHED Waypoint 94/114 at (-0.44, -1.19) | Distance: 0.247 m
+robot_1: REACHED Waypoint 90/105 at (4.56, 0.06) | Distance: 0.249 m
+robot_1 | Action: RIGHT | Nearest Robot: 5.00 m
+robot_1 | Position=(4.66, 0.26) | Target=(4.31, -0.19) | Yaw=-1.45 | Heading error=-0.79 | Distance=0.57 | Left speed=2.00 | Right speed=-0.07
+robot_2 | Action: FORWARD | Nearest Robot: 1.81 m
+robot_2 | Position=(-2.20, -1.67) | Target=(-2.44, -1.44) | Yaw=2.24 | Heading error=0.12 | Distance=0.33 | Left speed=1.69 | Right speed=2.00
+robot_3 | Action: FORWARD | Nearest Robot: 1.82 m
+robot_3 | Position=(-0.45, -1.19) | Target=(-0.19, -1.19) | Yaw=-0.00 | Heading error=-0.01 | Distance=0.26 | Left speed=2.00 | Right speed=1.98
+robot_3: REACHED Waypoint 95/114 at (-0.19, -1.19) | Distance: 0.245 m
+robot_2: REACHED Waypoint 71/128 at (-2.44, -1.44) | Distance: 0.248 m
+robot_3: REACHED Waypoint 96/114 at (0.06, -1.19) | Distance: 0.250 m
+robot_1 | Position=(4.64, 0.05) | Target=(4.31, -0.19) | Yaw=-1.93 | Heading error=-0.59 | Distance=0.41 | Left speed=2.00 | Right speed=0.45
+robot_2 | Position=(-2.43, -1.41) | Target=(-2.69, -1.19) | Yaw=2.31 | Heading error=0.13 | Distance=0.34 | Left speed=1.64 | Right speed=2.00
+robot_3 | Position=(-0.08, -1.19) | Target=(0.31, -1.19) | Yaw=-0.00 | Heading error=-0.00 | Distance=0.39 | Left speed=2.00 | Right speed=2.00
+robot_2: REACHED Waypoint 72/128 at (-2.69, -1.19) | Distance: 0.246 m
+robot_3: REACHED Waypoint 97/114 at (0.31, -1.19) | Distance: 0.247 m
+robot_1: REACHED Waypoint 91/105 at (4.31, -0.19) | Distance: 0.247 m
+robot_1 | Action: RIGHT | Nearest Robot: 4.39 m
+robot_1 | Position=(4.55, -0.14) | Target=(4.06, -0.19) | Yaw=-2.29 | Heading error=-0.76 | Distance=0.49 | Left speed=2.00 | Right speed=-0.01
+robot_2 | Action: FORWARD | Nearest Robot: 2.96 m
+robot_2 | Position=(-2.67, -1.16) | Target=(-2.94, -0.94) | Yaw=2.37 | Heading error=0.09 | Distance=0.35 | Left speed=1.75 | Right speed=2.00
+robot_3 | Action: FORWARD | Nearest Robot: 2.96 m
+robot_3 | Position=(0.29, -1.19) | Target=(0.56, -1.19) | Yaw=-0.00 | Heading error=0.00 | Distance=0.27 | Left speed=2.00 | Right speed=2.00
+robot_3: REACHED Waypoint 98/114 at (0.56, -1.19) | Distance: 0.243 m
+robot_2: REACHED Waypoint 73/128 at (-2.94, -0.94) | Distance: 0.245 m
+robot_1 | Position=(4.39, -0.27) | Target=(4.06, -0.19) | Yaw=-2.69 | Heading error=-0.70 | Distance=0.34 | Left speed=2.00 | Right speed=0.16
+robot_2 | Position=(-2.93, -0.91) | Target=(-3.19, -0.69) | Yaw=2.39 | Heading error=0.04 | Distance=0.33 | Left speed=1.90 | Right speed=2.00
+robot_3 | Position=(0.56, -1.16) | Target=(0.81, -0.94) | Yaw=0.29 | Heading error=0.45 | Distance=0.33 | Left speed=0.82 | Right speed=2.00
+robot_2: REACHED Waypoint 74/128 at (-3.19, -0.69) | Distance: 0.245 m
+robot_3: REACHED Waypoint 99/114 at (0.81, -0.94) | Distance: 0.247 m
+robot_1 | Action: RIGHT | Nearest Robot: 3.53 m
+robot_1 | Position=(4.21, -0.40) | Target=(4.06, -0.19) | Yaw=3.03 | Heading error=-0.85 | Distance=0.26 | Left speed=2.00 | Right speed=-0.24
+robot_2 | Action: FORWARD | Nearest Robot: 3.98 m
+robot_2 | Position=(-3.21, -0.65) | Target=(-3.44, -0.44) | Yaw=2.40 | Heading error=-0.01 | Distance=0.32 | Left speed=2.00 | Right speed=1.98
+robot_3 | Action: LEFT | Nearest Robot: 3.53 m
+robot_3 | Position=(0.75, -1.09) | Target=(0.81, -0.69) | Yaw=0.67 | Heading error=0.75 | Distance=0.41 | Left speed=0.02 | Right speed=2.00
+robot_2: REACHED Waypoint 75/128 at (-3.44, -0.44) | Distance: 0.247 m
+robot_1: REACHED Waypoint 92/105 at (4.06, -0.19) | Distance: 0.249 m
+robot_1 | Position=(4.00, -0.36) | Target=(3.81, -0.19) | Yaw=2.65 | Heading error=-0.26 | Distance=0.25 | Left speed=2.00 | Right speed=1.31
+robot_2 | Position=(-3.48, -0.40) | Target=(-3.69, -0.19) | Yaw=2.38 | Heading error=-0.04 | Distance=0.30 | Left speed=2.00 | Right speed=1.90
+robot_3 | Position=(0.89, -0.94) | Target=(0.81, -0.69) | Yaw=1.09 | Heading error=0.77 | Distance=0.27 | Left speed=-0.03 | Right speed=2.00
+robot_1: REACHED Waypoint 93/105 at (3.81, -0.19) | Distance: 0.245 m
+robot_2: REACHED Waypoint 76/128 at (-3.69, -0.19) | Distance: 0.247 m
+robot_3: REACHED Waypoint 100/114 at (0.81, -0.69) | Distance: 0.249 m
+robot_1 | Action: LEFT | Nearest Robot: 2.87 m
+robot_1 | Position=(3.79, -0.29) | Target=(3.56, -0.44) | Yaw=3.07 | Heading error=0.66 | Distance=0.27 | Left speed=0.27 | Right speed=2.00
+robot_2 | Action: FORWARD | Nearest Robot: 4.74 m
+robot_2 | Position=(-3.74, -0.15) | Target=(-3.94, 0.06) | Yaw=2.36 | Heading error=-0.04 | Distance=0.29 | Left speed=2.00 | Right speed=1.89
+robot_3 | Action: LEFT | Nearest Robot: 2.87 m
+robot_3 | Position=(0.96, -0.73) | Target=(0.81, -0.44) | Yaw=1.49 | Heading error=0.55 | Distance=0.32 | Left speed=0.54 | Right speed=2.00
+robot_2: REACHED Waypoint 77/128 at (-3.94, 0.06) | Distance: 0.248 m
+robot_1: REACHED Waypoint 94/105 at (3.56, -0.44) | Distance: 0.248 m
+robot_3: REACHED Waypoint 101/114 at (0.81, -0.44) | Distance: 0.250 m
+robot_1 | Position=(3.58, -0.31) | Target=(3.31, -0.69) | Yaw=-2.76 | Heading error=0.57 | Distance=0.47 | Left speed=0.49 | Right speed=2.00
+robot_2 | Position=(-4.01, 0.11) | Target=(-4.19, 0.31) | Yaw=2.35 | Heading error=-0.03 | Distance=0.27 | Left speed=2.00 | Right speed=1.92
+robot_3 | Position=(0.95, -0.45) | Target=(0.81, -0.19) | Yaw=1.80 | Heading error=0.25 | Distance=0.30 | Left speed=1.33 | Right speed=2.00
+robot_2: REACHED Waypoint 78/128 at (-4.19, 0.31) | Distance: 0.247 m
+robot_3: REACHED Waypoint 102/114 at (0.81, -0.19) | Distance: 0.245 m
+robot_3: REACHED Waypoint 103/114 at (0.81, 0.06) | Distance: 0.248 m
+robot_1 | Action: LEFT | Nearest Robot: 2.53 m
+robot_1 | Position=(3.38, -0.41) | Target=(3.31, -0.69) | Yaw=-2.42 | Heading error=0.61 | Distance=0.29 | Left speed=0.39 | Right speed=2.00
+robot_2 | Action: FORWARD | Nearest Robot: 5.00 m
+robot_2: REACHED Waypoint 79/128 at (-4.44, 0.56) | Distance: 0.249 m
+robot_3 | Action: FORWARD | Nearest Robot: 2.54 m
+robot_3 | Position=(0.86, -0.12) | Target=(0.81, 0.31) | Yaw=1.82 | Heading error=-0.12 | Distance=0.43 | Left speed=2.00 | Right speed=1.67
+robot_1: REACHED Waypoint 95/105 at (3.31, -0.69) | Distance: 0.249 m
+robot_3: REACHED Waypoint 104/114 at (0.81, 0.31) | Distance: 0.243 m
+robot_1: REACHED Waypoint 96/105 at (3.06, -0.69) | Distance: 0.246 m
+robot_2: REACHED Waypoint 80/128 at (-4.69, 0.81) | Distance: 0.250 m
+robot_2: REACHED Waypoint 81/128 at (-4.44, 0.56) | Distance: 0.104 m
+robot_1 | Position=(3.17, -0.61) | Target=(2.81, -0.69) | Yaw=-2.47 | Heading error=-0.45 | Distance=0.37 | Left speed=2.00 | Right speed=0.81
+robot_2 | Position=(-4.51, 0.63) | Target=(-4.19, 0.31) | Yaw=2.33 | Heading error=-3.11 | Distance=0.46 | Left speed=2.00 | Right speed=-1.98
+robot_3 | Position=(0.80, 0.22) | Target=(0.81, 0.56) | Yaw=1.71 | Heading error=-0.17 | Distance=0.35 | Left speed=2.00 | Right speed=1.56
+robot_3: REACHED Waypoint 105/114 at (0.81, 0.56) | Distance: 0.246 m
+robot_1: REACHED Waypoint 97/105 at (2.81, -0.69) | Distance: 0.250 m
+robot_1 | Action: RIGHT | Nearest Robot: 2.53 m
+robot_1 | Position=(2.96, -0.73) | Target=(2.56, -0.69) | Yaw=-2.75 | Heading error=-0.50 | Distance=0.40 | Left speed=2.00 | Right speed=0.67
+robot_2 | Action: RIGHT | Nearest Robot: 5.00 m
+robot_2 | Position=(-4.51, 0.66) | Target=(-4.19, 0.31) | Yaw=1.39 | Heading error=-2.22 | Distance=0.47 | Left speed=2.00 | Right speed=-1.41
+robot_3 | Action: FORWARD | Nearest Robot: 2.53 m
+robot_3 | Position=(0.78, 0.55) | Target=(0.81, 0.81) | Yaw=1.60 | Heading error=-0.15 | Distance=0.26 | Left speed=2.00 | Right speed=1.61
+robot_3: REACHED Waypoint 106/114 at (0.81, 0.81) | Distance: 0.247 m
+robot_1: REACHED Waypoint 98/105 at (2.56, -0.69) | Distance: 0.248 m
+robot_1 | Position=(2.71, -0.81) | Target=(2.31, -0.69) | Yaw=-3.09 | Heading error=-0.34 | Distance=0.42 | Left speed=2.00 | Right speed=1.10
+robot_2 | Position=(-4.47, 0.72) | Target=(-4.19, 0.31) | Yaw=0.65 | Heading error=-1.62 | Distance=0.50 | Left speed=2.00 | Right speed=-1.03
+robot_3 | Position=(0.75, 0.83) | Target=(0.56, 1.06) | Yaw=1.85 | Heading error=0.40 | Distance=0.30 | Left speed=0.93 | Right speed=2.00
+robot_3: REACHED Waypoint 107/114 at (0.56, 1.06) | Distance: 0.247 m
+robot_1: REACHED Waypoint 99/105 at (2.31, -0.69) | Distance: 0.247 m
+robot_1 | Consensus Value: 50.0000
+robot_1 | Action: FORWARD | Nearest Robot: 2.55 m
+robot_1 | Position=(2.40, -0.79) | Target=(2.06, -0.69) | Yaw=2.99 | Heading error=-0.13 | Distance=0.36 | Left speed=2.00 | Right speed=1.67
+robot_2 | Consensus Value: 50.0000
+robot_2 | Action: RIGHT | Nearest Robot: 5.00 m
+robot_2 | Position=(-4.37, 0.77) | Target=(-4.19, 0.31) | Yaw=-0.09 | Heading error=-1.10 | Distance=0.50 | Left speed=2.00 | Right speed=-0.70
+robot_3 | Consensus Value: 50.0000
+robot_3 | Action: LEFT | Nearest Robot: 2.56 m
+robot_3 | Position=(0.65, 1.08) | Target=(0.31, 1.31) | Yaw=2.11 | Heading error=0.43 | Distance=0.41 | Left speed=0.88 | Right speed=2.00
+robot_1: REACHED Waypoint 100/105 at (2.06, -0.69) | Distance: 0.244 m
+robot_3: REACHED Waypoint 108/114 at (0.31, 1.31) | Distance: 0.249 m
+robot_1: REACHED Waypoint 101/105 at (1.81, -0.69) | Distance: 0.246 m
+robot_1 | Position=(2.05, -0.72) | Target=(1.56, -0.69) | Yaw=2.97 | Heading error=0.10 | Distance=0.49 | Left speed=1.73 | Right speed=2.00
+robot_2 | Position=(-4.23, 0.76) | Target=(-4.19, 0.31) | Yaw=-0.68 | Heading error=-0.79 | Distance=0.45 | Left speed=2.00 | Right speed=-0.09
+robot_3 | Position=(0.49, 1.30) | Target=(0.06, 1.56) | Yaw=2.33 | Heading error=0.25 | Distance=0.50 | Left speed=1.34 | Right speed=2.00
+robot_1: REACHED Waypoint 102/105 at (1.56, -0.69) | Distance: 0.246 m
+robot_3: REACHED Waypoint 109/114 at (0.06, 1.56) | Distance: 0.248 m
+robot_1 | Action: FORWARD | Nearest Robot: 2.62 m
+robot_1 | Position=(1.71, -0.68) | Target=(1.31, -0.69) | Yaw=3.05 | Heading error=0.11 | Distance=0.40 | Left speed=1.70 | Right speed=2.00
+robot_2 | Action: RIGHT | Nearest Robot: 4.45 m
+robot_2 | Position=(-4.10, 0.61) | Target=(-4.19, 0.31) | Yaw=-1.10 | Heading error=-0.74 | Distance=0.31 | Left speed=2.00 | Right speed=0.05
+robot_3 | Action: FORWARD | Nearest Robot: 2.63 m
+robot_3 | Position=(0.25, 1.51) | Target=(-0.19, 1.81) | Yaw=2.47 | Heading error=0.07 | Distance=0.54 | Left speed=1.81 | Right speed=2.00
+robot_1: REACHED Waypoint 103/105 at (1.31, -0.69) | Distance: 0.249 m
+robot_2: REACHED Waypoint 82/128 at (-4.19, 0.31) | Distance: 0.249 m
+robot_3: REACHED Waypoint 110/114 at (-0.19, 1.81) | Distance: 0.248 m
+robot_1 | Position=(1.36, -0.67) | Target=(1.06, -0.69) | Yaw=3.12 | Heading error=0.09 | Distance=0.30 | Left speed=1.76 | Right speed=2.00
+robot_2 | Position=(-4.01, 0.39) | Target=(-3.94, 0.06) | Yaw=-1.45 | Heading error=0.09 | Distance=0.33 | Left speed=1.77 | Right speed=2.00
+robot_3 | Position=(-0.03, 1.73) | Target=(-0.44, 2.06) | Yaw=2.50 | Heading error=-0.04 | Distance=0.53 | Left speed=2.00 | Right speed=1.89
+robot_1: REACHED Waypoint 104/105 at (1.06, -0.69) | Distance: 0.247 m
+robot_2: REACHED Waypoint 83/128 at (-3.94, 0.06) | Distance: 0.245 m
+robot_3: REACHED Waypoint 111/114 at (-0.44, 2.06) | Distance: 0.248 m
+robot_1: REACHED Waypoint 105/105 at (0.81, -0.69) | Distance: 0.245 m
+robot_1: A* Route Completed (105/105 waypoints reached)
+robot_2 | Action: LEFT | Nearest Robot: 4.08 m
+robot_2 | Position=(-3.95, 0.10) | Target=(-3.69, -0.19) | Yaw=-1.23 | Heading error=0.40 | Distance=0.39 | Left speed=0.95 | Right speed=2.00
+robot_3 | Action: FORWARD | Nearest Robot: 2.95 m
+robot_3 | Position=(-0.32, 1.95) | Target=(-0.69, 2.31) | Yaw=2.47 | Heading error=-0.10 | Distance=0.52 | Left speed=2.00 | Right speed=1.74
+robot_2: REACHED Waypoint 84/128 at (-3.69, -0.19) | Distance: 0.249 m
+robot_3: REACHED Waypoint 112/114 at (-0.69, 2.31) | Distance: 0.247 m
+robot_2 | Position=(-3.84, -0.14) | Target=(-3.44, -0.44) | Yaw=-0.99 | Heading error=0.36 | Distance=0.50 | Left speed=1.06 | Right speed=2.00
+robot_3 | Position=(-0.56, 2.16) | Target=(-0.69, 2.56) | Yaw=2.36 | Heading error=-0.49 | Distance=0.42 | Left speed=2.00 | Right speed=0.70
+robot_3: REACHED Waypoint 113/114 at (-0.69, 2.56) | Distance: 0.247 m
+robot_2: REACHED Waypoint 85/128 at (-3.44, -0.44) | Distance: 0.250 m
+robot_2 | Action: LEFT | Nearest Robot: 4.01 m
+robot_2 | Position=(-3.66, -0.36) | Target=(-3.19, -0.69) | Yaw=-0.78 | Heading error=0.18 | Distance=0.58 | Left speed=1.51 | Right speed=2.00
+robot_3 | Action: RIGHT | Nearest Robot: 3.50 m
+robot_3 | Position=(-0.71, 2.35) | Target=(-0.69, 2.81) | Yaw=2.07 | Heading error=-0.56 | Distance=0.46 | Left speed=2.00 | Right speed=0.54
+robot_2 | Position=(-3.42, -0.59) | Target=(-3.19, -0.69) | Yaw=-0.67 | Heading error=0.25 | Distance=0.25 | Left speed=1.34 | Right speed=2.00
+robot_3 | Position=(-0.81, 2.58) | Target=(-0.69, 2.81) | Yaw=1.70 | Heading error=-0.62 | Distance=0.26 | Left speed=2.00 | Right speed=0.37
+robot_2: REACHED Waypoint 86/128 at (-3.19, -0.69) | Distance: 0.245 m
+robot_3: REACHED Waypoint 114/114 at (-0.69, 2.81) | Distance: 0.248 m
+robot_3: A* Route Completed (114/114 waypoints reached)
+robot_2: REACHED Waypoint 87/128 at (-2.94, -0.94) | Distance: 0.244 m
+robot_2 | Action: FORWARD | Nearest Robot: 4.12 m
+robot_2 | Position=(-3.13, -0.81) | Target=(-2.69, -1.19) | Yaw=-0.65 | Heading error=-0.06 | Distance=0.59 | Left speed=2.00 | Right speed=1.84
+robot_2: REACHED Waypoint 88/128 at (-2.69, -1.19) | Distance: 0.244 m
+robot_2 | Position=(-2.85, -1.03) | Target=(-2.44, -1.44) | Yaw=-0.69 | Heading error=-0.10 | Distance=0.58 | Left speed=2.00 | Right speed=1.75
+robot_2: REACHED Waypoint 89/128 at (-2.44, -1.44) | Distance: 0.243 m
+robot_2 | Action: FORWARD | Nearest Robot: 3.69 m
+robot_2 | Position=(-2.59, -1.26) | Target=(-2.19, -1.69) | Yaw=-0.74 | Heading error=-0.08 | Distance=0.59 | Left speed=2.00 | Right speed=1.78
+robot_2: REACHED Waypoint 90/128 at (-2.19, -1.69) | Distance: 0.244 m
+robot_2 | Position=(-2.33, -1.50) | Target=(-2.19, -1.94) | Yaw=-0.80 | Heading error=-0.45 | Distance=0.46 | Left speed=2.00 | Right speed=0.81
+robot_2: REACHED Waypoint 91/128 at (-2.19, -1.94) | Distance: 0.249 m
+robot_2 | Action: RIGHT | Nearest Robot: 3.39 m
+robot_2 | Position=(-2.18, -1.70) | Target=(-2.19, -2.19) | Yaw=-1.06 | Heading error=-0.53 | Distance=0.49 | Left speed=2.00 | Right speed=0.59
+robot_2 | Position=(-2.08, -1.94) | Target=(-2.19, -2.19) | Yaw=-1.41 | Heading error=-0.56 | Distance=0.27 | Left speed=2.00 | Right speed=0.52
+robot_2: REACHED Waypoint 92/128 at (-2.19, -2.19) | Distance: 0.247 m
+robot_2: REACHED Waypoint 93/128 at (-1.94, -2.44) | Distance: 0.249 m
+robot_2 | Action: LEFT | Nearest Robot: 3.45 m
+robot_2 | Position=(-2.02, -2.24) | Target=(-1.69, -2.69) | Yaw=-1.35 | Heading error=0.42 | Distance=0.56 | Left speed=0.90 | Right speed=2.00
+robot_2 | Position=(-1.94, -2.50) | Target=(-1.69, -2.69) | Yaw=-1.08 | Heading error=0.44 | Distance=0.31 | Left speed=0.84 | Right speed=2.00
+robot_2: REACHED Waypoint 94/128 at (-1.69, -2.69) | Distance: 0.248 m
+robot_2 | Action: LEFT | Nearest Robot: 3.51 m
+robot_2 | Position=(-1.78, -2.73) | Target=(-1.44, -2.94) | Yaw=-0.88 | Heading error=0.34 | Distance=0.40 | Left speed=1.10 | Right speed=2.00
+robot_2: REACHED Waypoint 95/128 at (-1.44, -2.94) | Distance: 0.246 m
+robot_2 | Position=(-1.57, -2.95) | Target=(-1.19, -3.19) | Yaw=-0.72 | Heading error=0.16 | Distance=0.45 | Left speed=1.58 | Right speed=2.00
+robot_2: REACHED Waypoint 96/128 at (-1.19, -3.19) | Distance: 0.249 m
+robot_2: REACHED Waypoint 97/128 at (-1.44, -2.94) | Distance: 0.144 m
+robot_2 | Action: LEFT | Nearest Robot: 3.44 m
+robot_2 | Position=(-1.40, -3.08) | Target=(-1.69, -2.69) | Yaw=-0.36 | Heading error=2.56 | Distance=0.48 | Left speed=-1.63 | Right speed=2.00
+robot_2 | Position=(-1.35, -3.07) | Target=(-1.69, -2.69) | Yaw=0.54 | Heading error=1.76 | Distance=0.51 | Left speed=-1.12 | Right speed=2.00
+robot_1 | Consensus Value: 50.0000
+robot_2 | Consensus Value: 50.0000
+robot_2 | Action: LEFT | Nearest Robot: 3.30 m
+robot_2 | Position=(-1.28, -3.00) | Target=(-1.69, -2.69) | Yaw=1.19 | Heading error=1.30 | Distance=0.51 | Left speed=-0.83 | Right speed=2.00
+robot_3 | Consensus Value: 50.0000
+robot_2 | Position=(-1.23, -2.87) | Target=(-1.69, -2.69) | Yaw=1.92 | Heading error=0.85 | Distance=0.49 | Left speed=-0.24 | Right speed=2.00
+robot_2 | Action: LEFT | Nearest Robot: 3.12 m
+robot_2 | Position=(-1.31, -2.71) | Target=(-1.69, -2.69) | Yaw=2.37 | Heading error=0.71 | Distance=0.38 | Left speed=0.12 | Right speed=2.00
+robot_2: REACHED Waypoint 98/128 at (-1.69, -2.69) | Distance: 0.250 m
+robot_2 | Position=(-1.48, -2.58) | Target=(-1.94, -2.44) | Yaw=2.76 | Heading error=0.08 | Distance=0.48 | Left speed=1.79 | Right speed=2.00
+robot_2: REACHED Waypoint 99/128 at (-1.94, -2.44) | Distance: 0.243 m
+robot_2 | Action: RIGHT | Nearest Robot: 3.37 m
+robot_2 | Position=(-1.80, -2.45) | Target=(-2.19, -2.19) | Yaw=2.75 | Heading error=-0.21 | Distance=0.47 | Left speed=2.00 | Right speed=1.44
+robot_2: REACHED Waypoint 100/128 at (-2.19, -2.19) | Distance: 0.246 m
+robot_2: REACHED Waypoint 101/128 at (-1.94, -2.19) | Distance: 0.187 m
+robot_2 | Position=(-2.02, -2.35) | Target=(-1.69, -2.19) | Yaw=2.48 | Heading error=-2.03 | Distance=0.37 | Left speed=2.00 | Right speed=-1.29
+robot_2 | Action: RIGHT | Nearest Robot: 3.52 m
+robot_2 | Position=(-2.07, -2.28) | Target=(-1.69, -2.19) | Yaw=1.76 | Heading error=-1.52 | Distance=0.39 | Left speed=2.00 | Right speed=-0.97
+robot_2 | Position=(-2.10, -2.17) | Target=(-1.69, -2.19) | Yaw=1.01 | Heading error=-1.05 | Distance=0.41 | Left speed=2.00 | Right speed=-0.67
+robot_2 | Action: RIGHT | Nearest Robot: 3.36 m
+robot_2 | Position=(-2.00, -2.07) | Target=(-1.69, -2.19) | Yaw=0.49 | Heading error=-0.85 | Distance=0.33 | Left speed=2.00 | Right speed=-0.24
+robot_2 | Position=(-1.83, -1.98) | Target=(-1.69, -2.19) | Yaw=-0.12 | Heading error=-0.86 | Distance=0.25 | Left speed=2.00 | Right speed=-0.26
+robot_2: REACHED Waypoint 102/128 at (-1.69, -2.19) | Distance: 0.250 m
+robot_2: REACHED Waypoint 103/128 at (-1.44, -2.19) | Distance: 0.246 m
+robot_2 | Action: LEFT | Nearest Robot: 2.98 m
+robot_2 | Position=(-1.60, -2.03) | Target=(-1.19, -1.94) | Yaw=-0.36 | Heading error=0.58 | Distance=0.42 | Left speed=0.46 | Right speed=2.00
+robot_2: REACHED Waypoint 104/128 at (-1.19, -1.94) | Distance: 0.248 m
+robot_2 | Position=(-1.37, -2.09) | Target=(-0.94, -1.69) | Yaw=0.06 | Heading error=0.68 | Distance=0.59 | Left speed=0.20 | Right speed=2.00
+robot_2 | Action: LEFT | Nearest Robot: 2.60 m
+robot_2 | Position=(-1.15, -2.04) | Target=(-0.94, -1.69) | Yaw=0.47 | Heading error=0.56 | Distance=0.41 | Left speed=0.53 | Right speed=2.00
+robot_2: REACHED Waypoint 105/128 at (-0.94, -1.69) | Distance: 0.247 m
+robot_2 | Position=(-0.96, -1.91) | Target=(-0.69, -1.44) | Yaw=0.77 | Heading error=0.28 | Distance=0.54 | Left speed=1.26 | Right speed=2.00
+robot_2 | Action: LEFT | Nearest Robot: 2.07 m
+robot_2: REACHED Waypoint 106/128 at (-0.69, -1.44) | Distance: 0.246 m
+robot_2: REACHED Waypoint 107/128 at (-0.44, -1.44) | Distance: 0.245 m
+robot_2 | Position=(-0.58, -1.48) | Target=(-0.19, -1.44) | Yaw=0.70 | Heading error=-0.59 | Distance=0.40 | Left speed=2.00 | Right speed=0.44
+robot_2: REACHED Waypoint 108/128 at (-0.19, -1.44) | Distance: 0.250 m
+robot_2 | Action: RIGHT | Nearest Robot: 1.60 m
+robot_2 | Position=(-0.39, -1.35) | Target=(0.06, -1.44) | Yaw=0.35 | Heading error=-0.53 | Distance=0.46 | Left speed=2.00 | Right speed=0.59
+robot_2 | Position=(-0.15, -1.29) | Target=(0.06, -1.44) | Yaw=-0.04 | Heading error=-0.58 | Distance=0.26 | Left speed=2.00 | Right speed=0.46
+robot_2: REACHED Waypoint 109/128 at (0.06, -1.44) | Distance: 0.249 m
+robot_2: REACHED Waypoint 110/128 at (0.31, -1.44) | Distance: 0.246 m
+robot_2 | Action: YIELD | Nearest Robot: 1.12 m
+robot_2 | Position=(0.16, -1.34) | Target=(0.56, -1.44) | Yaw=-0.21 | Heading error=-0.04 | Distance=0.41 | Left speed=2.00 | Right speed=1.89
+robot_2: REACHED Waypoint 111/128 at (0.56, -1.44) | Distance: 0.250 m
+robot_2 | Position=(0.51, -1.41) | Target=(0.81, -1.44) | Yaw=-0.19 | Heading error=0.09 | Distance=0.30 | Left speed=1.76 | Right speed=2.00
+robot_2: REACHED Waypoint 112/128 at (0.81, -1.44) | Distance: 0.244 m
+robot_2: REACHED Waypoint 113/128 at (1.06, -1.44) | Distance: 0.245 m
+robot_1 | Consensus Value: 50.0000
+robot_2 | Consensus Value: 50.0000
+robot_2 | Action: YIELD | Nearest Robot: 0.81 m
+robot_2 | Position=(0.84, -1.45) | Target=(1.31, -1.44) | Yaw=-0.10 | Heading error=0.13 | Distance=0.47 | Left speed=1.66 | Right speed=2.00
+robot_3 | Consensus Value: 50.0000
+robot_2: REACHED Waypoint 114/128 at (1.31, -1.44) | Distance: 0.244 m
+robot_2 | Position=(1.15, -1.46) | Target=(1.56, -1.19) | Yaw=0.09 | Heading error=0.48 | Distance=0.49 | Left speed=0.73 | Right speed=2.00
+robot_2 | Action: YIELD | Nearest Robot: 0.83 m
+robot_2 | Position=(1.40, -1.42) | Target=(1.56, -1.19) | Yaw=0.43 | Heading error=0.54 | Distance=0.28 | Left speed=0.58 | Right speed=2.00
+robot_2: REACHED Waypoint 115/128 at (1.56, -1.19) | Distance: 0.248 m
+robot_2: REACHED Waypoint 116/128 at (1.81, -1.19) | Distance: 0.250 m
+robot_2 | Position=(1.69, -1.28) | Target=(2.06, -1.19) | Yaw=0.46 | Heading error=-0.23 | Distance=0.39 | Left speed=2.00 | Right speed=1.38
+robot_2: REACHED Waypoint 117/128 at (2.06, -1.19) | Distance: 0.250 m
+robot_2 | Action: YIELD | Nearest Robot: 1.04 m
+robot_2 | Position=(1.96, -1.17) | Target=(2.31, -1.19) | Yaw=0.27 | Heading error=-0.33 | Distance=0.35 | Left speed=2.00 | Right speed=1.12
+robot_2: REACHED Waypoint 118/128 at (2.31, -1.19) | Distance: 0.249 m
+robot_2 | Position=(2.26, -1.12) | Target=(2.56, -1.19) | Yaw=0.06 | Heading error=-0.27 | Distance=0.31 | Left speed=2.00 | Right speed=1.29
+robot_2: REACHED Waypoint 119/128 at (2.56, -1.19) | Distance: 0.248 m
+robot_2: REACHED Waypoint 120/128 at (2.81, -1.19) | Distance: 0.246 m
+robot_2 | Action: RIGHT | Nearest Robot: 1.59 m
+robot_2 | Position=(2.58, -1.14) | Target=(3.06, -1.44) | Yaw=-0.07 | Heading error=-0.49 | Distance=0.57 | Left speed=2.00 | Right speed=0.72
+robot_2 | Position=(2.84, -1.18) | Target=(3.06, -1.44) | Yaw=-0.39 | Heading error=-0.47 | Distance=0.34 | Left speed=2.00 | Right speed=0.77
+robot_2: REACHED Waypoint 121/128 at (3.06, -1.44) | Distance: 0.250 m
+robot_2 | Action: RIGHT | Nearest Robot: 2.11 m
+robot_2 | Position=(3.07, -1.31) | Target=(3.31, -1.69) | Yaw=-0.64 | Heading error=-0.37 | Distance=0.45 | Left speed=2.00 | Right speed=1.03
+robot_2: REACHED Waypoint 122/128 at (3.31, -1.69) | Distance: 0.247 m
+robot_2 | Position=(3.29, -1.50) | Target=(3.56, -1.69) | Yaw=-0.79 | Heading error=0.20 | Distance=0.33 | Left speed=1.48 | Right speed=2.00
+robot_2: REACHED Waypoint 123/128 at (3.56, -1.69) | Distance: 0.250 m
+robot_2 | Action: LEFT | Nearest Robot: 2.64 m
+robot_2 | Position=(3.49, -1.68) | Target=(3.81, -1.69) | Yaw=-0.56 | Heading error=0.53 | Distance=0.32 | Left speed=0.60 | Right speed=2.00
+robot_2: REACHED Waypoint 124/128 at (3.81, -1.69) | Distance: 0.249 m
+robot_2 | Position=(3.72, -1.78) | Target=(4.06, -1.69) | Yaw=-0.23 | Heading error=0.49 | Distance=0.36 | Left speed=0.71 | Right speed=2.00
+robot_2: REACHED Waypoint 125/128 at (4.06, -1.69) | Distance: 0.248 m
+robot_2 | Action: LEFT | Nearest Robot: 3.14 m
+robot_2 | Position=(3.99, -1.81) | Target=(4.31, -1.69) | Yaw=0.07 | Heading error=0.28 | Distance=0.35 | Left speed=1.26 | Right speed=2.00
+robot_2: REACHED Waypoint 126/128 at (4.31, -1.69) | Distance: 0.247 m
+robot_2 | Position=(4.32, -1.76) | Target=(4.56, -1.69) | Yaw=0.19 | Heading error=0.09 | Distance=0.25 | Left speed=1.75 | Right speed=2.00
+robot_2: REACHED Waypoint 127/128 at (4.56, -1.69) | Distance: 0.245 m
+robot_2: REACHED Waypoint 128/128 at (4.81, -1.69) | Distance: 0.246 m
+robot_2: A* Route Completed (128/128 waypoints reached)
+robot_1 | Consensus Value: 50.0000
+robot_2 | Consensus Value: 50.0000
+robot_3 | Consensus Value: 50.0000

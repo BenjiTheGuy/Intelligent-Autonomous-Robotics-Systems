@@ -1,3 +1,4 @@
+# Importing libraries to use in file, heapq provides the priority queue used by A* to expand the most promising node first
 import heapq
 import math
 from pathlib import Path
@@ -5,10 +6,11 @@ from pathlib import Path
 import matplotlib.pyplot as plt
 from matplotlib.patches import Polygon as PlotPolygon
 
+# Reusing the arena, robot dimensions, obstacle definitions, and geometry helpers from the target
+# target_visualization module.
 from target_visualization import (
     ARENA_MIN,
     ARENA_MAX,
-    GRID_SPACING,
     CLEARANCE,
     ROBOT_LENGTH,
     ROBOT_WIDTH,
@@ -18,7 +20,7 @@ from target_visualization import (
     distance_to_polygon
 )
 
-# Project Settings
+# Project Settings used to resolve output paths relative to this script.
 BASE_DIR = Path(__file__).resolve().parent
 RESULTS_DIR = BASE_DIR / "results"
 RESULTS_DIR.mkdir(parents=True, exist_ok=True)
@@ -26,15 +28,19 @@ RESULTS_DIR.mkdir(parents=True, exist_ok=True)
 # A finer grid helps to improve the path detail.
 PATH_GRID_SPACING = 0.25
 
+# Offsetting the grid origin so grid coordinates begin inside the arena safety margin.
 GRID_ORIGIN = ARENA_MIN + math.hypot(ROBOT_LENGTH / 2, ROBOT_WIDTH / 2) + CLEARANCE
 
 # Conservative circular approximation of the robot's footprint.
+# The half-diagonal encloses the rectangular robot body in a circle.
 ROBOT_RADIUS = math.hypot(ROBOT_LENGTH / 2, ROBOT_WIDTH / 2)
 
 # Including an additional safety margin around obstacles.
+# A node is rejected if the robot center is closer than the combined radius and clearance.
 OBSTACLE_CLEARANCE = ROBOT_RADIUS + CLEARANCE
 
 # Eight Movement Directions: horizontal, vertical, diagonal
+# Each of the four cardinal moves cost one grid spacing whilst diagonal moves cost sqrt(2) times that.
 MOVEMENTS = [
     (-1, 0),
     (1, 0),
@@ -46,9 +52,11 @@ MOVEMENTS = [
     (1, 1),
 ]
 
+# Converting obstacle descriptions to polygons once
 OBSTACLE_POLYGONS = [get_obstacle_polygon(obstacle) for obstacle in obstacles]
 
 # Grid Conversion
+# A* searches integer (gx, gy) nodes where these helpers map between those nodes and metres.
 def world_to_grid(point):
     """
     Converting world coordinates into integer grid coordinates.
@@ -85,7 +93,8 @@ def grid_dimensions():
 
     return count + 1, count + 1
 
-# Collision Checking
+# Collision Checking where these checks help to validate both the robot center position and the space traversed between
+# nodes
 def is_valid_node(node):
     """
     Checking whether a grid location has sufficient clearance from arena walls and obstacles for the robot.
@@ -99,7 +108,8 @@ def is_valid_node(node):
 
     x, y = grid_to_world(node)
 
-    # Ensuring the robot remains inside the arena.
+    # Ensuring the robot remains inside the arena. Epsilon reduces the false boundary failures caused by floating-point
+    # rounding.
     wall_margin = ROBOT_RADIUS + CLEARANCE
 
     epsilon = 1e-9
@@ -112,13 +122,14 @@ def is_valid_node(node):
     ):
         return False
 
-    # Rejcting all locations too close to any obstacle.
+    # Rejecting all locations too close to any obstacle.
     for polygon in OBSTACLE_POLYGONS:
         if (distance_to_polygon(x, y, polygon) < OBSTACLE_CLEARANCE):
             return False
 
     return True
 
+# Checking diagonal side-cells as well as the destination to prevent corner cutting.
 def movement_is_clear(current, neighbour):
     """
     Preventing diagonal moves from cutting across blocked corners between grid cells.
@@ -136,6 +147,7 @@ def movement_is_clear(current, neighbour):
     return is_valid_node(neighbour)
 
 # A* Search Algorithm
+# Using f(n) = g(n) + h(n).
 def heuristic(node, goal):
     """
     Using an Octile Distance Heuristic for an Eight-Direction Grid.
@@ -150,6 +162,7 @@ def heuristic(node, goal):
         diagonal * PATH_GRID_SPACING * math.sqrt(2) + straight * PATH_GRID_SPACING
     )
 
+# Following predecessor links from the goal back to the start, then reversing into travel order.
 def reconstruct_path(came_from, current):
     """
     Reconstructing the path by following the parent nodes.
@@ -165,20 +178,24 @@ def reconstruct_path(came_from, current):
 
     return [grid_to_world(node) for node in path]
 
+# Planning a path between world coordinate positions using the grid.
 def astar(start, goal):
     """
     Finding a collision-aware path between two world positions
 
     Returns a list of (x, y) world coordinates, or None if not path can be found.
     """
+    # Snapping the requested world positions to their nearest grid nodes.
     start_node = world_to_grid(start)
     goal_node = world_to_grid(goal)
 
+    # A* cannot begin from an invalid node, so fail clearly rather than search from an unsafe pose.
     if not is_valid_node(start_node):
         raise ValueError(
             f"Starting Position {start} is too close to an obstacle or arena wall."
         )
 
+    # Rejecting an unsafe goal; diagnostic distances help to identify which clearance rule failed.
     if not is_valid_node(goal_node):
         snapped_goal = grid_to_world(goal_node)
 
@@ -201,25 +218,30 @@ def astar(start, goal):
             f"Goal Position {goal} is too close to an obstacle or arena wall."
         )
 
+    # Open Heap stores estimated total cost, node entries for efficient minimum-cost selection.
     open_heap = []
 
     heapq.heappush(open_heap, (heuristic(start_node, goal_node), start_node))
 
+    # came_from reconstructs the route; g_score records the cheapest known cost to each node.
     came_from = {}
     g_score = {start_node: 0.0}
     closed_set = set()
 
+    # Continue until the goal is reached or there are no remaining reachable candidates.
     while open_heap:
         _, current = heapq.heappop(open_heap)
 
         if current in closed_set:
             continue
 
+        # The goal has the best availability priority and is now reached making it ready to rebuild the full route.
         if current == goal_node:
             return reconstruct_path(came_from, current)
 
         closed_set.add(current)
 
+        # Exploring each of the 8 neighbouring grid positions.
         for dx, dy in MOVEMENTS:
             neighbour = (
                 current[0] + dx,
@@ -232,12 +254,14 @@ def astar(start, goal):
             if not movement_is_clear(current, neighbour):
                 continue
 
+            # Diagonal travel is longer than straight travel, so the step cost becomes higher.
             step_cost = PATH_GRID_SPACING * (
                 math.sqrt(2) if dx != 0 and dy != 0 else 1.0
             )
 
             tentative_g = g_score[current] + step_cost
 
+            # Updating a neighbour only when this route improves its best known path cost.
             if tentative_g < g_score.get(neighbour, float("inf")):
                 came_from[neighbour] = current
                 g_score[neighbour] = tentative_g
@@ -246,6 +270,7 @@ def astar(start, goal):
 
                 heapq.heappush(open_heap, (f_score, neighbour))
 
+    # Exhausting the heap means no collision-free route was found.
     return None
 
 # Path Visualization
@@ -266,6 +291,7 @@ def plot_path(path, start, goal):
         ))
 
     # Drawing the path
+    # Separating the x and y values as they are needed by Matplotlib to draw the route.
     if path:
         xs = [point[0] for point in path]
         ys = [point[1] for point in path]
@@ -307,6 +333,7 @@ def plot_path(path, start, goal):
 
         plt.tight_layout()
 
+        # Saving ghr figure in the project results directory for later reporting or debugging.
         output_file = RESULTS_DIR / "astar_path.png"
 
         plt.savefig(output_file, dpi=200)
@@ -325,6 +352,7 @@ def main():
     print(f"Start: {start}")
     print(f"Goal: {goal}")
 
+    # Running the planner using the selected start and goal world positions.
     path = astar(start, goal)
 
     if path is None:
@@ -332,6 +360,7 @@ def main():
 
         return
 
+    # Sum the Euclidean distances between consecutive route points to measure route length.
     path_length = sum(
         math.dist(path[i], path[i + 1])
 
