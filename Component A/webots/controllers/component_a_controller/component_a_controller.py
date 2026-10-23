@@ -1,21 +1,33 @@
+# Importing libraries to use in file
 import math
 import csv
+
 from controller import Robot
+
 from control import (
     PIDController,
     choose_avoidance_direction,
     get_side_clearance,
     avoidance_wheel_speeds,
-    avoidance_is_clear,
-    calculate_rejoin_command,
     calculate_heading_alignment_command
 )
+
 from perception import (
     process_lidar_data,
     process_camera_image_data,
     sensor_fusion_data
 )
+
 from waypoints import A_STAR_WAYPOINTS
+
+from pathlib import Path
+
+# Locate Component A from this controller's directory.
+COMPONENT_A_DIR = Path(__file__).resolve().parents[3]
+
+# Directory for CSV data
+DATA_DIR = COMPONENT_A_DIR / "data"
+DATA_DIR.mkdir(parents=True, exist_ok=True)
 
 # Function used to control the speed of the motors
 def set_motor_speeds(left_speed, right_speed):
@@ -168,6 +180,28 @@ traj_time = []
 traj_x = []
 traj_y = []
 traj_waypoint = []
+
+# Saving the Trajectory Path Data.
+def save_trajectory_data():
+    with open(DATA_DIR / "trajectory_data.csv", "w", newline="") as file:
+        writer = csv.writer(file)
+
+        writer.writerow([
+            "Time",
+            "X Position",
+            "Y Position",
+            "Waypoint"
+        ])
+
+        for i in range(len(traj_time)):
+            writer.writerow([
+                traj_time[i],
+                traj_x[i],
+                traj_y[i],
+                traj_waypoint[i]
+            ])
+
+    print(f"Final Trajectory Saved: {len(traj_time)} samples.")
 
 # Save PID data after every 5 seconds
 last_save_time = 0.0
@@ -518,6 +552,8 @@ while robot.step(timestep) != -1:
         if current_waypoint_index >= len(waypoints):
             set_motor_speeds(0.0, 0.0)
 
+            save_trajectory_data()
+
             print("A* Goal Reached -- Robot Stopped")
 
             continue
@@ -639,7 +675,7 @@ while robot.step(timestep) != -1:
         correction_data.append(correction)
 
         if simulation_time - last_save_time >= 5.0:
-            with open("pid_response_data.csv", "w", newline="") as file:
+            with open(DATA_DIR / "pid_response_data.csv", "w", newline="") as file:
                 writer = csv.writer(file)
 
                 writer.writerow([
@@ -657,7 +693,7 @@ while robot.step(timestep) != -1:
                         correction_data[i]
                     ])
 
-            with open("trajectory_data.csv", "w", newline="") as file:
+            with open(DATA_DIR / "trajectory_data.csv", "w", newline="") as file:
                 writer = csv.writer(file)
 
                 writer.writerow([
@@ -695,4 +731,3 @@ while robot.step(timestep) != -1:
             f"Left={left_speed:.3f} | "
             f"Right={right_speed:.3f}"
         )
-

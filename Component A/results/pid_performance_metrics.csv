@@ -1,0 +1,5 @@
+Experiment,Overshoot Proxy (rad),Rise-Time Proxy (s),Position Settling Time (s),Heading Settling Time (s),Position Steady-State Error (m),Heading Steady-State Error (rad)
+"Baseline (Kp=2.0, Ki=0, Kd=0.2)",0.1993050407939427,,,,-0.03618367239549546,0.028340199742188103
+"Experiment 1 (Kp=3.0, Ki=0, Kd=0.2)",0.1993050407939427,,,,-0.024617207705977744,0.02983391704065047
+"Experiment 2 (Kp=3.0, Ki=0.05, Kd=0.2)",0.1993050407939427,21.152000000000015,,,-0.016525685087444997,0.04836434773960171
+"Experiment 3 (Kp=3.0, Ki=0.05, Kd=0.4)",0.1993050407939427,21.216000000000015,,,-0.016699498332212983,0.04832530526067235

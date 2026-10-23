@@ -1,0 +1,7 @@
+Performance Metric,Result,Unit
+Planned A* Grid-Path Length,7.80,m
+Actual Distance Travelled,7.55,m
+Time to Goal Region,98.272,s
+Final Goal Error,0.199,m
+Mean Route Deviation,0.056,m
+Maximum Route Deviation,0.196,m

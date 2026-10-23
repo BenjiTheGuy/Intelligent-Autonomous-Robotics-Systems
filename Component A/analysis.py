@@ -1,10 +1,7 @@
-from pathlib import Path
-
+# Importing libraries to use in file
 import numpy as np
 import pandas as pd
 import matplotlib.pyplot as plt
-
-# Component A - PID Controller Analysis
 
 # Loading the Experiment Data
 baseline = pd.read_csv("results/pid_baseline_kp2.csv")
@@ -19,91 +16,75 @@ experiments = {
     "Experiment 3 (Kp=3.0, Ki=0.05, Kd=0.4)": exp_3,
 }
 
-# Performance Calculation on different criteria
-def calculate_heading_overshoot(df):
-    heading_error = df["Heading Error"].to_numpy()
+# Settling Tolerances
+POSITION_TOLERANCE = 0.01
+HEADING_TOLERANCE = 0.01
+###
 
-    for i in range(1, len(heading_error)):
-        if (heading_error[i - 1] * heading_error[i]) < 0:
-            positive_values = heading_error[i:]
+# Overshoot Proxy represented as the peak absolute heading error
+def calculate_overshoot(df):
+    heading_error = np.abs(df["Heading Error"].to_numpy())
 
-            positive_values = positive_values[positive_values > 0]
+    return np.max(heading_error)
 
-            if len(positive_values) > 0:
-                return np.max(positive_values)
-
-            return 0
-
-    return 0
-
-def calculate_reduction_time(df):
+# Rise-Time Proxy which measures the time for the position error to reduce from 90% to 10% of its initial absolute value.
+def calculate_rise_time(df):
     time = df["Time"].to_numpy()
-
     error = np.abs(df["Position Error"].to_numpy())
 
     initial_error = error[0]
 
-    target_90 = initial_error * 0.90
-    target_10 = initial_error * 0.10
-
-    reached_90 = np.where(error <= target_90)[0]
-    reached_10 = np.where(error <= target_10)[0]
-
-    if len(reached_90) == 0:
+    if initial_error == 0:
         return np.nan
 
-    if len(reached_10) == 0:
+    reached_90 = np.where(error <= 0.90 * initial_error)[0]
+    reached_10 = np.where(error <= 0.10 * initial_error)[0]
+
+    if len(reached_90) == 0 or len(reached_10) == 0:
         return np.nan
 
-    return(time[reached_10[0]] - time[reached_90[0]])
+    t90 = time[reached_90[0]]
+    t10 = time[reached_10[0]]
 
-def calculate_settling_time(df):
+    return t10 - t90 if t10 >= t90 else np.nan
+
+# Settling Time which measures the first time the error enters its tolerance band and stays there util the recording ends.
+def calculate_settling_time(df, column, tolerance):
     time = df["Time"].to_numpy()
+    error = np.abs(df[column].to_numpy())
 
-    error = np.abs(df["Position Error"].to_numpy())
+    for i in range(len(time)):
+        if np.all(error[i:] <= tolerance):
+            return time[i]
 
-    tolerance = error[0] * 0.02
+    return np.nan
 
-    outside_band = np.where(error > tolerance)[0]
+# Steady-State error which measure the mean signed error over the final 10% of recorded samples
+def calculate_steady_state_error(df, column):
+    error = df[column].to_numpy()
+    window_start = int(0.90 * len(error))
 
-    if len(outside_band) == 0:
-        return time[0]
-
-    last_outside = outside_band[-1]
-
-    if last_outside == len(time) - 1:
-        return np.nan
-
-    return time[last_outside + 1]
-
-def calculate_metrics(df):
-    initial_error = df["Position Error"].iloc[0]
-    final_error = df["Position Error"].iloc[-1]
-
-    error_reduction = ((abs(initial_error) - abs(final_error)) / (abs(initial_error)) * 100)
-
-    return {
-        "Initial Error (m)": initial_error,
-        "Final Error (m)": final_error,
-        "Error Reduction (%)": error_reduction,
-        "Heading Overshoot (rad)": calculate_heading_overshoot(df),
-        "90%-10% Error Time (s)": calculate_reduction_time(df),
-        "Settling Time (s)": calculate_settling_time(df),
-        "Final Heading Error (rad)": df["Heading Error"].iloc[-1],
-        "Maximum PID Correction": df["PID Correction"].abs().max(),
-    }
+    return np.mean(error[window_start:])
 
 # Generating Performance Table
 performance = []
 
 for name, df in experiments.items():
-    results = calculate_metrics(df)
-
-    results["Experiment"] = name
-
-    performance.append(results)
+    performance.append({
+        "Experiment": name,
+        "Overshoot Proxy (rad)": calculate_overshoot(df),
+        "Rise-Time Proxy (s)": calculate_rise_time(df),
+        "Position Settling Time (s)": calculate_settling_time(df, "Position Error", POSITION_TOLERANCE),
+        "Heading Settling Time (s)": calculate_settling_time(df, "Heading Error", HEADING_TOLERANCE),
+        "Position Steady-State Error (m)": calculate_steady_state_error(df, "Position Error"),
+        "Heading Steady-State Error (rad)": calculate_steady_state_error(df, "Heading Error"),
+    })
 
 performance_table = pd.DataFrame(performance)
+
+performance_table.to_csv("results/pid_performance_metrics.csv", index=False)
+
+print("\nMetrics saved to results/pid_performance_metrics.csv")
 
 print("\n")
 print("=" * 100)

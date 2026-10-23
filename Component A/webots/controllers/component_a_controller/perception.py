@@ -1,3 +1,4 @@
+# Importing libraries to use in file.
 import math
 import cv2
 import numpy as np
@@ -13,7 +14,7 @@ def process_lidar_data(lidar_data):
         A dictionary containing useful obstacle-distance information.
     """
 
-    # Remove Invalid Measurements
+    # Removing Invalid Measurements
     valid_ranges = [
         distance for distance in lidar_data
 
@@ -47,7 +48,7 @@ def process_lidar_data(lidar_data):
         f"({min(lidar_data[260:279]):.2f}m)"
     )
 
-    # Remove invalid measurements from each region
+    # Removing invalid measurements from each region
     front_valid = [
         distance for distance in front_ranges
         if math.isfinite(distance)

@@ -18,11 +18,38 @@ SOFTWARE
 
 COMPONENT A
 ------------------
-Open the Component A world in Webots and run the assigned robot controller. Refer to the Component A project files for its specific setup and controls.
+The simulation uses LiDAR and Camera-based Perception, Dijkstra's and A* path planning, and PID-based waypoint tracking.
+
+To run the project:
+
+1. Install the Python Dependencies:
+    python -m pip install numpy matplotlib opencv-python pandas tabulate
+
+2. Run the planning script from the Component A controller directory:
+    cd "Component A\webots\controllers\component_a_controller"
+    python planning.py
+
+    This generates the occupancy-grid visualization and A* waypoints.
+
+3. Open Component_A.wbt from Component A/webots/worlds/ in Webots and run the simulation with the configured component_a_controller. The controller records trajectory and PID response data in the Component A data folder.
+
+4. After the simulation, run the trajectory and performance evaluation scripts from the controller directory:
+    python plot_trajectory.py
+    python performance_evaluation.py
+
+    These will generate the planned vs actual trajectory plot and evaluate navigation performance.
+
+5. To analyze the PID experiments, run analysis.py from the Component A project directory:
+    cd "/../../.."
+    python analysis.py
+
+    This will compare the PID configurations, display position-error, heading-error and PID correction plots and will save the results to results/pid_performance_metrics.csv
 
 COMPONENT B
 ------------------
 The simulation uses three robots and combines consensus communication, PSO target allocation, A* path planning, and neural-network navigation.
+
+To run the project:
 
 1. Install the Python Dependencies:
     python -m pip install matplotlib numpy pandas scikit-learn joblib
@@ -37,7 +64,7 @@ The simulation uses three robots and combines consensus communication, PSO targe
 4. After the simulation, run:
     python analysis.py
 
-This analyzes data/consensus_data.csv and saves consensus graphs and analyzed data in the results folder.
+    This analyzes data/consensus_data.csv and saves consensus graphs and analyzed data in the results folder.
 
 OTHER SCRIPTS
 ------------------
@@ -45,12 +72,29 @@ OTHER SCRIPTS
 
 EXPECTED RUNTIME AND HARDWARE
 ------------------
-Python scripts generally take seconds to a few minutes. Allow approximately 5-15 minutes for a full Webots run, depending on the computer and simulation settings. No specialized hardware is required; a desktop or laptop is sufficient. At least 8GB RAM and a graphics-capable system are recommended.
+Python scripts generally take seconds to a few minutes.
+Allow approximately 5-15 minutes for a full Webots run,depending on the computer and simulation settings. No specialized hardware is required; a desktop or laptop is sufficient.
+
+At least 8GB RAM and a graphics-capable system are recommended.
 
 DEPENDENCIES
 ------------------
-Component B uses matplotlib, numpy, pandas, scikit-learn, and joblib, along with Python standard-library modules. Webots provides the controller API.
+Component A:
+- NumPy
+- Matplotlib
+- OpenCV
+- Pandas
+- Tabulate
+
+Component B:
+- Matplotlib
+- NumPy
+- Pandas
+- scikit-learn
+- joblib
+
+Along with Python standard-library modules. Webots provides the controller API.
 
 STATUS
 ------
-Component B code is fully completed. Additional Details will follow which are due in the report. As well as the completion of Component A.
+Component A and Component B code are fully completed. A report is provided alongside the project.
